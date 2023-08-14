@@ -1,0 +1,23 @@
+/* MagicTriangleGraphic.module.css */
+
+.triangleContainer {
+  width: 100%;
+  height: 0;
+  position: relative;
+}
+
+.magicTriangle {
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 255, 0.3);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.cornerLabel {
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  transform: translate(-50%, -50%);
+}
