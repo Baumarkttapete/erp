@@ -111,7 +111,7 @@ const MagicTriangle: React.FC = () => {
   const [qualityLock, setQualityLock] = useState(false);
 
   const triangleStyle = {
-    clipPath: `polygon(50% 0%, 0% ${100 - quality}%, 100% ${100 - cost}%)`
+    clipPath: `polygon(50% 0%, 0% ${100 - quality}%, ${100 - time}%% ${100 - cost}%)`
   };
 
   return (
