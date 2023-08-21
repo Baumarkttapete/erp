@@ -1,19 +1,20 @@
-import React, { useState } from 'react';
-import { Stepper, Step, StepLabel, Button, Typography } from '@mui/material';
-import StepFour from './StepFour';
-import StepOne from './StepOne';
-import StepThree from './StepThree';
-import StepTwo from './StepTwo';
+import React, { useState } from "react";
+import { Stepper, Step, StepLabel, Button, Typography } from "@mui/material";
+import StepFour from "./StepFour";
+import StepOne from "./StepOne";
+import StepThree from "./StepThree";
+import StepTwo from "./StepTwo";
+import { UserData } from "../../models/UserData";
+import { TriangleData } from "../../models/TriangleData";
 
-const steps = [
-  'Benutzereingaben',
-  'Magisches Dreieck',
-  'Informationen',
-  'PDF',
-];
+const steps = ["Benutzereingaben", "Magisches Dreieck", "Informationen", "PDF"];
 
 const CalcStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [userData, setUserData] = useState<UserData>(new UserData(0, "", ""));
+  const [triangleData, setTriangleData] = useState<TriangleData>(
+    new TriangleData(50, 50, 50)
+  );
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
@@ -23,14 +24,21 @@ const CalcStepper: React.FC = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
+  const handleChangeStepOne = (userData: UserData) => {
+    setUserData(userData);
+  };
+  const handleChangeStepTwo = (triangleData: TriangleData) => {
+    setTriangleData(triangleData);
+  };
+
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
         return <StepOne />;
       case 1:
-        return <StepTwo />;
+        return <StepTwo onChange={handleChangeStepTwo} />;
       case 2:
-        return <StepThree />;
+        return <StepThree userData={userData} triangleData={triangleData} />;
       case 3:
         return <StepFour />;
       default:

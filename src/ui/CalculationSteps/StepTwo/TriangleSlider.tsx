@@ -18,17 +18,22 @@ const TriangleSlider: React.FC<TriangleSliderProps> = ({
   locked,
   onLockToggle,
 }) => {
-  const MIN_VALUE = 0;
-  const MAX_VALUE = 100;
+  const MIN_VALUE = 20;
+  const MAX_VALUE = 80;
 
   const handleSliderChange = (event: Event, newValue: number | number[]) => {
-    if (!locked) {
+    if ((newValue as number) < MIN_VALUE || (newValue as number) > MAX_VALUE) {
+      return;
+    } else if (!locked) {
       onChange(newValue as number);
     }
   };
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    if (!locked) {
+    const newValue = parseInt(event.target.value);
+    if (newValue < MIN_VALUE || newValue > MAX_VALUE) {
+      return;
+    } else if (!locked) {
       onChange(event.target.value === "" ? 0 : Number(event.target.value));
     }
   };
@@ -46,13 +51,12 @@ const TriangleSlider: React.FC<TriangleSliderProps> = ({
           {label}
         </Typography>
         <Slider
-          min={MIN_VALUE}
-          max={MAX_VALUE}
           sx={{ flex: 6, margin: "0 15px 0 15px" }}
           value={value}
           disabled={locked}
           onChange={handleSliderChange}
           step={1}
+          valueLabelDisplay="auto"
         />
         <Input
           value={value}
