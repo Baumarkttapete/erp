@@ -5,18 +5,15 @@ import TriangleSlider from "./StepTwo/TriangleSlider";
 import { TriangleData } from "../../models/TriangleData";
 
 const StepTwo: React.FC<{
+  triangleData: TriangleData;
   onChange: (triangleData: TriangleData) => void;
-}> = ({ onChange }) => {
-  const [time, setTime] = useState(50);
-  const [cost, setCost] = useState(50);
-  const [quality, setQuality] = useState(50);
-  const [triangleData, setTriangleData] = useState<TriangleData>(
-    new TriangleData(time, quality, cost)
-  );
+}> = ({ triangleData, onChange }) => {
+  const [time, setTime] = useState(triangleData.time);
+  const [cost, setCost] = useState(triangleData.cost);
+  const [quality, setQuality] = useState(triangleData.quality);
 
   useEffect(() => {
-    setTriangleData({ time, quality, cost });
-    onChange(triangleData);
+    onChange(new TriangleData(time, quality, cost));
   }, [time, cost, quality]);
 
   const handleTimeChange = (newValue: number) => {

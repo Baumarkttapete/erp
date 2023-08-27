@@ -1,18 +1,23 @@
 import React from "react";
 import { TriangleData } from "../../models/TriangleData";
 import { UserData } from "../../models/UserData";
+import { Box, Typography } from "@mui/material";
 
 const StepThree: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
 }> = ({ userData, triangleData }) => {
-  const calculatedCost = userData.userQuantity * triangleData.cost;
+  const calculatedCost = triangleData.cost;
   const calculatedDuration = triangleData.cost;
   const calculatedQuality = triangleData.quality;
 
   return (
-    <div>
-      <h2>Schritt 3: Projektzusammenfassung</h2>
+    <Box sx={{ margin: "15px" }}>
+      <Typography>Zusammenfassung</Typography>
+      <Typography sx={{ fontSize: "16px", fontWeight: "bold" }}>
+        Kosten
+      </Typography>
+
       <p>Geschätzte Projektkosten: {calculatedCost}</p>
       <p>Geschätzte Projektdauer: {calculatedDuration}</p>
       <p>Geschätzte Projektqualität: {calculatedQuality}</p>
@@ -25,7 +30,7 @@ const StepThree: React.FC<{
         <li>Qualität: {triangleData.quality}</li>
         <li>Kosten: {triangleData.cost}</li>
       </ul>
-    </div>
+    </Box>
   );
 };
 
