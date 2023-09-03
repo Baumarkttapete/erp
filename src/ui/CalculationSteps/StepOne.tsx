@@ -1,12 +1,17 @@
-import { TextField, MenuItem, Box, Typography } from "@mui/material";
+import { TextField, MenuItem, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { UserData } from "../../models/UserData";
 import InfoIcon from "@mui/icons-material/Info";
+import Subtitle from "../Subtitle";
+import CustomText from "../CustomText";
+import { useIntl } from "react-intl";
 
 const StepOne: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
+  const intl = useIntl();
+
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);
   const [branch, setBranch] = useState(userData.branch);
   const [region, setRegion] = useState(userData.region);
@@ -28,11 +33,8 @@ const StepOne: React.FC<{
           margin: "30px",
         }}
       >
-        <Typography
-          sx={{ fontWeight: "bold", fontSize: "20px", margin: "10px" }}
-        >
-          Benutzereingaben
-        </Typography>
+        <Subtitle text={intl.formatMessage({ id: "stepOne_title" })} />
+
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box
             sx={{
@@ -42,7 +44,7 @@ const StepOne: React.FC<{
             }}
           >
             <TextField
-              label="Useranzahl"
+              label={intl.formatMessage({ id: "userQuantity" })}
               value={userQuantity}
               type="number"
               onChange={(e) => setUserQuantity(parseInt(e.target.value))}
@@ -52,29 +54,41 @@ const StepOne: React.FC<{
             ></TextField>
 
             <TextField
-              label="Branche"
+              label={intl.formatMessage({ id: "branch" })}
               value={branch}
               onChange={(e) => setBranch(e.target.value)}
               variant="outlined"
               sx={{ margin: "10px" }}
               select
             >
-              <MenuItem value="industrie">Industrie</MenuItem>
-              <MenuItem value="handel">Handel</MenuItem>
-              <MenuItem value="dienstleistungen">Dienstleistungen</MenuItem>
+              <MenuItem value="industrie">
+                {intl.formatMessage({ id: "branch_industry" })}
+              </MenuItem>
+              <MenuItem value="handel">
+                {intl.formatMessage({ id: "branch_trading" })}
+              </MenuItem>
+              <MenuItem value="dienstleistungen">
+                {intl.formatMessage({ id: "branch_service" })}
+              </MenuItem>
             </TextField>
 
             <TextField
-              label="Region"
+              label={intl.formatMessage({ id: "region" })}
               value={region}
               onChange={(e) => setRegion(e.target.value)}
               variant="outlined"
               sx={{ margin: "10px" }}
               select
             >
-              <MenuItem value="D">Deutschland</MenuItem>
-              <MenuItem value="A">Österreich</MenuItem>
-              <MenuItem value="CH">Schweiz</MenuItem>
+              <MenuItem value="D">
+                {intl.formatMessage({ id: "region_d" })}
+              </MenuItem>
+              <MenuItem value="A">
+                {intl.formatMessage({ id: "region_a" })}
+              </MenuItem>
+              <MenuItem value="CH">
+                {intl.formatMessage({ id: "region_ch" })}
+              </MenuItem>
             </TextField>
           </Box>
 
@@ -85,13 +99,7 @@ const StepOne: React.FC<{
             }}
           >
             <InfoIcon />
-            <Typography>
-              hallo ich bin der Bert und das soll eine Info sein. Bitte trage
-              links die Useranzahl ein, die in Deinem Unternehmen arbeiten.
-              Daruter gib die Brnache ein, in der das Unternehmen tätig ist und
-              zuletzt trage ein, wo das Unternehmen bzw. die Niederlassung
-              ansässig ist.
-            </Typography>
+            <CustomText text={intl.formatMessage({ id: "stepOne_infotext" })} />
           </Box>
         </Box>
       </Box>
