@@ -19,7 +19,9 @@ const steps = ["Benutzereingaben", "Magisches Dreieck", "Informationen", "PDF"];
 
 const CalcStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const [userData, setUserData] = useState<UserData>(new UserData(0, "", ""));
+  const [userData, setUserData] = useState<UserData>(
+    new UserData(0, "", "", 0, 0, 0)
+  );
   const [triangleData, setTriangleData] = useState<TriangleData>(
     new TriangleData(50, 50, 50)
   );

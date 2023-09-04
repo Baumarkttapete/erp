@@ -1,7 +1,11 @@
 import React from "react";
 import { TriangleData } from "../../models/TriangleData";
 import { UserData } from "../../models/UserData";
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
+
+import CustomText from "../CustomText";
+import Subtitle from "../Subtitle";
+import Title from "../Title";
 
 const StepThree: React.FC<{
   userData: UserData;
@@ -13,10 +17,18 @@ const StepThree: React.FC<{
 
   return (
     <Box sx={{ margin: "15px" }}>
-      <Typography>Zusammenfassung</Typography>
-      <Typography sx={{ fontSize: "16px", fontWeight: "bold" }}>
-        Kosten
-      </Typography>
+      <Title text={"Zusammenfassung"} />
+      <Subtitle text={"Kosten"} />
+
+      <CustomText text={"Useranzahl: " + userData.userQuantity} />
+      <CustomText text={"branche: " + userData.branch} />
+      <CustomText text={"region: " + userData.region} />
+
+      <CustomText text={"Softwarekosten: " + userData.softwareCost} />
+      <CustomText text={"Dienstleistungskosten: " + userData.serviceCost} />
+      <CustomText text={"Hardwarekosten: " + userData.hardwareCost} />
+
+      <hr />
 
       <p>Geschätzte Projektkosten: {calculatedCost}</p>
       <p>Geschätzte Projektdauer: {calculatedDuration}</p>

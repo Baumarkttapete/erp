@@ -1,4 +1,4 @@
-interface Cost {
+export interface Cost {
   gesamt: {
     gesamt: number;
   };
@@ -24,9 +24,9 @@ export const softwareData: Cost = {
     gesamt: 2434,
   },
   groesse: {
-    bis100Mitarbeiter: 2098,
+    bis100Mitarbeiter: 2592,
     bis500Mitarbeiter: 2324,
-    ab500Mitarbeiter: 2592,
+    ab500Mitarbeiter: 2098,
   },
   branche: {
     industrie: 2641,
@@ -45,9 +45,9 @@ export const dienstleistungData: Cost = {
     gesamt: 1923,
   },
   groesse: {
-    bis100Mitarbeiter: 1991,
+    bis100Mitarbeiter: 1824,
     bis500Mitarbeiter: 2020,
-    ab500Mitarbeiter: 1824,
+    ab500Mitarbeiter: 1991,
   },
   branche: {
     industrie: 2106,
@@ -66,9 +66,9 @@ export const hardwareData: Cost = {
     gesamt: 1560,
   },
   groesse: {
-    bis100Mitarbeiter: 1224,
+    bis100Mitarbeiter: 1726,
     bis500Mitarbeiter: 1430,
-    ab500Mitarbeiter: 1726,
+    ab500Mitarbeiter: 1224,
   },
   branche: {
     industrie: 1463,

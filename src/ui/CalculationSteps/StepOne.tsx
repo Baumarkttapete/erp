@@ -5,6 +5,12 @@ import InfoIcon from "@mui/icons-material/Info";
 import Subtitle from "../Subtitle";
 import CustomText from "../CustomText";
 import { useIntl } from "react-intl";
+import { getCost } from "../../helper/CostHelper";
+import {
+  dienstleistungData,
+  hardwareData,
+  softwareData,
+} from "../../data/Cost";
 
 const StepOne: React.FC<{
   userData: UserData;
@@ -15,10 +21,24 @@ const StepOne: React.FC<{
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);
   const [branch, setBranch] = useState(userData.branch);
   const [region, setRegion] = useState(userData.region);
+  const [softwareCost, setSoftwareCost] = useState(0);
+  const [hardwareCost, setHardwareCost] = useState(0);
+  const [serviceCost, setServiceCost] = useState(0);
 
   useEffect(() => {
+    setSoftwareCost(getCost(softwareData, userQuantity, branch, region));
+    setServiceCost(getCost(dienstleistungData, userQuantity, branch, region));
+    setHardwareCost(getCost(hardwareData, userQuantity, branch, region));
+
     onChange(
-      new UserData(userQuantity, branch, region),
+      new UserData(
+        userQuantity,
+        branch,
+        region,
+        softwareCost,
+        serviceCost,
+        hardwareCost
+      ),
       userQuantity !== 0 && branch !== "" && region !== ""
     );
   }, [userQuantity, branch, region]);

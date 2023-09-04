@@ -1,7 +1,12 @@
-import React from 'react';
+import React from "react";
+import PdfExportBtn from "./StepFour/PdfExportBtn";
 
 const StepFour: React.FC = () => {
-  return <div>4</div>;
+  return (
+    <>
+      <PdfExportBtn data={"hallo ich bin der bert"} />
+    </>
+  );
 };
 
 export default StepFour;
