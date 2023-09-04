@@ -1,4 +1,4 @@
-interface Personal {
+export interface Personal {
   intern: number;
   extern: number;
 }

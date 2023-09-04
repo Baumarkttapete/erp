@@ -11,6 +11,10 @@ import {
   hardwareData,
   softwareData,
 } from "../../data/Cost";
+import { getPersonal } from "../../helper/PersonalHelper";
+import { Personal } from "../../data/Personal";
+import { Time } from "../../data/Time";
+import { getTime } from "../../helper/TimeHelper";
 
 const StepOne: React.FC<{
   userData: UserData;
@@ -24,11 +28,15 @@ const StepOne: React.FC<{
   const [softwareCost, setSoftwareCost] = useState(0);
   const [hardwareCost, setHardwareCost] = useState(0);
   const [serviceCost, setServiceCost] = useState(0);
+  const [personal, setPersonal] = useState<Personal>({ intern: 0, extern: 0 });
+  const [time, setTime] = useState<Time>({ implementation: 0, prework: 0 });
 
   useEffect(() => {
     setSoftwareCost(getCost(softwareData, userQuantity, branch, region));
     setServiceCost(getCost(dienstleistungData, userQuantity, branch, region));
     setHardwareCost(getCost(hardwareData, userQuantity, branch, region));
+    setPersonal(getPersonal(userQuantity));
+    setTime(getTime(userQuantity));
 
     onChange(
       new UserData(
@@ -37,7 +45,9 @@ const StepOne: React.FC<{
         region,
         softwareCost,
         serviceCost,
-        hardwareCost
+        hardwareCost,
+        personal,
+        time
       ),
       userQuantity !== 0 && branch !== "" && region !== ""
     );

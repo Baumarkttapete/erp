@@ -8,28 +8,28 @@ import {
 } from "../data/Time";
 
 export const getTime = (quantity: number) => {
-  let implementationTime = 0;
-  let preworkTime = 0;
+  let implementation = 0;
+  let prework = 0;
 
   if (quantity < 9) {
-    implementationTime = under9.implementierung;
-    preworkTime = under9.vorarbeiten;
+    implementation = under9.implementation;
+    prework = under9.prework;
   } else if (quantity < 25) {
-    implementationTime = under25.implementierung;
-    preworkTime = under25.vorarbeiten;
+    implementation = under25.implementation;
+    prework = under25.prework;
   } else if (quantity < 50) {
-    implementationTime = under50.implementierung;
-    preworkTime = under50.vorarbeiten;
+    implementation = under50.implementation;
+    prework = under50.prework;
   } else if (quantity < 100) {
-    implementationTime = under100.implementierung;
-    preworkTime = under100.vorarbeiten;
+    implementation = under100.implementation;
+    prework = under100.prework;
   } else if (quantity < 300) {
-    implementationTime = under300.implementierung;
-    preworkTime = under300.vorarbeiten;
+    implementation = under300.implementation;
+    prework = under300.prework;
   } else {
-    implementationTime = under1000.implementierung;
-    preworkTime = under1000.vorarbeiten;
+    implementation = under1000.implementation;
+    prework = under1000.prework;
   }
 
-  return { implementationTime, preworkTime };
+  return { implementation, prework };
 };

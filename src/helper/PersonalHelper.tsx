@@ -8,7 +8,7 @@ import {
   under9,
 } from "../data/Personal";
 
-export const getTime = (quantity: number) => {
+export const getPersonal = (quantity: number) => {
   let intern = 0;
   let extern = 0;
 
