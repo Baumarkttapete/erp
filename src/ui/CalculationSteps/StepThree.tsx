@@ -1,15 +1,10 @@
 import React from "react";
 import { TriangleData } from "../../models/TriangleData";
 import { UserData } from "../../models/UserData";
-import { Box, Card } from "@mui/material";
-
+import { Box } from "@mui/material";
 import CustomText from "../CustomText";
-import Subtitle from "../Subtitle";
 import Title from "../Title";
-import CostCard from "./StepThree/CostCard";
-import { softwareData } from "../../data/Cost";
-import TimeCard from "./StepThree/TimeCard";
-import PersonalCard from "./StepThree/PersonalCard";
+import InfoCardList from "./StepThree/InfoCardList";
 
 const StepThree: React.FC<{
   userData: UserData;
@@ -37,33 +32,9 @@ const StepThree: React.FC<{
       <CustomText text={"Useranzahl: " + userData.userQuantity} />
       <CustomText text={"branche: " + userData.branch} />
       <CustomText text={"region: " + userData.region} />
-      <Box sx={{ width: "100vh", display: "flex", flexWrap: "wrap" }}>
-        <CostCard
-          softwareCost={userData.softwareCost}
-          serviceCost={userData.serviceCost}
-          hardwareCost={userData.hardwareCost}
-        />
-        <TimeCard time={userData.time} />
-        <PersonalCard personal={userData.personal} />
+      <Box sx={{ display: "flex", flexWrap: "wrap" }}>
+        <InfoCardList userData={userData} />
       </Box>
-
-      <Card sx={{ margin: "10px" }}>
-        <Subtitle text={"Personal"} />
-        <CustomText
-          text={
-            "Anzahl interner Mitarbeiter: " +
-            userData.personal.intern +
-            " Mitarbeiter"
-          }
-        />
-        <CustomText
-          text={
-            "Anzahl externer Mitarbeiter: " +
-            userData.personal.extern +
-            " Mitarbeiter"
-          }
-        />
-      </Card>
 
       <p>Geschätzte Projektkosten: {calculatedCost}</p>
       <p>Geschätzte Projektdauer: {calculatedDuration}</p>
