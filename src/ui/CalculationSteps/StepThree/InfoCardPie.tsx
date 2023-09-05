@@ -13,8 +13,6 @@ import {
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomPieChart from "./CustomPieChart";
-import ColorBox from "./ColorBox";
-import CustomText from "../../CustomText";
 import InfoCardRow from "./InfoCardRow";
 
 interface ExpandMoreProps extends IconButtonProps {
@@ -35,12 +33,24 @@ const ExpandMore = styled((props: ExpandMoreProps) => {
 interface InfoCardProps {
   avatar: React.ReactNode;
   title: string;
-  data: { name: string; value: number; color: string; unit: string }[];
-  dataSum: { name: string; value: number; color: string; unit: string };
+  data: {
+    valueFix: number;
+    name: string;
+    value: number;
+    color: string;
+    unit: string;
+  }[];
+  dataSum: {
+    valueFix: number;
+    name: string;
+    value: number;
+    color: string;
+    unit: string;
+  };
   infoText: string;
 }
 
-const InfoCard: React.FC<InfoCardProps> = ({
+const InfoCardPie: React.FC<InfoCardProps> = ({
   avatar,
   title,
   data,
@@ -53,8 +63,10 @@ const InfoCard: React.FC<InfoCardProps> = ({
     setExpanded(!expanded);
   };
 
+  const WIDTH = "500px";
+
   return (
-    <Card sx={{ margin: "10px", maxWidth: "800px", minWidth: "600px" }}>
+    <Card sx={{ margin: "10px", maxWidth: "800px", minWidth: WIDTH }}>
       <CardHeader avatar={avatar} title={title} />
       <CardContent>
         <Box
@@ -72,6 +84,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
                   color={row.color}
                   text={row.name}
                   value={row.value}
+                  valueFix={row.valueFix}
                   unit={row.unit}
                 />
               </React.Fragment>
@@ -81,6 +94,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
               color={dataSum.color}
               text={dataSum.name}
               value={dataSum.value}
+              valueFix={dataSum.valueFix}
               unit={dataSum.unit}
             />
           </Box>
@@ -97,7 +111,7 @@ const InfoCard: React.FC<InfoCardProps> = ({
         </ExpandMore>
       </CardActions>
       <Collapse
-        sx={{ width: "500px" }}
+        sx={{ width: WIDTH }}
         in={expanded}
         timeout="auto"
         unmountOnExit
@@ -112,4 +126,4 @@ const InfoCard: React.FC<InfoCardProps> = ({
   );
 };
 
-export default InfoCard;
+export default InfoCardPie;

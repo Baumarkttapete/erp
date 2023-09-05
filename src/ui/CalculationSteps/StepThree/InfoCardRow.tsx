@@ -5,13 +5,14 @@ const InfoCardRow: React.FC<{
   color: string;
   text: string;
   value: number;
+  valueFix: number;
   unit: string;
-}> = ({ color, text, value, unit }) => {
+}> = ({ color, text, value, valueFix, unit }) => {
   return (
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "15px 150px 50px auto",
+        gridTemplateColumns: "15px 150px 50px 50px",
         gridGap: "5px",
         margin: "10px",
       }}
@@ -24,7 +25,7 @@ const InfoCardRow: React.FC<{
           margin: "0px 5px",
         }}
       >
-        {value.toString()}
+        {value.toFixed(valueFix)}
       </Typography>
       <Typography sx={{ flex: 1, margin: "auto" }}>{unit}</Typography>
     </Box>

@@ -1,8 +1,10 @@
 import { UserData } from "../../../models/UserData";
-import InfoCard from "./InfoCard";
 import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import InfoCardPie from "./InfoCardPie";
+import InfoCardRadar from "./InfoCardRadar";
+import MovieFilterIcon from "@mui/icons-material/MovieFilter";
 
 const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
   const dataCostCard = {
@@ -11,32 +13,31 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
     data: [
       {
         name: "Software",
-        value: Number(userData.softwareCost.toFixed(2)),
+        value: userData.softwareCost,
+        valueFix: 2,
         color: "#0088FE",
         unit: " €",
       },
       {
         name: "Dienstleistung",
-        value: Number(userData.serviceCost.toFixed(2)),
+        value: userData.serviceCost,
+        valueFix: 2,
         color: "#FF8042",
         unit: " €",
       },
       {
         name: "Hardware",
-        value: Number(userData.hardwareCost.toFixed(2)),
+        value: userData.hardwareCost,
+        valueFix: 2,
         color: "#FF1042",
         unit: " €",
       },
     ],
     dataSum: {
       name: "Gesamt",
-      value: Number(
-        (
-          userData.hardwareCost +
-          userData.softwareCost +
-          userData.serviceCost
-        ).toFixed(2)
-      ),
+      value:
+        userData.hardwareCost + userData.softwareCost + userData.serviceCost,
+      valueFix: 2,
       color: "transparent",
       unit: " €",
     },
@@ -50,22 +51,23 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
     data: [
       {
         name: "Vorarbeit",
-        value: Number(userData.time.prework.toFixed(1)),
+        value: userData.time.prework,
+        valueFix: 1,
         color: "#0088FE",
         unit: " Monate",
       },
       {
         name: "Implementierung",
-        value: Number(userData.time.implementation.toFixed(1)),
+        value: userData.time.implementation,
+        valueFix: 1,
         color: "#FF8042",
         unit: " Monate",
       },
     ],
     dataSum: {
       name: "Gesamt",
-      value: Number(
-        (userData.time.prework + userData.time.implementation).toFixed(1)
-      ),
+      value: userData.time.prework + userData.time.implementation,
+      valueFix: 1,
       color: "transparent",
       unit: " Monate",
     },
@@ -79,22 +81,23 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
     data: [
       {
         name: "Intern",
-        value: Number(userData.personal.intern.toFixed(1)),
+        value: userData.personal.intern,
+        valueFix: 1,
         color: "#0088FE",
         unit: " Mitarbeiter",
       },
       {
         name: "Extern",
-        value: Number(userData.personal.extern.toFixed(1)),
+        value: userData.personal.extern,
+        valueFix: 1,
         color: "#FF8042",
         unit: " Berater",
       },
     ],
     dataSum: {
       name: "Gesamt",
-      value: Number(
-        (userData.time.prework + userData.time.implementation).toFixed(1)
-      ),
+      value: userData.time.prework + userData.time.implementation,
+      valueFix: 1,
       color: "transparent",
       unit: " Personen",
     },
@@ -104,9 +107,10 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
 
   return (
     <>
-      <InfoCard {...dataCostCard} />
-      <InfoCard {...dataTimeCard} />
-      <InfoCard {...dataPersonalCard} />
+      <InfoCardPie {...dataCostCard} />
+      <InfoCardPie {...dataTimeCard} />
+      <InfoCardPie {...dataPersonalCard} />
+      <InfoCardRadar {...dataCostCard} />
     </>
   );
 };
