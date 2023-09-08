@@ -15,6 +15,8 @@ import { getPersonal } from "../../helper/PersonalHelper";
 import { Personal } from "../../data/Personal";
 import { Time } from "../../data/Time";
 import { getTime } from "../../helper/TimeHelper";
+import { Risk } from "../../data/Risks";
+import { getRisk } from "../../helper/RiskHelper";
 
 const StepOne: React.FC<{
   userData: UserData;
@@ -30,6 +32,16 @@ const StepOne: React.FC<{
   const [serviceCost, setServiceCost] = useState(0);
   const [personal, setPersonal] = useState<Personal>({ intern: 0, extern: 0 });
   const [time, setTime] = useState<Time>({ implementation: 0, prework: 0 });
+  const [risk, setRisk] = useState<Risk>({
+    datenmigration: 0,
+    zeitplan: 0,
+    anpassungen: 0,
+    ressourcen: 0,
+    abbildungProzesse: 0,
+    schnittstellen: 0,
+    anforderungenUnklar: 0,
+    schulungsaufwand: 0,
+  });
 
   useEffect(() => {
     setSoftwareCost(getCost(softwareData, userQuantity, branch, region));
@@ -37,6 +49,7 @@ const StepOne: React.FC<{
     setHardwareCost(getCost(hardwareData, userQuantity, branch, region));
     setPersonal(getPersonal(userQuantity));
     setTime(getTime(userQuantity));
+    setRisk(getRisk(userQuantity));
 
     onChange(
       new UserData(
@@ -47,7 +60,8 @@ const StepOne: React.FC<{
         serviceCost,
         hardwareCost,
         personal,
-        time
+        time,
+        risk
       ),
       userQuantity !== 0 && branch !== "" && region !== ""
     );

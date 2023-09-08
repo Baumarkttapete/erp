@@ -1,21 +1,19 @@
 import React from "react";
 import { TriangleData } from "../../models/TriangleData";
 import { UserData } from "../../models/UserData";
-import { Box } from "@mui/material";
+import { Box, Card, Paper, Typography } from "@mui/material";
 import CustomText from "../CustomText";
 import Title from "../Title";
 import InfoCardList from "./StepThree/InfoCardList";
+import UserInfoCard from "./StepThree/UserInfoCard";
 
 const StepThree: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
 }> = ({ userData, triangleData }) => {
-  const calculatedCost = triangleData.cost;
-  const calculatedDuration = triangleData.cost;
-  const calculatedQuality = triangleData.quality;
-
   return (
-    <Box sx={{ margin: "15px" }}>
+    <Box sx={{ margin: "60px" }}>
+      <UserInfoCard userData={userData} />
       <Title text={"Zusammenfassung"} />
 
       <CustomText
@@ -24,30 +22,9 @@ const StepThree: React.FC<{
         }
       />
 
-      <CustomText
-        text={
-          "Folgende Daten haben Sie im Schritt Benutzereingaben eingegeben:"
-        }
-      />
-      <CustomText text={"Useranzahl: " + userData.userQuantity} />
-      <CustomText text={"branche: " + userData.branch} />
-      <CustomText text={"region: " + userData.region} />
       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         <InfoCardList userData={userData} />
       </Box>
-
-      <p>Geschätzte Projektkosten: {calculatedCost}</p>
-      <p>Geschätzte Projektdauer: {calculatedDuration}</p>
-      <p>Geschätzte Projektqualität: {calculatedQuality}</p>
-      <p>Vorgenommene Anpassungen:</p>
-      <ul>
-        <li>Anzahl der Nutzer: {userData.userQuantity}</li>
-        <li>Branche: {userData.branch}</li>
-        <li>Region: {userData.region}</li>
-        <li>Zeit: {triangleData.time}</li>
-        <li>Qualität: {triangleData.quality}</li>
-        <li>Kosten: {triangleData.cost}</li>
-      </ul>
     </Box>
   );
 };

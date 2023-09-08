@@ -3,13 +3,12 @@ import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import InfoCardPie from "./InfoCardPie";
-import InfoCardRadar from "./InfoCardRadar";
-import MovieFilterIcon from "@mui/icons-material/MovieFilter";
+import { Box } from "@mui/material";
 
 const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
   const dataCostCard = {
     avatar: <EuroIcon />,
-    title: "Kosten",
+    title: "Kosten pro User",
     data: [
       {
         name: "Software",
@@ -106,12 +105,11 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
   };
 
   return (
-    <>
+    <Box sx={{ margin: "0 auto" }}>
       <InfoCardPie {...dataCostCard} />
       <InfoCardPie {...dataTimeCard} />
       <InfoCardPie {...dataPersonalCard} />
-      <InfoCardRadar {...dataCostCard} />
-    </>
+    </Box>
   );
 };
 

@@ -75,9 +75,7 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
             flexDirection: "row",
             justifyContent: "space-between",
           }}
-        >
-          <CustomRadarChart />
-        </Box>
+        ></Box>
       </CardContent>
       <CardActions disableSpacing>
         <ExpandMore

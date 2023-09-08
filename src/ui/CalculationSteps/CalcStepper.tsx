@@ -15,7 +15,7 @@ import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import SnackbarInfo, { AlertType } from "./SnackbarInfo";
 
-const steps = ["Benutzereingaben", "Magisches Dreieck", "Informationen", "PDF"];
+const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
   const [activeStep, setActiveStep] = useState(0);
@@ -28,7 +28,17 @@ const CalcStepper: React.FC = () => {
       0,
       0,
       { intern: 0, extern: 0 },
-      { implementation: 0, prework: 0 }
+      { implementation: 0, prework: 0 },
+      {
+        datenmigration: 0,
+        zeitplan: 0,
+        anpassungen: 0,
+        ressourcen: 0,
+        abbildungProzesse: 0,
+        schnittstellen: 0,
+        anforderungenUnklar: 0,
+        schulungsaufwand: 0,
+      }
     )
   );
   const [triangleData, setTriangleData] = useState<TriangleData>(
@@ -74,11 +84,16 @@ const CalcStepper: React.FC = () => {
       case 0:
         return <StepOne userData={userData} onChange={handleChangeStepOne} />;
       case 1:
-        return (
-          <StepTwo triangleData={triangleData} onChange={handleChangeStepTwo} />
-        );
-      case 2:
         return <StepThree userData={userData} triangleData={triangleData} />;
+      case 2:
+        return (
+          <StepTwo
+            userData={userData}
+            risks={userData.risk}
+            triangleData={triangleData}
+            onChange={handleChangeStepTwo}
+          />
+        );
       case 3:
         return <StepFour />;
       default:
