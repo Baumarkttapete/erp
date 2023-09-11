@@ -6,6 +6,7 @@ import {
   Button,
   Typography,
   Box,
+  Fab,
 } from "@mui/material";
 import StepFour from "./StepFour";
 import StepOne from "./StepOne";
@@ -14,10 +15,16 @@ import StepTwo from "./StepTwo";
 import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import SnackbarInfo, { AlertType } from "./SnackbarInfo";
+import { RiskData } from "../../models/RiskData";
+import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import ScrollBtn from "../ScrollBtn";
 
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
+  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
+
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>(
     new UserData(
@@ -44,6 +51,7 @@ const CalcStepper: React.FC = () => {
   const [triangleData, setTriangleData] = useState<TriangleData>(
     new TriangleData(50, 50, 50)
   );
+  const [riskData, setRiskData] = useState<RiskData[]>([]);
   const [stepOneValid, setStepOneValid] = useState<boolean>(false);
   const [snackbarOpen, setSnackbarOpen] = useState(false);
   const [snackbarText, setSnackbarText] = useState<string>("");
@@ -54,6 +62,99 @@ const CalcStepper: React.FC = () => {
   useEffect(() => {
     if (activeStep === 0) setNextBtnActive(stepOneValid);
   }, [stepOneValid, activeStep]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 80) {
+        setShowScrollToTopButton(true);
+      } else {
+        setShowScrollToTopButton(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    setRiskData([
+      new RiskData(
+        "Datenmigration",
+        userData.risk.datenmigration,
+        0,
+        "Info zu Datenmigration",
+        "Zusätzliche Kosten: Um die Probleme mit der Datenmigration zu beheben, können zusätzliche Ressourcen, wie Experten für Datenkonvertierung oder spezialisierte Software, benötigt werden. Dies kann zu zusätzlichen Kosten für das Projekt führen.",
+        "Verlängerung der Projektdauer: Probleme mit der Datenmigration können dazu führen, dass mehr Zeit benötigt wird, um die notwendigen Daten zu übertragen und zu validieren. Dies kann zu einer Verzögerung des Projekts führen.",
+        "Datenintegrität und Genauigkeit: Probleme mit der Datenmigration können die Integrität und Genauigkeit der übertragenen Daten beeinträchtigen. Dies könnte zu Fehlern oder Ungenauigkeiten in den Daten führen, was sich auf die Qualität des Projekts auswirkt."
+      ),
+      new RiskData(
+        "Knapper Zeitplan",
+        userData.risk.zeitplan,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Zu viele Anpassungen",
+        userData.risk.anpassungen,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Ressourcen Anwender",
+        userData.risk.ressourcen,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Abb. der Unternehmensprozesse",
+        userData.risk.abbildungProzesse,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Schnittstellen",
+        userData.risk.schnittstellen,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Anfoderungen unklar",
+        userData.risk.anforderungenUnklar,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+      new RiskData(
+        "Schulungsauswand",
+        userData.risk.schulungsaufwand,
+        0,
+        "infooo",
+        "lala",
+        "lala",
+        "lalaaa"
+      ),
+    ]);
+  }, [userData]);
 
   const handleNext = () => {
     if (activeStep === 0 && !stepOneValid) {
@@ -75,8 +176,12 @@ const CalcStepper: React.FC = () => {
     setUserData(userData);
     setStepOneValid(allValid);
   };
-  const handleChangeStepTwo = (triangleData: TriangleData) => {
+  const handleChangeStepTwo = (
+    triangleData: TriangleData,
+    riskData: RiskData[]
+  ) => {
     setTriangleData(triangleData);
+    setRiskData(riskData);
   };
 
   const getStepContent = (step: number) => {
@@ -89,7 +194,7 @@ const CalcStepper: React.FC = () => {
         return (
           <StepTwo
             userData={userData}
-            risks={userData.risk}
+            riskData={riskData}
             triangleData={triangleData}
             onChange={handleChangeStepTwo}
           />
@@ -110,6 +215,8 @@ const CalcStepper: React.FC = () => {
           justifyContent: "space-between",
         }}
       >
+        <ScrollBtn scrollUp />
+        <ScrollBtn scrollUp={false} />
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label) => (
             <Step key={label}>
@@ -120,7 +227,12 @@ const CalcStepper: React.FC = () => {
         <Box sx={{ display: "flex", justifyContent: "center" }}>
           {getStepContent(activeStep)}
         </Box>
-        <Box sx={{ display: "flex", justifyContent: "center" }}>
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
           <Button
             disabled={activeStep === 0}
             variant="contained"

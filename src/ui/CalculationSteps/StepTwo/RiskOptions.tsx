@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 import { Box, Slider, Typography, Collapse, Button } from "@mui/material";
-import { RiskData } from "../../../data/Risks";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { RiskData } from "../../../models/RiskData";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
   onSliderChange: (riskName: string, value: number) => void;
 }> = ({ riskData, onSliderChange }) => {
   const [expanded, setExpanded] = useState<string | null>(null);
+  const [prevSliderValues, setPrevSliderValues] = useState<number[]>(
+    Array(riskData.length).fill(0)
+  );
 
   const handleCollapseToggle = (riskName: string) => {
     setExpanded((prev) => (prev === riskName ? null : riskName));
@@ -15,7 +18,7 @@ const RiskOptions: React.FC<{
 
   return (
     <div>
-      {riskData.map((risk) => (
+      {riskData.map((risk, index) => (
         <div key={risk.name}>
           <Box
             display="flex"
@@ -43,9 +46,15 @@ const RiskOptions: React.FC<{
               max={3}
               step={1}
               valueLabelDisplay="auto"
-              onChange={(e, value) =>
-                onSliderChange(risk.name, value as number)
-              }
+              onChange={(e, value) => {
+                const difference = (value as number) - prevSliderValues[index];
+                onSliderChange(risk.name, difference);
+                const newPrevSliderValues = [...prevSliderValues];
+                newPrevSliderValues[index] = value as number;
+                setPrevSliderValues(newPrevSliderValues);
+                console.log(value);
+                console.log(difference);
+              }}
             />
           </Box>
           <Collapse

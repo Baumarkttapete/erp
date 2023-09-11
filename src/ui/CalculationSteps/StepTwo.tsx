@@ -2,19 +2,19 @@ import React, { useEffect, useState } from "react";
 import { Box, Card, Typography } from "@mui/material";
 import { TriangleData } from "../../models/TriangleData";
 import CustomBarChart from "./StepTwo/CustomBarChart";
-import { Risk, RiskData } from "../../data/Risks";
 import UserInfoCard from "./StepThree/UserInfoCard";
 import { UserData } from "../../models/UserData";
 import Title from "../Title";
 import RiskOptions from "./StepTwo/RiskOptions";
 import CustomRadarChart from "./StepThree/CustomRadarChart";
+import { RiskData } from "../../models/RiskData";
 
 const StepTwo: React.FC<{
-  risks: Risk;
   userData: UserData;
   triangleData: TriangleData;
-  onChange: (triangleData: TriangleData) => void;
-}> = ({ risks, userData, triangleData, onChange }) => {
+  riskData: RiskData[];
+  onChange: (triangleData: TriangleData, riskData: RiskData[]) => void;
+}> = ({ userData, triangleData, riskData, onChange }) => {
   const [time, setTime] = useState(triangleData.time);
   const [cost, setCost] = useState(triangleData.cost);
   const [quality, setQuality] = useState(triangleData.quality);
@@ -23,6 +23,7 @@ const StepTwo: React.FC<{
     { name: "Kosten", value: cost, fullMark: 100 },
     { name: "Qualität", value: quality, fullMark: 100 },
   ]);
+  const [riskData_, setRiskData] = useState(riskData);
 
   useEffect(() => {
     setRadarData([
@@ -30,101 +31,53 @@ const StepTwo: React.FC<{
       { name: "Kosten", value: cost, fullMark: 100 },
       { name: "Qualität", value: quality, fullMark: 100 },
     ]);
-    onChange(new TriangleData(time, quality, cost));
-  }, [time, cost, quality]);
+    onChange(new TriangleData(time, quality, cost), riskData_);
+  }, [time, cost, quality, riskData_]);
 
-  const handleSliderChange = (riskName: string, value: number) => {
-    // Update the corresponding state (time, cost, or quality) based on the riskName
-    if (riskName === "Datenmigration") {
-      setTime(50 + value * 5);
-      setCost(50 + value * 5);
-      setQuality(50 - value * 5);
-    } else if (riskName === "Knapper Zeitplan") {
-      setCost(50 + value * 5);
-    } else if (riskName === "Zu viele Anpassungen") {
-      setQuality(50 + value * 5);
-    } else if (riskName === "Ressourcen Anwender") {
-      setQuality(50 + value * 5);
-    } else if (riskName === "Abb. der Unternehmensprozesse") {
-      setQuality(50 + value * 5);
-    } else if (riskName === "Schnittstellen") {
-      setQuality(50 + value * 5);
-    } else if (riskName === "Anfoderungen unklar") {
-      setQuality(50 + value * 5);
-    } else if (riskName === "Schulungsauswand") {
-      setQuality(50 + value * 5);
-    }
+  const setNewSliderValue = (riskName: string, sliderValue: number) => {
+    setRiskData((prevRiskData) => {
+      const updatedRiskData = prevRiskData.map((risk) => {
+        if (risk.name === riskName) {
+          return { ...risk, sliderValue };
+        }
+        return risk;
+      });
+
+      return updatedRiskData;
+    });
   };
 
-  const riskData: RiskData[] = [
-    {
-      name: "Datenmigration",
-      value: risks.datenmigration,
-      info: "Info zu Datenmigration",
-      infoCost:
-        "Zusätzliche Kosten: Um die Probleme mit der Datenmigration zu beheben, können zusätzliche Ressourcen, wie Experten für Datenkonvertierung oder spezialisierte Software, benötigt werden. Dies kann zu zusätzlichen Kosten für das Projekt führen.",
-      infoTime:
-        "Verlängerung der Projektdauer: Probleme mit der Datenmigration können dazu führen, dass mehr Zeit benötigt wird, um die notwendigen Daten zu übertragen und zu validieren. Dies kann zu einer Verzögerung des Projekts führen.",
-      infoQuality:
-        "Datenintegrität und Genauigkeit: Probleme mit der Datenmigration können die Integrität und Genauigkeit der übertragenen Daten beeinträchtigen. Dies könnte zu Fehlern oder Ungenauigkeiten in den Daten führen, was sich auf die Qualität des Projekts auswirkt.",
-    },
-    {
-      name: "Knapper Zeitplan",
-      value: risks.zeitplan,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Zu viele Anpassungen",
-      value: risks.anpassungen,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Ressourcen Anwender",
-      value: risks.ressourcen,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Abb. der Unternehmensprozesse",
-      value: risks.abbildungProzesse,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Schnittstellen",
-      value: risks.schnittstellen,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Anfoderungen unklar",
-      value: risks.anforderungenUnklar,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-    {
-      name: "Schulungsauswand",
-      value: risks.schulungsaufwand,
-      info: "infooo",
-      infoCost: "lala",
-      infoTime: "lala",
-      infoQuality: "lalaaa",
-    },
-  ];
+  const handleSliderChange = (riskName: string, value: number) => {
+    const valueChange = value * 5;
+    // Update the corresponding state (time, cost, or quality) based on the riskName
+    if (riskName === "Datenmigration") {
+      setTime(time + valueChange);
+      setCost(cost + valueChange);
+      setQuality(quality - valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Knapper Zeitplan") {
+      setCost(cost + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Zu viele Anpassungen") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Ressourcen Anwender") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Abb. der Unternehmensprozesse") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Schnittstellen") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Anfoderungen unklar") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    } else if (riskName === "Schulungsauswand") {
+      setQuality(quality + valueChange);
+      setNewSliderValue(riskName, value);
+    }
+  };
 
   return (
     <Box sx={{ margin: "60px" }}>

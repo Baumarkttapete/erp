@@ -41,12 +41,3 @@ export const over500: Risk = {
   anforderungenUnklar: 16,
   schulungsaufwand: 9.5,
 };
-
-export interface RiskData {
-  name: string;
-  value: number;
-  info: string;
-  infoCost: string;
-  infoTime: string;
-  infoQuality: string;
-}
