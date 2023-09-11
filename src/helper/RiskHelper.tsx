@@ -1,4 +1,6 @@
 import { over500, under100, under500 } from "../data/Risks";
+import { RiskData } from "../models/RiskData";
+import { UserData } from "../models/UserData";
 
 export const getRisk = (quantity: number) => {
   let datenmigration: number;
@@ -49,4 +51,81 @@ export const getRisk = (quantity: number) => {
     anforderungenUnklar,
     schulungsaufwand,
   };
+};
+
+export const getRiskData = (userData: UserData): RiskData[] => {
+  return [
+    new RiskData(
+      "Datenmigration",
+      userData.risk.datenmigration,
+      0,
+      "Info zu Datenmigration",
+      "Zusätzliche Kosten: Um die Probleme mit der Datenmigration zu beheben, können zusätzliche Ressourcen, wie Experten für Datenkonvertierung oder spezialisierte Software, benötigt werden. Dies kann zu zusätzlichen Kosten für das Projekt führen.",
+      "Verlängerung der Projektdauer: Probleme mit der Datenmigration können dazu führen, dass mehr Zeit benötigt wird, um die notwendigen Daten zu übertragen und zu validieren. Dies kann zu einer Verzögerung des Projekts führen.",
+      "Datenintegrität und Genauigkeit: Probleme mit der Datenmigration können die Integrität und Genauigkeit der übertragenen Daten beeinträchtigen. Dies könnte zu Fehlern oder Ungenauigkeiten in den Daten führen, was sich auf die Qualität des Projekts auswirkt."
+    ),
+    new RiskData(
+      "Knapper Zeitplan",
+      userData.risk.zeitplan,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Zu viele Anpassungen",
+      userData.risk.anpassungen,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Ressourcen Anwender",
+      userData.risk.ressourcen,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Abb. der Unternehmensprozesse",
+      userData.risk.abbildungProzesse,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Schnittstellen",
+      userData.risk.schnittstellen,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Anfoderungen unklar",
+      userData.risk.anforderungenUnklar,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+    new RiskData(
+      "Schulungsauswand",
+      userData.risk.schulungsaufwand,
+      0,
+      "infooo",
+      "lala",
+      "lala",
+      "lalaaa"
+    ),
+  ];
 };

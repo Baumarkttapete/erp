@@ -26,6 +26,7 @@ const StepTwo: React.FC<{
   const [riskData_, setRiskData] = useState(riskData);
 
   useEffect(() => {
+    console.log(riskData);
     setRadarData([
       { name: "Dauer", value: time, fullMark: 100 },
       { name: "Kosten", value: cost, fullMark: 100 },

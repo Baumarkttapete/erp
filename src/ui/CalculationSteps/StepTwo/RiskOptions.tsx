@@ -52,8 +52,6 @@ const RiskOptions: React.FC<{
                 const newPrevSliderValues = [...prevSliderValues];
                 newPrevSliderValues[index] = value as number;
                 setPrevSliderValues(newPrevSliderValues);
-                console.log(value);
-                console.log(difference);
               }}
             />
           </Box>

@@ -6,7 +6,6 @@ import {
   Button,
   Typography,
   Box,
-  Fab,
 } from "@mui/material";
 import StepFour from "./StepFour";
 import StepOne from "./StepOne";
@@ -16,15 +15,13 @@ import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import SnackbarInfo, { AlertType } from "./SnackbarInfo";
 import { RiskData } from "../../models/RiskData";
-import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ScrollBtn from "../ScrollBtn";
+import { useIntl } from "react-intl";
+import { getRiskData } from "../../helper/RiskHelper";
 
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
-  const [showScrollToTopButton, setShowScrollToTopButton] = useState(false);
-
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>(
     new UserData(
@@ -64,96 +61,7 @@ const CalcStepper: React.FC = () => {
   }, [stepOneValid, activeStep]);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 80) {
-        setShowScrollToTopButton(true);
-      } else {
-        setShowScrollToTopButton(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-    setRiskData([
-      new RiskData(
-        "Datenmigration",
-        userData.risk.datenmigration,
-        0,
-        "Info zu Datenmigration",
-        "Zusätzliche Kosten: Um die Probleme mit der Datenmigration zu beheben, können zusätzliche Ressourcen, wie Experten für Datenkonvertierung oder spezialisierte Software, benötigt werden. Dies kann zu zusätzlichen Kosten für das Projekt führen.",
-        "Verlängerung der Projektdauer: Probleme mit der Datenmigration können dazu führen, dass mehr Zeit benötigt wird, um die notwendigen Daten zu übertragen und zu validieren. Dies kann zu einer Verzögerung des Projekts führen.",
-        "Datenintegrität und Genauigkeit: Probleme mit der Datenmigration können die Integrität und Genauigkeit der übertragenen Daten beeinträchtigen. Dies könnte zu Fehlern oder Ungenauigkeiten in den Daten führen, was sich auf die Qualität des Projekts auswirkt."
-      ),
-      new RiskData(
-        "Knapper Zeitplan",
-        userData.risk.zeitplan,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Zu viele Anpassungen",
-        userData.risk.anpassungen,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Ressourcen Anwender",
-        userData.risk.ressourcen,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Abb. der Unternehmensprozesse",
-        userData.risk.abbildungProzesse,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Schnittstellen",
-        userData.risk.schnittstellen,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Anfoderungen unklar",
-        userData.risk.anforderungenUnklar,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-      new RiskData(
-        "Schulungsauswand",
-        userData.risk.schulungsaufwand,
-        0,
-        "infooo",
-        "lala",
-        "lala",
-        "lalaaa"
-      ),
-    ]);
+    setRiskData(getRiskData(userData));
   }, [userData]);
 
   const handleNext = () => {
@@ -165,11 +73,13 @@ const CalcStepper: React.FC = () => {
       setSnackbarOpen(true);
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
+      window.scrollTo(0, 0);
     }
   };
 
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+    window.scrollTo(0, 0);
   };
 
   const handleChangeStepOne = (userData: UserData, allValid: boolean) => {
@@ -200,7 +110,13 @@ const CalcStepper: React.FC = () => {
           />
         );
       case 3:
-        return <StepFour />;
+        return (
+          <StepFour
+            userData={userData}
+            triangleData={triangleData}
+            riskData={riskData}
+          />
+        );
       default:
         return <Typography>Unbekannter Schritt</Typography>;
     }
