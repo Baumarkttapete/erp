@@ -7,6 +7,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import { lightTheme } from "../../../theme/Colors";
 
 const UserInfoCard: React.FC<{
   userData: UserData;
@@ -33,6 +34,7 @@ const UserInfoCard: React.FC<{
         padding: "20px",
         margin: "10px 0",
         width: "100%",
+        backgroundColor: lightTheme.accent,
       }}
     >
       <Box

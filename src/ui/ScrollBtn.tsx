@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Fab from "@mui/material/Fab";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
+import { lightTheme } from "../theme/Colors";
 
 const ScrollBtn: React.FC<{
   scrollUp: boolean;
@@ -44,11 +45,11 @@ const ScrollBtn: React.FC<{
 
   return (
     <Fab
-      color="primary"
       aria-label={scrollUp ? "scroll-up" : "scroll-down"}
       size="small"
       onClick={scrollUp ? scrollToTop : scrollToBottom}
       style={{
+        backgroundColor: lightTheme.primary,
         position: "fixed",
         bottom: scrollUp ? "53%" : "47%",
         right: "20px",
@@ -56,7 +57,11 @@ const ScrollBtn: React.FC<{
         transition: "opacity 0.5s",
       }}
     >
-      {scrollUp ? <ArrowUpwardIcon /> : <ArrowDownwardIcon />}
+      {scrollUp ? (
+        <ArrowUpwardIcon sx={{ color: "white" }} />
+      ) : (
+        <ArrowDownwardIcon sx={{ color: "white" }} />
+      )}
     </Fab>
   );
 };

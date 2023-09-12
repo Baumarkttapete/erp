@@ -4,6 +4,7 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import InfoCardPie from "./InfoCardPie";
 import { Box } from "@mui/material";
+import { lightTheme } from "../../../theme/Colors";
 
 const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
   const dataCostCard = {
@@ -14,21 +15,21 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
         name: "Software",
         value: userData.softwareCost,
         valueFix: 2,
-        color: "#0088FE",
+        color: lightTheme.secondary,
         unit: " €",
       },
       {
         name: "Dienstleistung",
         value: userData.serviceCost,
         valueFix: 2,
-        color: "#FF8042",
+        color: lightTheme.warning,
         unit: " €",
       },
       {
         name: "Hardware",
         value: userData.hardwareCost,
         valueFix: 2,
-        color: "#FF1042",
+        color: lightTheme.success,
         unit: " €",
       },
     ],
@@ -52,14 +53,14 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
         name: "Vorarbeit",
         value: userData.time.prework,
         valueFix: 1,
-        color: "#0088FE",
+        color: lightTheme.secondary,
         unit: " Monate",
       },
       {
         name: "Implementierung",
         value: userData.time.implementation,
         valueFix: 1,
-        color: "#FF8042",
+        color: lightTheme.warning,
         unit: " Monate",
       },
     ],
@@ -82,14 +83,14 @@ const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
         name: "Intern",
         value: userData.personal.intern,
         valueFix: 1,
-        color: "#0088FE",
+        color: lightTheme.secondary,
         unit: " Mitarbeiter",
       },
       {
         name: "Extern",
         value: userData.personal.extern,
         valueFix: 1,
-        color: "#FF8042",
+        color: lightTheme.warning,
         unit: " Berater",
       },
     ],

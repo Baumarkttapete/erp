@@ -66,7 +66,13 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
   const WIDTH = "500px";
 
   return (
-    <Card sx={{ margin: "10px", maxWidth: "800px", minWidth: WIDTH }}>
+    <Card
+      sx={{
+        margin: "10px",
+        maxWidth: "800px",
+        minWidth: WIDTH,
+      }}
+    >
       <CardHeader avatar={avatar} title={title} />
       <CardContent>
         <Box

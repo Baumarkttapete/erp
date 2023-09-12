@@ -1,5 +1,6 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
+import { lightTheme } from "../../../theme/Colors";
 
 interface PieChartProps {
   data: { name: string; value: number }[];
@@ -18,7 +19,7 @@ const CustomBarChart: React.FC<PieChartProps> = ({ data }) => {
       <XAxis type="number" domain={[0, 50]} />
       <YAxis dataKey="name" type="category" width={300} />
       <Tooltip />
-      <Bar dataKey="value" fill="#8884d8" />
+      <Bar dataKey="value" fill={lightTheme.warning} />
     </BarChart>
   );
 };

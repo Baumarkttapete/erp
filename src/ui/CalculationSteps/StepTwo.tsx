@@ -8,6 +8,7 @@ import Title from "../Title";
 import RiskOptions from "./StepTwo/RiskOptions";
 import CustomRadarChart from "./StepThree/CustomRadarChart";
 import { RiskData } from "../../models/RiskData";
+import { lightTheme } from "../../theme/Colors";
 
 const StepTwo: React.FC<{
   userData: UserData;
@@ -102,7 +103,7 @@ const StepTwo: React.FC<{
           an, in welchem Ausmaß. Für genauere Infos hovern Sie über die
           jeweiligen Risiken.
         </Typography>
-        <Typography sx={{ margin: "10px 0", color: "red" }}>
+        <Typography sx={{ margin: "10px 0", color: lightTheme.warning }}>
           Bei den Auswirkungen handelt es sich nur um Schätzungen!
         </Typography>
         <Card

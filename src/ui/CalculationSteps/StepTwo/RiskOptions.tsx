@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Box, Slider, Typography, Collapse, Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { RiskData } from "../../../models/RiskData";
+import { lightTheme } from "../../../theme/Colors";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
@@ -40,7 +41,18 @@ const RiskOptions: React.FC<{
             </Button>
             <Typography sx={{ width: "300px" }}>{risk.name}</Typography>
             <Slider
-              sx={{ width: "100px" }}
+              sx={{
+                width: "100px",
+                "& .MuiSlider-thumb": {
+                  backgroundColor: lightTheme.primary,
+                },
+                "& .MuiSlider-track": {
+                  backgroundColor: lightTheme.primary,
+                },
+                "& .MuiSlider-rail": {
+                  backgroundColor: "gray",
+                },
+              }}
               defaultValue={0}
               min={0}
               max={3}

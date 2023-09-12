@@ -18,6 +18,7 @@ import { RiskData } from "../../models/RiskData";
 import ScrollBtn from "../ScrollBtn";
 import { useIntl } from "react-intl";
 import { getRiskData } from "../../helper/RiskHelper";
+import { darkTheme, lightTheme } from "../../theme/Colors";
 
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
@@ -78,8 +79,10 @@ const CalcStepper: React.FC = () => {
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    window.scrollTo(0, 0);
+    if (activeStep !== 0) {
+      setActiveStep((prevActiveStep) => prevActiveStep - 1);
+      window.scrollTo(0, 0);
+    }
   };
 
   const handleChangeStepOne = (userData: UserData, allValid: boolean) => {
@@ -134,9 +137,20 @@ const CalcStepper: React.FC = () => {
         <ScrollBtn scrollUp />
         <ScrollBtn scrollUp={false} />
         <Stepper activeStep={activeStep} alternativeLabel>
-          {steps.map((label) => (
+          {steps.map((label, index) => (
             <Step key={label}>
-              <StepLabel>{label}</StepLabel>
+              <StepLabel
+                StepIconProps={{
+                  style: {
+                    color:
+                      index === activeStep
+                        ? lightTheme.primary
+                        : lightTheme.secondary,
+                  },
+                }}
+              >
+                {label}
+              </StepLabel>
             </Step>
           ))}
         </Stepper>
@@ -153,7 +167,21 @@ const CalcStepper: React.FC = () => {
             disabled={activeStep === 0}
             variant="contained"
             onClick={handleBack}
-            sx={{ flex: 1, margin: "10px", maxWidth: "300px" }}
+            sx={{
+              flex: 1,
+              margin: "10px",
+              maxWidth: "300px",
+              backgroundColor: lightTheme.primary,
+              "&:hover": {
+                opacity: "0.9",
+                backgroundColor: lightTheme.primary,
+              },
+              "&:disabled": {
+                opacity: "0.5",
+                backgroundColor: lightTheme.primary,
+                color: "white",
+              },
+            }}
           >
             Zurück
           </Button>
@@ -165,7 +193,16 @@ const CalcStepper: React.FC = () => {
               flex: 1,
               margin: "10px",
               maxWidth: "300px",
-              backgroundColor: nextBtnActive ? "blue" : "grey",
+              backgroundColor: lightTheme.primary,
+              "&:hover": {
+                opacity: "0.9",
+                backgroundColor: lightTheme.primary,
+              },
+              "&:disabled": {
+                opacity: "0.5",
+                backgroundColor: lightTheme.primary,
+                color: "white",
+              },
             }}
           >
             Weiter
