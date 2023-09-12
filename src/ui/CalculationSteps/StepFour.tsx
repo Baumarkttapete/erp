@@ -47,66 +47,70 @@ const StepFour: React.FC<{
   return (
     <Box sx={{ margin: "60px" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
-      <Title text={"PDF Export"} />
-      <Typography>
-        Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
-        klicke anschließend auf den Button "Export als PDF".
-      </Typography>
-      <Card sx={{ marginTop: "10px" }}>
-        <Checkbox
-          onChange={(e) =>
-            handleMasterCheckboxChange("Daten", e.target.checked)
-          }
-          checked={isCheckedDaten}
-        />
-        Daten
-        <Checkbox
-          onChange={(e) => setIsCheckedSubDaten1(e.target.checked)}
-          checked={isCheckedSubDaten1}
-          disabled={!isCheckedDaten}
-        />
-        SubDaten1
-        <Checkbox
-          onChange={(e) => setIsCheckedSubDaten2(e.target.checked)}
-          checked={isCheckedSubDaten2}
-          disabled={!isCheckedDaten}
-        />
-        SubDaten2
-        <Checkbox
-          onChange={(e) => setIsCheckedSubDaten3(e.target.checked)}
-          checked={isCheckedSubDaten3}
-          disabled={!isCheckedDaten}
-        />
-        SubDaten3
-      </Card>
-      <Card sx={{ marginTop: "10px" }}>
-        <Checkbox
-          onChange={(e) =>
-            handleMasterCheckboxChange("Risiken", e.target.checked)
-          }
-          checked={isCheckedRisiken}
-        />
-        Risiken
-        <Checkbox
-          onChange={(e) => setIsCheckedSubRisiken1(e.target.checked)}
-          checked={isCheckedSubRisiken1}
-          disabled={!isCheckedRisiken}
-        />
-        SubRisiken1
-        <Checkbox
-          onChange={(e) => setIsCheckedSubRisiken2(e.target.checked)}
-          checked={isCheckedSubRisiken2}
-          disabled={!isCheckedRisiken}
-        />
-        SubRisiken2
-        <Checkbox
-          onChange={(e) => setIsCheckedSubRisiken3(e.target.checked)}
-          checked={isCheckedSubRisiken3}
-          disabled={!isCheckedRisiken}
-        />
-        SubRisiken3
-      </Card>
-      <PdfExportBtn data={exportContent} />
+      <Box
+        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
+      >
+        <Title text={"PDF Export"} />
+        <Typography>
+          Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
+          klicke anschließend auf den Button "Export als PDF".
+        </Typography>
+        <Card sx={{ marginTop: "10px" }}>
+          <Checkbox
+            onChange={(e) =>
+              handleMasterCheckboxChange("Daten", e.target.checked)
+            }
+            checked={isCheckedDaten}
+          />
+          Daten
+          <Checkbox
+            onChange={(e) => setIsCheckedSubDaten1(e.target.checked)}
+            checked={isCheckedSubDaten1}
+            disabled={!isCheckedDaten}
+          />
+          SubDaten1
+          <Checkbox
+            onChange={(e) => setIsCheckedSubDaten2(e.target.checked)}
+            checked={isCheckedSubDaten2}
+            disabled={!isCheckedDaten}
+          />
+          SubDaten2
+          <Checkbox
+            onChange={(e) => setIsCheckedSubDaten3(e.target.checked)}
+            checked={isCheckedSubDaten3}
+            disabled={!isCheckedDaten}
+          />
+          SubDaten3
+        </Card>
+        <Card sx={{ marginTop: "10px" }}>
+          <Checkbox
+            onChange={(e) =>
+              handleMasterCheckboxChange("Risiken", e.target.checked)
+            }
+            checked={isCheckedRisiken}
+          />
+          Risiken
+          <Checkbox
+            onChange={(e) => setIsCheckedSubRisiken1(e.target.checked)}
+            checked={isCheckedSubRisiken1}
+            disabled={!isCheckedRisiken}
+          />
+          SubRisiken1
+          <Checkbox
+            onChange={(e) => setIsCheckedSubRisiken2(e.target.checked)}
+            checked={isCheckedSubRisiken2}
+            disabled={!isCheckedRisiken}
+          />
+          SubRisiken2
+          <Checkbox
+            onChange={(e) => setIsCheckedSubRisiken3(e.target.checked)}
+            checked={isCheckedSubRisiken3}
+            disabled={!isCheckedRisiken}
+          />
+          SubRisiken3
+        </Card>
+        <PdfExportBtn data={exportContent} />
+      </Box>
     </Box>
   );
 };
