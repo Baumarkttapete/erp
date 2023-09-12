@@ -1,5 +1,6 @@
 import React from "react";
 import { PDFDocument, rgb } from "pdf-lib";
+import { Button } from "@mui/material";
 
 const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
   async function createPdf() {
@@ -30,7 +31,19 @@ const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
     window.open(pdfUrl, "_blank");
   }
 
-  return <button onClick={() => createPdf()}>Export as PDF</button>;
+  return (
+    <Button
+      sx={{
+        backgroundColor: "blue",
+        color: " white",
+        width: "150px",
+        margin: "20px auto 0 auto",
+      }}
+      onClick={() => createPdf()}
+    >
+      Export as PDF
+    </Button>
+  );
 };
 
 export default PdfExportBtn;
