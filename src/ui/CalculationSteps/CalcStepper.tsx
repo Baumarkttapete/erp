@@ -163,32 +163,34 @@ const CalcStepper: React.FC = () => {
             justifyContent: "center",
           }}
         >
-          <Button
-            disabled={activeStep === 0}
-            variant="contained"
-            onClick={handleBack}
-            sx={{
-              flex: 1,
-              margin: "10px",
-              maxWidth: "300px",
-              backgroundColor: theme.primary,
-              "&:hover": {
-                opacity: "0.8",
+          {activeStep !== 0 && (
+            <Button
+              variant="contained"
+              onClick={handleBack}
+              sx={{
+                flex: 1,
+                margin: "10px",
+                maxWidth: "300px",
                 backgroundColor: theme.primary,
-              },
-              "&:disabled": {
-                opacity: "0.5",
-                backgroundColor: theme.primary,
-                color: "white",
-              },
-            }}
-          >
-            Zurück
-          </Button>
+                "&:hover": {
+                  opacity: "0.8",
+                  backgroundColor: theme.primary,
+                },
+                "&:disabled": {
+                  opacity: "0.5",
+                  backgroundColor: theme.primary,
+                  color: "white",
+                },
+              }}
+            >
+              Zurück
+            </Button>
+          )}
           <Button
             variant="contained"
             color="primary"
             onClick={handleNext}
+            disabled={!nextBtnActive}
             sx={{
               flex: 1,
               margin: "10px",
