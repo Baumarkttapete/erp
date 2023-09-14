@@ -1,9 +1,16 @@
 import React from "react";
 import { Typography } from "@mui/material";
 
-const Title: React.FC<{ text: string }> = ({ text }) => {
+const Title: React.FC<{ text: string; color: string }> = ({ text, color }) => {
   return (
-    <Typography sx={{ margin: "30px", fontWeight: "bold", fontSize: "20px" }}>
+    <Typography
+      sx={{
+        margin: "30px",
+        fontWeight: "bold",
+        fontSize: "20px",
+        color: color,
+      }}
+    >
       {text}
     </Typography>
   );

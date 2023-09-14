@@ -1,5 +1,6 @@
 import { Box, Typography } from "@mui/material";
 import ColorBox from "./ColorBox";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const InfoCardRow: React.FC<{
   color: string;
@@ -8,6 +9,7 @@ const InfoCardRow: React.FC<{
   valueFix: number;
   unit: string;
 }> = ({ color, text, value, valueFix, unit }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
   return (
     <Box
       sx={{
@@ -18,7 +20,9 @@ const InfoCardRow: React.FC<{
       }}
     >
       <ColorBox color={color} />
-      <Typography sx={{ margin: "0px 5px" }}>{text}</Typography>
+      <Typography sx={{ margin: "0px 5px", color: theme.font }}>
+        {text}
+      </Typography>
       <Typography
         sx={{
           textAlign: "end",
@@ -27,7 +31,9 @@ const InfoCardRow: React.FC<{
       >
         {value.toFixed(valueFix)}
       </Typography>
-      <Typography sx={{ flex: 1, margin: "auto" }}>{unit}</Typography>
+      <Typography sx={{ flex: 1, margin: "auto", color: theme.font }}>
+        {unit}
+      </Typography>
     </Box>
   );
 };

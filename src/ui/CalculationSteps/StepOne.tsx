@@ -17,11 +17,13 @@ import { Time } from "../../data/Time";
 import { getTime } from "../../helper/TimeHelper";
 import { Risk } from "../../data/Risks";
 import { getRisk } from "../../helper/RiskHelper";
+import { useTheme } from "../../theme/ThemeProvider";
 
 const StepOne: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
   const intl = useIntl();
 
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);
@@ -77,7 +79,10 @@ const StepOne: React.FC<{
           margin: "30px",
         }}
       >
-        <Subtitle text={intl.formatMessage({ id: "stepOne_title" })} />
+        <Subtitle
+          text={intl.formatMessage({ id: "stepOne_title" })}
+          color={theme.font}
+        />
 
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box

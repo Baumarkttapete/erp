@@ -46,7 +46,7 @@ const UserInfoCard: React.FC<{
         }}
       >
         <GroupIcon sx={{ margin: "auto 5px" }} />
-        <Typography sx={{ margin: "5px auto" }}>
+        <Typography sx={{ margin: "5px auto", color: theme.font }}>
           Mitarbeiter: {userData.userQuantity}
         </Typography>
       </Box>
@@ -57,7 +57,7 @@ const UserInfoCard: React.FC<{
         }}
       >
         <BusinessIcon sx={{ margin: "auto 5px" }} />
-        <Typography sx={{ margin: "5px auto" }}>
+        <Typography sx={{ margin: "5px auto", color: theme.font }}>
           Branche: {getBranch()}
         </Typography>
       </Box>
@@ -68,7 +68,7 @@ const UserInfoCard: React.FC<{
         }}
       >
         <LocationOnIcon sx={{ margin: "auto 5px" }} />
-        <Typography sx={{ margin: "5px auto" }}>
+        <Typography sx={{ margin: "5px auto", color: theme.font }}>
           Region: {getRegion()}
         </Typography>
       </Box>
@@ -81,7 +81,7 @@ const UserInfoCard: React.FC<{
             }}
           >
             <EuroIcon sx={{ margin: "auto 5px" }} />
-            <Typography sx={{ margin: "5px auto" }}>
+            <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(
                 userData.softwareCost +
                 userData.serviceCost +
@@ -97,7 +97,7 @@ const UserInfoCard: React.FC<{
             }}
           >
             <AccessTimeIcon sx={{ margin: "auto 5px" }} />
-            <Typography sx={{ margin: "5px auto" }}>
+            <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(userData.time.implementation + userData.time.prework).toFixed(
                 1
               )}{" "}
@@ -111,7 +111,7 @@ const UserInfoCard: React.FC<{
             }}
           >
             <GroupsIcon sx={{ margin: "auto 5px" }} />
-            <Typography sx={{ margin: "5px auto" }}>
+            <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(userData.personal.intern + userData.personal.extern).toFixed(1)}{" "}
               Personen
             </Typography>

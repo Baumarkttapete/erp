@@ -4,6 +4,8 @@ export interface ColorTheme {
   accent: string;
   warning: string;
   success: string;
+  font: string;
+  font2: string;
 }
 
 export const lightTheme: ColorTheme = {
@@ -12,6 +14,8 @@ export const lightTheme: ColorTheme = {
   accent: "#e1efe6",
   warning: "#9f2042",
   success: "#468189",
+  font: "#3c474b",
+  font2: "#af9164",
 };
 
 export const lightThemeB: ColorTheme = {
@@ -20,6 +24,8 @@ export const lightThemeB: ColorTheme = {
   accent: "#E8CCBF",
   warning: "#D64045",
   success: "#698F3F",
+  font: "#3c474b",
+  font2: "#af9164",
 };
 
 export const darkTheme: ColorTheme = {
@@ -28,4 +34,6 @@ export const darkTheme: ColorTheme = {
   accent: "#c0392b",
   warning: "#D64045",
   success: "#698F3F",
+  font: "#3c474b",
+  font2: "#af9164",
 };

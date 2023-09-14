@@ -87,8 +87,8 @@ const StepTwo: React.FC<{
     <Box sx={{ margin: "60px" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Title text={"Risiken"} />
-        <Typography sx={{ margin: "10px 0 " }}>
+        <Title text={"Risiken"} color={theme.font} />
+        <Typography sx={{ margin: "10px 0", color: theme.font }}>
           Folgendes Balkendiagramm zeigt die Hauptprobleme während der
           Systemeinführung und den prozentualen Anteil der Unternehmen Ihrer
           Unternehmensgröße, auf die diese Probleme zutrafen.
@@ -97,7 +97,7 @@ const StepTwo: React.FC<{
           <CustomBarChart data={riskData} />
         </Card>
 
-        <Typography sx={{ margin: "10px 0 " }}>
+        <Typography sx={{ margin: "10px 0", color: theme.font }}>
           Sie haben nun die Möglichkeit, die möglichen Auswirkungen der oben
           genannten Hauptprobleme in das unten gezeigte Magische Dreieck
           einfließen zu lassen. Haken Sie dazu die Felder an, deren mögliche

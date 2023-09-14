@@ -14,6 +14,7 @@ import {
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomPieChart from "./CustomPieChart";
 import InfoCardRow from "./InfoCardRow";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -57,6 +58,7 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
   dataSum,
   infoText,
 }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -118,8 +120,12 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
       >
         <CardContent>
           <hr />
-          <Typography paragraph>Infos:</Typography>
-          <Typography paragraph>{infoText}</Typography>
+          <Typography sx={{ color: theme.font }} paragraph>
+            Infos:
+          </Typography>
+          <Typography sx={{ color: theme.font }} paragraph>
+            {infoText}
+          </Typography>
         </CardContent>
       </Collapse>
     </Card>

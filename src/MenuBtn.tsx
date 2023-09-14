@@ -47,7 +47,7 @@ const MenuBtn: React.FC = ({}) => {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <SettingsIcon />
+        <SettingsIcon sx={{ color: theme.font2 }} />
       </Button>
       <Menu
         id="fade-menu"
@@ -59,7 +59,9 @@ const MenuBtn: React.FC = ({}) => {
         onClose={handleClose}
       >
         <Box sx={{ width: "300px", display: "flex", margin: "10px" }}>
-          <Typography sx={{ margin: "10px", flex: 1 }}>Theme</Typography>
+          <Typography sx={{ margin: "10px", flex: 1, color: theme.font }}>
+            Theme
+          </Typography>
           <Slider
             sx={{ margin: "10px", flex: 1 }}
             value={theme === lightTheme ? 0 : 1}
@@ -75,7 +77,9 @@ const MenuBtn: React.FC = ({}) => {
         </Box>
         <hr />
         <Box sx={{ width: "300px", display: "flex", margin: "10px" }}>
-          <Typography sx={{ margin: "10px", flex: 1 }}>Font Size</Typography>
+          <Typography sx={{ margin: "10px", flex: 1, color: theme.font }}>
+            Font Size
+          </Typography>
           <Slider
             sx={{ margin: "10px", flex: 1 }}
             value={

@@ -1,4 +1,4 @@
-import { AppBar, Toolbar, Typography, Button } from "@mui/material";
+import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 import routePaths from "./routePaths";
@@ -11,28 +11,49 @@ const Navigation: React.FC = () => {
 
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.primary }}>
-      <Toolbar>
-        <Typography variant="h6" sx={{ flexGrow: 1 }}>
-          <img src={logo} style={{ width: "250px", margin: "10px" }} />
-        </Typography>
+      <Toolbar
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
         <Button
-          color="inherit"
-          component={Link}
+          sx={{ backgroundColor: "transparent" }}
           to={routePaths.home}
+          component={Link}
+        >
+          <img src={logo} style={{ width: "250px", margin: "10px" }} />
+        </Button>
+        <Box
           sx={{
-            "&:hover": {
-              color: theme.accent,
-            },
+            display: "flex",
+            flexDirection: "row",
           }}
         >
-          Home
-        </Button>
-        <hr />
-        <Button color="inherit" component={Link} to={routePaths.calculator}>
-          Kalkulation
-        </Button>
-        <hr />
-        <MenuBtn />
+          <Button
+            color="inherit"
+            component={Link}
+            to={routePaths.home}
+            sx={{
+              "&:hover": {
+                color: theme.accent,
+              },
+            }}
+          >
+            Home
+          </Button>
+          <hr />
+          <Button color="inherit" component={Link} to={routePaths.calculator}>
+            Kalkulation
+          </Button>
+          <hr />
+          <Button color="inherit" component={Link} to={routePaths.about}>
+            About
+          </Button>
+          <hr />
+          <MenuBtn />
+        </Box>
       </Toolbar>
     </AppBar>
   );

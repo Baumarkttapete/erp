@@ -123,7 +123,11 @@ const CalcStepper: React.FC = () => {
           />
         );
       default:
-        return <Typography>Unbekannter Schritt</Typography>;
+        return (
+          <Typography sx={{ color: theme.font }}>
+            Unbekannter Schritt
+          </Typography>
+        );
     }
   };
 

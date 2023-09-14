@@ -6,12 +6,15 @@ import { TriangleData } from "../../models/TriangleData";
 import { RiskData } from "../../models/RiskData";
 import { Box, Card, Typography, Checkbox } from "@mui/material"; // Import der Checkbox
 import Title from "../Title";
+import { useTheme } from "../../theme/ThemeProvider";
 
 const StepFour: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
   riskData: RiskData[];
 }> = ({ userData, triangleData, riskData }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   const [selectedContent, setSelectedContent] = useState<string[]>([]);
   const [isCheckedDaten, setIsCheckedDaten] = useState(false);
   const [isCheckedRisiken, setIsCheckedRisiken] = useState(false);
@@ -50,8 +53,8 @@ const StepFour: React.FC<{
       <Box
         sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
       >
-        <Title text={"PDF Export"} />
-        <Typography>
+        <Title text={"PDF Export"} color={theme.font} />
+        <Typography sx={{ color: theme.font }}>
           Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
           klicke anschließend auf den Button "Export als PDF".
         </Typography>

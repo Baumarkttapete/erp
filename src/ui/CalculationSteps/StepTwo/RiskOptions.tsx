@@ -42,7 +42,9 @@ const RiskOptions: React.FC<{
                 }}
               />
             </Button>
-            <Typography sx={{ width: "300px" }}>{risk.name}</Typography>
+            <Typography sx={{ width: "300px", color: theme.font }}>
+              {risk.name}
+            </Typography>
             <Slider
               sx={{
                 width: "100px",
@@ -82,10 +84,18 @@ const RiskOptions: React.FC<{
               width: "500px",
             }}
           >
-            <Typography sx={{ margin: "10px" }}>{risk.info}</Typography>
-            <Typography sx={{ margin: "10px" }}>{risk.infoCost}</Typography>
-            <Typography sx={{ margin: "10px" }}>{risk.infoTime}</Typography>
-            <Typography sx={{ margin: "10px" }}>{risk.infoQuality}</Typography>
+            <Typography sx={{ margin: "10px", color: theme.font }}>
+              {risk.info}
+            </Typography>
+            <Typography sx={{ margin: "10px", color: theme.font }}>
+              {risk.infoCost}
+            </Typography>
+            <Typography sx={{ margin: "10px", color: theme.font }}>
+              {risk.infoTime}
+            </Typography>
+            <Typography sx={{ margin: "10px", color: theme.font }}>
+              {risk.infoQuality}
+            </Typography>
           </Collapse>
         </div>
       ))}
