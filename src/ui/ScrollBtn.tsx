@@ -2,11 +2,12 @@ import React, { useState, useEffect } from "react";
 import Fab from "@mui/material/Fab";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 import ArrowDownwardIcon from "@mui/icons-material/ArrowDownward";
-import { lightTheme } from "../theme/Colors";
+import { useTheme } from "../theme/ThemeProvider";
 
 const ScrollBtn: React.FC<{
   scrollUp: boolean;
 }> = ({ scrollUp }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
@@ -49,7 +50,7 @@ const ScrollBtn: React.FC<{
       size="small"
       onClick={scrollUp ? scrollToTop : scrollToBottom}
       style={{
-        backgroundColor: lightTheme.primary,
+        backgroundColor: theme.primary,
         position: "fixed",
         bottom: scrollUp ? "53%" : "47%",
         right: "20px",

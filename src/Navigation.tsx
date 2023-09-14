@@ -3,11 +3,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import routePaths from "./routePaths";
 import logo from "./img/logo.png";
-import { lightTheme } from "./theme/Colors";
+import MenuBtn from "./MenuBtn";
+import { useTheme } from "./theme/ThemeProvider";
 
 const Navigation: React.FC = () => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   return (
-    <AppBar position="static" sx={{ backgroundColor: lightTheme.primary }}>
+    <AppBar position="static" sx={{ backgroundColor: theme.primary }}>
       <Toolbar>
         <Typography variant="h6" sx={{ flexGrow: 1 }}>
           <img src={logo} style={{ width: "250px", margin: "10px" }} />
@@ -18,7 +21,7 @@ const Navigation: React.FC = () => {
           to={routePaths.home}
           sx={{
             "&:hover": {
-              color: lightTheme.accent,
+              color: theme.accent,
             },
           }}
         >
@@ -29,9 +32,7 @@ const Navigation: React.FC = () => {
           Kalkulation
         </Button>
         <hr />
-        <Button color="inherit" component={Link} to={routePaths.about}>
-          FAQ
-        </Button>
+        <MenuBtn />
       </Toolbar>
     </AppBar>
   );

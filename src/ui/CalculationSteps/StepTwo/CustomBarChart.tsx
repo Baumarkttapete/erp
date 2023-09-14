@@ -1,12 +1,14 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
-import { lightTheme } from "../../../theme/Colors";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 interface PieChartProps {
   data: { name: string; value: number }[];
 }
 
 const CustomBarChart: React.FC<PieChartProps> = ({ data }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   return (
     <BarChart
       width={600}
@@ -19,7 +21,7 @@ const CustomBarChart: React.FC<PieChartProps> = ({ data }) => {
       <XAxis type="number" domain={[0, 50]} />
       <YAxis dataKey="name" type="category" width={300} />
       <Tooltip />
-      <Bar dataKey="value" fill={lightTheme.warning} />
+      <Bar dataKey="value" fill={theme.warning} />
     </BarChart>
   );
 };

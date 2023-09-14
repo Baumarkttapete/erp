@@ -1,8 +1,11 @@
 import React from "react";
 import { PDFDocument, rgb } from "pdf-lib";
 import { Button } from "@mui/material";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   async function createPdf() {
     // Erstellen eines neuen leeren PDF-Dokuments
     const pdfDoc = await PDFDocument.create();
@@ -34,10 +37,14 @@ const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
   return (
     <Button
       sx={{
-        backgroundColor: "blue",
+        backgroundColor: theme.primary,
         color: " white",
         width: "150px",
         margin: "20px auto 0 auto",
+        "&:hover": {
+          opacity: "0.8",
+          backgroundColor: theme.primary,
+        },
       }}
       onClick={() => createPdf()}
     >

@@ -1,8 +1,8 @@
 const routePaths = {
-    home: '/',
-    about: '/about',
-    contact: '/contact',
-    calculator: "/calculate"
-  };
-  
-  export default routePaths;
+  home: "/",
+  faq: "/faq",
+  calculator: "/calculate",
+  about: "/about",
+};
+
+export default routePaths;

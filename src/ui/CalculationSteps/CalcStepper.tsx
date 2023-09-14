@@ -18,11 +18,13 @@ import { RiskData } from "../../models/RiskData";
 import ScrollBtn from "../ScrollBtn";
 import { useIntl } from "react-intl";
 import { getRiskData } from "../../helper/RiskHelper";
-import { darkTheme, lightTheme } from "../../theme/Colors";
+import { useTheme } from "../../theme/ThemeProvider";
 
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>(
     new UserData(
@@ -143,9 +145,7 @@ const CalcStepper: React.FC = () => {
                 StepIconProps={{
                   style: {
                     color:
-                      index === activeStep
-                        ? lightTheme.primary
-                        : lightTheme.secondary,
+                      index === activeStep ? theme.primary : theme.secondary,
                   },
                 }}
               >
@@ -171,14 +171,14 @@ const CalcStepper: React.FC = () => {
               flex: 1,
               margin: "10px",
               maxWidth: "300px",
-              backgroundColor: lightTheme.primary,
+              backgroundColor: theme.primary,
               "&:hover": {
-                opacity: "0.9",
-                backgroundColor: lightTheme.primary,
+                opacity: "0.8",
+                backgroundColor: theme.primary,
               },
               "&:disabled": {
                 opacity: "0.5",
-                backgroundColor: lightTheme.primary,
+                backgroundColor: theme.primary,
                 color: "white",
               },
             }}
@@ -193,14 +193,14 @@ const CalcStepper: React.FC = () => {
               flex: 1,
               margin: "10px",
               maxWidth: "300px",
-              backgroundColor: lightTheme.primary,
+              backgroundColor: theme.primary,
               "&:hover": {
-                opacity: "0.9",
-                backgroundColor: lightTheme.primary,
+                opacity: "0.8",
+                backgroundColor: theme.primary,
               },
               "&:disabled": {
                 opacity: "0.5",
-                backgroundColor: lightTheme.primary,
+                backgroundColor: theme.primary,
                 color: "white",
               },
             }}

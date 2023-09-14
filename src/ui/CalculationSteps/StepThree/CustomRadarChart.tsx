@@ -7,11 +7,13 @@ import {
   ResponsiveContainer,
   PolarRadiusAxis,
 } from "recharts";
-import { lightTheme } from "../../../theme/Colors";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const CustomRadarChart: React.FC<{
   data: { name: string; value: number; fullMark: number }[];
 }> = ({ data }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   return (
     <ResponsiveContainer width="40%" height={250}>
       <RadarChart cx="50%" cy="60%" outerRadius={"85%"} data={data}>
@@ -27,7 +29,7 @@ const CustomRadarChart: React.FC<{
           name="Projekt"
           dataKey="value"
           stroke="#8884d8"
-          fill={lightTheme.primary}
+          fill={theme.primary}
           fillOpacity={0.4}
         />
       </RadarChart>

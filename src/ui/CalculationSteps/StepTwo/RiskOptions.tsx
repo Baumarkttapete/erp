@@ -2,12 +2,15 @@ import React, { useState } from "react";
 import { Box, Slider, Typography, Collapse, Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { RiskData } from "../../../models/RiskData";
-import { lightTheme } from "../../../theme/Colors";
+import { useTheme } from "../../../theme/ThemeProvider";
+import { ThemeProvider } from "@emotion/react";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
   onSliderChange: (riskName: string, value: number) => void;
 }> = ({ riskData, onSliderChange }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   const [expanded, setExpanded] = useState<string | null>(null);
   const [prevSliderValues, setPrevSliderValues] = useState<number[]>(
     Array(riskData.length).fill(0)
@@ -44,10 +47,10 @@ const RiskOptions: React.FC<{
               sx={{
                 width: "100px",
                 "& .MuiSlider-thumb": {
-                  backgroundColor: lightTheme.primary,
+                  backgroundColor: theme.primary,
                 },
                 "& .MuiSlider-track": {
-                  backgroundColor: lightTheme.primary,
+                  backgroundColor: theme.primary,
                 },
                 "& .MuiSlider-rail": {
                   backgroundColor: "gray",

@@ -7,12 +7,14 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import { lightTheme } from "../../../theme/Colors";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const UserInfoCard: React.FC<{
   userData: UserData;
   showProjectData?: boolean;
 }> = ({ userData, showProjectData }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   const getBranch = () => {
     if (userData.branch === "industrie") return "Industrie";
     else if (userData.branch === "handel") return "Handel";
@@ -34,7 +36,7 @@ const UserInfoCard: React.FC<{
         padding: "20px",
         margin: "10px 0",
         width: "100%",
-        backgroundColor: lightTheme.accent,
+        backgroundColor: theme.accent,
       }}
     >
       <Box

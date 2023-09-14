@@ -8,7 +8,7 @@ import Title from "../Title";
 import RiskOptions from "./StepTwo/RiskOptions";
 import CustomRadarChart from "./StepThree/CustomRadarChart";
 import { RiskData } from "../../models/RiskData";
-import { lightTheme } from "../../theme/Colors";
+import { useTheme } from "../../theme/ThemeProvider";
 
 const StepTwo: React.FC<{
   userData: UserData;
@@ -16,6 +16,8 @@ const StepTwo: React.FC<{
   riskData: RiskData[];
   onChange: (triangleData: TriangleData, riskData: RiskData[]) => void;
 }> = ({ userData, triangleData, riskData, onChange }) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   const [time, setTime] = useState(triangleData.time);
   const [cost, setCost] = useState(triangleData.cost);
   const [quality, setQuality] = useState(triangleData.quality);
@@ -103,7 +105,7 @@ const StepTwo: React.FC<{
           an, in welchem Ausmaß. Für genauere Infos hovern Sie über die
           jeweiligen Risiken.
         </Typography>
-        <Typography sx={{ margin: "10px 0", color: lightTheme.warning }}>
+        <Typography sx={{ margin: "10px 0", color: theme.warning }}>
           Bei den Auswirkungen handelt es sich nur um Schätzungen!
         </Typography>
         <Card
