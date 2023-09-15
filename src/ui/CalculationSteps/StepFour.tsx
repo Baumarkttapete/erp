@@ -58,7 +58,7 @@ const StepFour: React.FC<{
           Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
           klicke anschließend auf den Button "Export als PDF".
         </Typography>
-        <Card sx={{ marginTop: "10px" }}>
+        <Card sx={{ marginTop: "10px", width: "100%" }}>
           <Checkbox
             onChange={(e) =>
               handleMasterCheckboxChange("Daten", e.target.checked)
@@ -85,7 +85,7 @@ const StepFour: React.FC<{
           />
           SubDaten3
         </Card>
-        <Card sx={{ marginTop: "10px" }}>
+        <Card sx={{ marginTop: "10px", width: "100%" }}>
           <Checkbox
             onChange={(e) =>
               handleMasterCheckboxChange("Risiken", e.target.checked)

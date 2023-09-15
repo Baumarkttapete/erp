@@ -2,6 +2,7 @@ import React from "react";
 import { PDFDocument, rgb } from "pdf-lib";
 import { Button } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
+import logoDark from "../../../img/logoDark.png";
 
 const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
   const { theme, setTheme, fontSize, setFontSize } = useTheme();
@@ -11,7 +12,18 @@ const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
     const pdfDoc = await PDFDocument.create();
 
     // Hinzufügen einer neuen Seite zum PDF-Dokument
-    const page = pdfDoc.addPage([400, 200]);
+    const page = pdfDoc.addPage([400, 800]);
+
+    const logoImageBytes = await fetch(logoDark).then((res) =>
+      res.arrayBuffer()
+    );
+    const logoImageXObject = await pdfDoc.embedPng(logoImageBytes);
+    page.drawImage(logoImageXObject, {
+      x: 100, // X-Koordinate für die Position des Logos
+      y: 730, // Y-Koordinate für die Position des Logos
+      width: 200, // Breite des Logos
+      height: 70,
+    });
 
     // Zeichnen von Text auf der Seite
     page.drawText(data, {

@@ -3,7 +3,6 @@ import { Box, Slider, Typography, Collapse, Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { RiskData } from "../../../models/RiskData";
 import { useTheme } from "../../../theme/ThemeProvider";
-import { ThemeProvider } from "@emotion/react";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
@@ -29,10 +28,17 @@ const RiskOptions: React.FC<{
             alignItems="center"
             justifyContent="space-between"
             marginBottom="10px"
-            width={"500px"}
+            width="500px"
           >
             <Button
-              sx={{ margin: "0 5px", padding: "0" }}
+              sx={{
+                flex: 4,
+                margin: "0 5px",
+                padding: "0",
+                display: "flex",
+                justifyContent: "start",
+                textTransform: "none",
+              }}
               onClick={() => handleCollapseToggle(risk.name)}
             >
               <ExpandMoreIcon
@@ -41,13 +47,14 @@ const RiskOptions: React.FC<{
                     expanded !== risk.name ? "rotate(0deg)" : "rotate(180deg)",
                 }}
               />
+              <Typography sx={{ color: theme.font, marginLeft: "10px" }}>
+                {risk.name}
+              </Typography>
             </Button>
-            <Typography sx={{ width: "300px", color: theme.font }}>
-              {risk.name}
-            </Typography>
+
             <Slider
               sx={{
-                width: "100px",
+                flex: 1,
                 "& .MuiSlider-thumb": {
                   backgroundColor: theme.primary,
                 },

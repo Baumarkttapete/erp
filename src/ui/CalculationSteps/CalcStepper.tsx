@@ -24,6 +24,7 @@ const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
   const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const intl = useIntl();
 
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>(
@@ -64,7 +65,7 @@ const CalcStepper: React.FC = () => {
   }, [stepOneValid, activeStep]);
 
   useEffect(() => {
-    setRiskData(getRiskData(userData));
+    setRiskData(getRiskData(intl, userData));
   }, [userData]);
 
   const handleNext = () => {

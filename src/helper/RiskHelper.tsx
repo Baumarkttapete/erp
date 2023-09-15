@@ -1,3 +1,4 @@
+import { IntlShape, useIntl } from "react-intl";
 import { over500, under100, under500 } from "../data/Risks";
 import { RiskData } from "../models/RiskData";
 import { UserData } from "../models/UserData";
@@ -53,79 +54,82 @@ export const getRisk = (quantity: number) => {
   };
 };
 
-export const getRiskData = (userData: UserData): RiskData[] => {
+export const getRiskData = (
+  intl: IntlShape,
+  userData: UserData
+): RiskData[] => {
   return [
     new RiskData(
-      "Datenmigration",
+      intl.formatMessage({ id: "risk_datenmigration" }),
       userData.risk.datenmigration,
       0,
-      "Info zu Datenmigration",
-      "Zusätzliche Kosten: Um die Probleme mit der Datenmigration zu beheben, können zusätzliche Ressourcen, wie Experten für Datenkonvertierung oder spezialisierte Software, benötigt werden. Dies kann zu zusätzlichen Kosten für das Projekt führen.",
-      "Verlängerung der Projektdauer: Probleme mit der Datenmigration können dazu führen, dass mehr Zeit benötigt wird, um die notwendigen Daten zu übertragen und zu validieren. Dies kann zu einer Verzögerung des Projekts führen.",
-      "Datenintegrität und Genauigkeit: Probleme mit der Datenmigration können die Integrität und Genauigkeit der übertragenen Daten beeinträchtigen. Dies könnte zu Fehlern oder Ungenauigkeiten in den Daten führen, was sich auf die Qualität des Projekts auswirkt."
+      intl.formatMessage({ id: "risk_datenmigration_info" }),
+      intl.formatMessage({ id: "risk_datenmigration_info_cost" }),
+      intl.formatMessage({ id: "risk_datenmigration_info_time" }),
+      intl.formatMessage({ id: "risk_datenmigration_info_quality" })
     ),
     new RiskData(
-      "Knapper Zeitplan",
+      intl.formatMessage({ id: "risk_zeitplan" }),
       userData.risk.zeitplan,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_zeitplan_info" }),
+      intl.formatMessage({ id: "risk_zeitplan_info_cost" }),
+      intl.formatMessage({ id: "risk_zeitplan_info_time" }),
+      intl.formatMessage({ id: "risk_zeitplan_info_quality" })
     ),
     new RiskData(
-      "Zu viele Anpassungen",
+      intl.formatMessage({ id: "risk_anpassungen" }),
       userData.risk.anpassungen,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_anpassungen_info" }),
+      intl.formatMessage({ id: "risk_anpassungen_info_cost" }),
+      intl.formatMessage({ id: "risk_anpassungen_info_time" }),
+      intl.formatMessage({ id: "risk_anpassungen_info_quality" })
     ),
     new RiskData(
-      "Ressourcen Anwender",
+      intl.formatMessage({ id: "risk_ressourcen" }),
       userData.risk.ressourcen,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_ressourcen_info" }),
+      intl.formatMessage({ id: "risk_ressourcen_info_cost" }),
+      intl.formatMessage({ id: "risk_ressourcen_info_time" }),
+      intl.formatMessage({ id: "risk_ressourcen_info_quality" })
     ),
     new RiskData(
-      "Abb. der Unternehmensprozesse",
+      intl.formatMessage({ id: "risk_unternehmensprozesse" }),
       userData.risk.abbildungProzesse,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_unternehmensprozesse_info" }),
+      intl.formatMessage({ id: "risk_unternehmensprozesse_info_cost" }),
+      intl.formatMessage({ id: "risk_unternehmensprozesse_info_time" }),
+      intl.formatMessage({ id: "risk_unternehmensprozesse_info_quality" })
     ),
     new RiskData(
-      "Schnittstellen",
+      intl.formatMessage({ id: "risk_schnittstellen" }),
       userData.risk.schnittstellen,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_schnittstellen_info" }),
+      intl.formatMessage({ id: "risk_schnittstellen_info_cost" }),
+      intl.formatMessage({ id: "risk_schnittstellen_info_time" }),
+      intl.formatMessage({ id: "risk_schnittstellen_info_quality" })
     ),
     new RiskData(
-      "Anfoderungen unklar",
+      intl.formatMessage({ id: "risk_anforderungen" }),
       userData.risk.anforderungenUnklar,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_anforderungen_info" }),
+      intl.formatMessage({ id: "risk_anforderungen_info_cost" }),
+      intl.formatMessage({ id: "risk_anforderungen_info_time" }),
+      intl.formatMessage({ id: "risk_anforderungen_info_quality" })
     ),
     new RiskData(
-      "Schulungsauswand",
+      intl.formatMessage({ id: "risk_schulungsaufwand" }),
       userData.risk.schulungsaufwand,
       0,
-      "infooo",
-      "lala",
-      "lala",
-      "lalaaa"
+      intl.formatMessage({ id: "risk_schulungsaufwand_info" }),
+      intl.formatMessage({ id: "risk_schulungsaufwand_info_cost" }),
+      intl.formatMessage({ id: "risk_schulungsaufwand_info_time" }),
+      intl.formatMessage({ id: "risk_schulungsaufwand_info_quality" })
     ),
   ];
 };

@@ -1,27 +1,29 @@
 import React from "react";
-import { ColorTheme } from "../theme/Colors";
-import { Size } from "../theme/Sizes";
+import Title from "../ui/Title";
+import { useTheme } from "../theme/ThemeProvider";
+import { Box, Typography } from "@mui/material";
 
 const About: React.FC<{}> = ({}) => {
+  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+
   return (
-    <div>
-      <h2>Über uns</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eu lectus
-        eu mauris venenatis fermentum. Mauris eu purus id tellus placerat
-        bibendum vel in orci. Fusce a ullamcorper erat. Sed vitae nisi finibus,
-        dignissim tellus eu, ultricies odio. Nam ut quam nec nisl faucibus
-        interdum.
-      </p>
-      <p>
-        Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-        cubilia curae; Sed eu vehicula mauris, vitae gravida ligula. Etiam ut
-        arcu vel elit accumsan sagittis. Integer a massa ac odio malesuada
-        eleifend vel vel turpis. Integer finibus lorem eu velit consequat, in
-        ullamcorper neque ullamcorper. Aenean eget nunc sed nisl gravida
-        ultricies.
-      </p>
-    </div>
+    <>
+      <Title text="About" color={theme.font} />
+      <Box sx={{ margin: "40px" }}>
+        <Typography paragraph sx={{ color: theme.font }}>
+          Diese Anwendung ist im Rahmen der Bachelorarbeit zum Thema
+          "Usability-fokussierte Entwicklung einer Anwendung zur
+          Kostenkalkulation von ERP-Einführungsprojekten" an der Hochschule für
+          Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck
+          entwickelt worden.
+        </Typography>
+        <Typography paragraph sx={{ color: theme.font }}>
+          Das Ziel ist es, Unternehmen dabei zu unterstützen, die Kosten für die
+          Einführung eines ERP-Systems besser abzuschätzen und transparenter zu
+          gestalten.
+        </Typography>
+      </Box>
+    </>
   );
 };
 

@@ -19,7 +19,9 @@ const Navigation: React.FC = () => {
         }}
       >
         <Button
-          sx={{ backgroundColor: "transparent" }}
+          sx={{
+            backgroundColor: "transparent",
+          }}
           to={routePaths.home}
           component={Link}
         >
@@ -38,17 +40,41 @@ const Navigation: React.FC = () => {
             sx={{
               "&:hover": {
                 color: theme.accent,
+                opacity: "0.8",
+                backgroundColor: theme.primary,
               },
             }}
           >
             Home
           </Button>
           <hr />
-          <Button color="inherit" component={Link} to={routePaths.calculator}>
+          <Button
+            color="inherit"
+            component={Link}
+            to={routePaths.calculator}
+            sx={{
+              "&:hover": {
+                color: theme.accent,
+                opacity: "0.8",
+                backgroundColor: theme.primary,
+              },
+            }}
+          >
             Kalkulation
           </Button>
           <hr />
-          <Button color="inherit" component={Link} to={routePaths.about}>
+          <Button
+            color="inherit"
+            component={Link}
+            to={routePaths.about}
+            sx={{
+              "&:hover": {
+                color: theme.accent,
+                opacity: "0.8",
+                backgroundColor: theme.primary,
+              },
+            }}
+          >
             About
           </Button>
           <hr />
