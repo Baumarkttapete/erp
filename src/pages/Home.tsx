@@ -1,13 +1,4 @@
-import {
-  Box,
-  Button,
-  Card,
-  CardContent,
-  CardHeader,
-  CardMedia,
-  Divider,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Divider, Typography } from "@mui/material";
 import React from "react";
 import { useTheme } from "../theme/ThemeProvider";
 import Title from "../ui/Title";
@@ -17,19 +8,22 @@ import team from "../img/team.jpg";
 import time from "../img/time.jpg";
 import risk from "../img/risk.jpg";
 import HomeCard from "../ui/Home/HomeCard";
+import ScrollBtn from "../ui/ScrollBtn";
 
 const Home: React.FC<{}> = ({}) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <Box
       sx={{
-        margin: "40px",
-        width: "90%",
+        margin: "40px auto",
+        width: "80%",
         display: "flex",
         flexDirection: "column",
       }}
     >
+      <ScrollBtn scrollUp />
+      <ScrollBtn scrollUp={false} />
       <Box
         sx={{
           display: "flex",
@@ -114,7 +108,7 @@ const Home: React.FC<{}> = ({}) => {
             },
           }}
           onClick={() => {
-            window.location.href = "https://www.trovarit.com/erp-praxis/";
+            window.open("https://www.trovarit.com/erp-praxis/", "_blank");
           }}
         >
           Zur Studie

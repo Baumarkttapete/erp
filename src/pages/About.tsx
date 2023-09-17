@@ -4,7 +4,7 @@ import { useTheme } from "../theme/ThemeProvider";
 import { Box, Typography } from "@mui/material";
 
 const About: React.FC<{}> = ({}) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <>

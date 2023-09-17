@@ -23,7 +23,7 @@ const StepOne: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   const intl = useIntl();
 
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);

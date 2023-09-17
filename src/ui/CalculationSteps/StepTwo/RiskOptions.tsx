@@ -8,7 +8,7 @@ const RiskOptions: React.FC<{
   riskData: RiskData[];
   onSliderChange: (riskName: string, value: number) => void;
 }> = ({ riskData, onSliderChange }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const [expanded, setExpanded] = useState<string | null>(null);
   const [prevSliderValues, setPrevSliderValues] = useState<number[]>(

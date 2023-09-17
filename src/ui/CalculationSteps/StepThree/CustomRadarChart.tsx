@@ -12,7 +12,7 @@ import { useTheme } from "../../../theme/ThemeProvider";
 const CustomRadarChart: React.FC<{
   data: { name: string; value: number; fullMark: number }[];
 }> = ({ data }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <ResponsiveContainer width="40%" height={250}>

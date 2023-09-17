@@ -58,7 +58,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
   dataSum,
   infoText,
 }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {

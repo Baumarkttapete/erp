@@ -13,7 +13,7 @@ const StepFour: React.FC<{
   triangleData: TriangleData;
   riskData: RiskData[];
 }> = ({ userData, triangleData, riskData }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const [selectedContent, setSelectedContent] = useState<string[]>([]);
   const [isCheckedDaten, setIsCheckedDaten] = useState(false);

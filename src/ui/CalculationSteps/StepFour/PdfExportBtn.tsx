@@ -5,7 +5,7 @@ import { useTheme } from "../../../theme/ThemeProvider";
 import logoDark from "../../../img/logoDark.png";
 
 const PdfExportBtn: React.FC<{ data: string }> = ({ data }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   async function createPdf() {
     // Erstellen eines neuen leeren PDF-Dokuments

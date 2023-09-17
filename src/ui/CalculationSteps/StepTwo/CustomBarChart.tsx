@@ -7,7 +7,7 @@ interface PieChartProps {
 }
 
 const CustomBarChart: React.FC<PieChartProps> = ({ data }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <BarChart

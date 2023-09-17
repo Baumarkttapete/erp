@@ -12,7 +12,7 @@ const StepThree: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
 }> = ({ userData, triangleData }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <Box sx={{ margin: "60px" }}>

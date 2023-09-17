@@ -7,7 +7,7 @@ import { useTheme } from "../theme/ThemeProvider";
 const ScrollBtn: React.FC<{
   scrollUp: boolean;
 }> = ({ scrollUp }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {

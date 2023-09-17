@@ -18,7 +18,7 @@ const StepTwo: React.FC<{
   riskData: RiskData[];
   onChange: (triangleData: TriangleData, riskData: RiskData[]) => void;
 }> = ({ userData, triangleData, riskData, onChange }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   const intl = useIntl();
 
   const [time, setTime] = useState(triangleData.time);

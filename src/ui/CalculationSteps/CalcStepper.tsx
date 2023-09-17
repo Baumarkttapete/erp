@@ -23,7 +23,7 @@ import { useTheme } from "../../theme/ThemeProvider";
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   const intl = useIntl();
 
   const [activeStep, setActiveStep] = useState(0);

@@ -13,7 +13,7 @@ const UserInfoCard: React.FC<{
   userData: UserData;
   showProjectData?: boolean;
 }> = ({ userData, showProjectData }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const getBranch = () => {
     if (userData.branch === "industrie") return "Industrie";

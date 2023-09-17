@@ -7,7 +7,7 @@ import { Box } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
 
 const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   const dataCostCard = {
     avatar: <EuroIcon />,

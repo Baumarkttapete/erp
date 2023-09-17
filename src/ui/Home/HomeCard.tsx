@@ -13,7 +13,7 @@ const HomeCard: React.FC<{ title: string; img: string; text: string }> = ({
   img,
   text,
 }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <Card sx={{ maxWidth: 345, margin: "20px 10px", flex: 1 }}>

@@ -7,7 +7,7 @@ import MenuBtn from "./MenuBtn";
 import { useTheme } from "./theme/ThemeProvider";
 
 const Navigation: React.FC = () => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.primary }}>

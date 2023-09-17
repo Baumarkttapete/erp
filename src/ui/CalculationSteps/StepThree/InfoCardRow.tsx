@@ -9,7 +9,7 @@ const InfoCardRow: React.FC<{
   valueFix: number;
   unit: string;
 }> = ({ color, text, value, valueFix, unit }) => {
-  const { theme, setTheme, fontSize, setFontSize } = useTheme();
+  const { theme, setTheme } = useTheme();
   return (
     <Box
       sx={{

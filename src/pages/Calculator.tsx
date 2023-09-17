@@ -4,7 +4,7 @@ import CalcStepper from "../ui/CalculationSteps/CalcStepper";
 
 const Calculator: React.FC<{}> = ({}) => {
   return (
-    <Box sx={{ margin: "20px" }}>
+    <Box sx={{ margin: "40px auto" }}>
       <CalcStepper />
     </Box>
   );
