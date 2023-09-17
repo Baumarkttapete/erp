@@ -13,7 +13,7 @@ const UserInfoCard: React.FC<{
   userData: UserData;
   showProjectData?: boolean;
 }> = ({ userData, showProjectData }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   const getBranch = () => {
     if (userData.branch === "industrie") return "Industrie";
@@ -34,8 +34,7 @@ const UserInfoCard: React.FC<{
         gridTemplateColumns: "30% 30% 30%",
         gridGap: "10px",
         padding: "20px",
-        margin: "10px 0",
-        width: "100%",
+        margin: "10px auto",
         backgroundColor: theme.accent,
       }}
     >

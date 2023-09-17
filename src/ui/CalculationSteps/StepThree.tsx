@@ -1,5 +1,4 @@
 import React from "react";
-import { TriangleData } from "../../models/TriangleData";
 import { UserData } from "../../models/UserData";
 import { Box } from "@mui/material";
 import CustomText from "../CustomText";
@@ -10,9 +9,8 @@ import { useTheme } from "../../theme/ThemeProvider";
 
 const StepThree: React.FC<{
   userData: UserData;
-  triangleData: TriangleData;
-}> = ({ userData, triangleData }) => {
-  const { theme, setTheme } = useTheme();
+}> = ({ userData }) => {
+  const { theme } = useTheme();
 
   return (
     <Box sx={{ margin: "60px" }}>

@@ -23,26 +23,32 @@ const StepOne: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const intl = useIntl();
 
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);
   const [branch, setBranch] = useState(userData.branch);
   const [region, setRegion] = useState(userData.region);
-  const [softwareCost, setSoftwareCost] = useState(0);
-  const [hardwareCost, setHardwareCost] = useState(0);
-  const [serviceCost, setServiceCost] = useState(0);
-  const [personal, setPersonal] = useState<Personal>({ intern: 0, extern: 0 });
-  const [time, setTime] = useState<Time>({ implementation: 0, prework: 0 });
+  const [softwareCost, setSoftwareCost] = useState(userData.softwareCost);
+  const [hardwareCost, setHardwareCost] = useState(userData.hardwareCost);
+  const [serviceCost, setServiceCost] = useState(userData.serviceCost);
+  const [personal, setPersonal] = useState<Personal>({
+    intern: userData.personal.intern,
+    extern: userData.personal.extern,
+  });
+  const [time, setTime] = useState<Time>({
+    implementation: userData.time.implementation,
+    prework: userData.time.prework,
+  });
   const [risk, setRisk] = useState<Risk>({
-    datenmigration: 0,
-    zeitplan: 0,
-    anpassungen: 0,
-    ressourcen: 0,
-    abbildungProzesse: 0,
-    schnittstellen: 0,
-    anforderungenUnklar: 0,
-    schulungsaufwand: 0,
+    datenmigration: userData.risk.datenmigration,
+    zeitplan: userData.risk.zeitplan,
+    anpassungen: userData.risk.anpassungen,
+    ressourcen: userData.risk.ressourcen,
+    abbildungProzesse: userData.risk.abbildungProzesse,
+    schnittstellen: userData.risk.schnittstellen,
+    anforderungenUnklar: userData.risk.anforderungenUnklar,
+    schulungsaufwand: userData.risk.schulungsaufwand,
   });
 
   useEffect(() => {
@@ -73,10 +79,10 @@ const StepOne: React.FC<{
     <>
       <Box
         sx={{
-          maxWidth: "800px",
           display: "flex",
           flexDirection: "column",
-          margin: "30px",
+          margin: "40px auto",
+          width: "80%",
         }}
       >
         <Subtitle

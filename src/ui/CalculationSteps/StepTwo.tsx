@@ -18,31 +18,31 @@ const StepTwo: React.FC<{
   riskData: RiskData[];
   onChange: (triangleData: TriangleData, riskData: RiskData[]) => void;
 }> = ({ userData, triangleData, riskData, onChange }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const intl = useIntl();
 
   const [time, setTime] = useState(triangleData.time);
   const [cost, setCost] = useState(triangleData.cost);
   const [quality, setQuality] = useState(triangleData.quality);
   const [radarData, setRadarData] = useState([
-    { name: intl.formatMessage({ id: "time" }), value: time, fullMark: 100 },
-    { name: intl.formatMessage({ id: "cost" }), value: cost, fullMark: 100 },
+    { name: intl.formatMessage({ id: "time" }), value: time, fullMark: 300 },
+    { name: intl.formatMessage({ id: "cost" }), value: cost, fullMark: 300 },
     {
       name: intl.formatMessage({ id: "quality" }),
       value: quality,
-      fullMark: 100,
+      fullMark: 300,
     },
   ]);
   const [riskData_, setRiskData] = useState(riskData);
 
   useEffect(() => {
     setRadarData([
-      { name: intl.formatMessage({ id: "time" }), value: time, fullMark: 100 },
-      { name: intl.formatMessage({ id: "cost" }), value: cost, fullMark: 100 },
+      { name: intl.formatMessage({ id: "time" }), value: time, fullMark: 300 },
+      { name: intl.formatMessage({ id: "cost" }), value: cost, fullMark: 300 },
       {
         name: intl.formatMessage({ id: "quality" }),
         value: quality,
-        fullMark: 100,
+        fullMark: 300,
       },
     ]);
     onChange(new TriangleData(time, quality, cost), riskData_);
@@ -61,65 +61,69 @@ const StepTwo: React.FC<{
     });
   };
 
-  const handleSliderChange = (riskName: string, value: number) => {
-    const valueChangeS = value * 0.5;
-    const valueChangeM = value * 1;
-    const valueChangeL = value * 2;
+  const handleSliderChange = (
+    riskName: string,
+    difference: number,
+    sliderValue: number
+  ) => {
+    const valueChangeS = difference * 1;
+    const valueChangeM = difference * 3;
+    const valueChangeL = difference * 5;
 
     // Update the corresponding state (time, cost, or quality) based on the riskName
     if (riskName === intl.formatMessage({ id: "risk_datenmigration" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (riskName === intl.formatMessage({ id: "risk_zeitplan" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (riskName === intl.formatMessage({ id: "risk_anpassungen" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (riskName === intl.formatMessage({ id: "risk_ressourcen" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (
       riskName === intl.formatMessage({ id: "risk_unternehmensprozesse" })
     ) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (riskName === intl.formatMessage({ id: "risk_schnittstellen" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (riskName === intl.formatMessage({ id: "risk_anforderungen" })) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     } else if (
       riskName === intl.formatMessage({ id: "risk_schulungsaufwand" })
     ) {
       setTime(time + valueChangeM);
       setCost(cost + valueChangeM);
       setQuality(quality - valueChangeM);
-      setNewSliderValue(riskName, value);
+      setNewSliderValue(riskName, sliderValue);
     }
   };
 
   return (
-    <Box sx={{ margin: "60px" }}>
+    <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Title text={"Risiken"} color={theme.font} />
-        <Typography sx={{ margin: "40px 0", color: theme.font }}>
+        <Typography sx={{ color: theme.font }}>
           {intl.formatMessage({ id: "risk_infotext_diagram" })}
         </Typography>
         <Card sx={{ padding: "20px" }}>

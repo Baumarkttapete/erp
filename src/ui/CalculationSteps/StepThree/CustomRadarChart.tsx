@@ -21,8 +21,8 @@ const CustomRadarChart: React.FC<{
         <PolarAngleAxis dataKey="name" />
         <PolarRadiusAxis
           angle={90}
-          domain={[0, 100]}
-          tickCount={5}
+          domain={[0, 300]}
+          tickCount={4}
           fontSize={"10px"}
         />
         <Radar

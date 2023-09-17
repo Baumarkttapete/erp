@@ -6,13 +6,17 @@ import { useTheme } from "../../../theme/ThemeProvider";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
-  onSliderChange: (riskName: string, value: number) => void;
+  onSliderChange: (
+    riskName: string,
+    difference: number,
+    sliderValue: number
+  ) => void;
 }> = ({ riskData, onSliderChange }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   const [expanded, setExpanded] = useState<string | null>(null);
   const [prevSliderValues, setPrevSliderValues] = useState<number[]>(
-    Array(riskData.length).fill(0)
+    riskData.map((item) => item.sliderValue)
   );
 
   const handleCollapseToggle = (riskName: string) => {
@@ -28,7 +32,7 @@ const RiskOptions: React.FC<{
             alignItems="center"
             justifyContent="space-between"
             marginBottom="10px"
-            width="500px"
+            width="400px"
           >
             <Button
               sx={{
@@ -65,14 +69,14 @@ const RiskOptions: React.FC<{
                   backgroundColor: "gray",
                 },
               }}
-              defaultValue={0}
+              defaultValue={risk.sliderValue}
               min={0}
               max={3}
               step={1}
               valueLabelDisplay="auto"
               onChange={(e, value) => {
                 const difference = (value as number) - prevSliderValues[index];
-                onSliderChange(risk.name, difference);
+                onSliderChange(risk.name, difference, value as number);
                 const newPrevSliderValues = [...prevSliderValues];
                 newPrevSliderValues[index] = value as number;
                 setPrevSliderValues(newPrevSliderValues);

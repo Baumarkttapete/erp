@@ -50,7 +50,7 @@ const CalcStepper: React.FC = () => {
     )
   );
   const [triangleData, setTriangleData] = useState<TriangleData>(
-    new TriangleData(50, 50, 50)
+    new TriangleData(100, 100, 100)
   );
   const [riskData, setRiskData] = useState<RiskData[]>([]);
   const [stepOneValid, setStepOneValid] = useState<boolean>(false);
@@ -105,7 +105,7 @@ const CalcStepper: React.FC = () => {
       case 0:
         return <StepOne userData={userData} onChange={handleChangeStepOne} />;
       case 1:
-        return <StepThree userData={userData} triangleData={triangleData} />;
+        return <StepThree userData={userData} />;
       case 2:
         return (
           <StepTwo

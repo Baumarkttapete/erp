@@ -4,26 +4,32 @@ import UserInfoCard from "./StepThree/UserInfoCard";
 import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import { RiskData } from "../../models/RiskData";
-import { Box, Card, Typography, Checkbox } from "@mui/material"; // Import der Checkbox
+import { Box, Card, Typography, Checkbox } from "@mui/material";
 import Title from "../Title";
 import { useTheme } from "../../theme/ThemeProvider";
+
+import EuroIcon from "@mui/icons-material/Euro";
+import GroupsIcon from "@mui/icons-material/Groups";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import CostumCheckbox from "./StepFour/CustomCheckbox";
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+import DisplaySettingsIcon from "@mui/icons-material/DisplaySettings";
 
 const StepFour: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
   riskData: RiskData[];
 }> = ({ userData, triangleData, riskData }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   const [selectedContent, setSelectedContent] = useState<string[]>([]);
-  const [isCheckedDaten, setIsCheckedDaten] = useState(false);
-  const [isCheckedRisiken, setIsCheckedRisiken] = useState(false);
-  const [isCheckedSubDaten1, setIsCheckedSubDaten1] = useState(false);
-  const [isCheckedSubDaten2, setIsCheckedSubDaten2] = useState(false);
-  const [isCheckedSubDaten3, setIsCheckedSubDaten3] = useState(false);
-  const [isCheckedSubRisiken1, setIsCheckedSubRisiken1] = useState(false);
-  const [isCheckedSubRisiken2, setIsCheckedSubRisiken2] = useState(false);
-  const [isCheckedSubRisiken3, setIsCheckedSubRisiken3] = useState(false);
+  const [isCheckedDaten, setIsCheckedDaten] = useState(true);
+  const [isCheckedRisiken, setIsCheckedRisiken] = useState(true);
+  const [isCheckedSubDaten1, setIsCheckedSubDaten1] = useState(true);
+  const [isCheckedSubDaten2, setIsCheckedSubDaten2] = useState(true);
+  const [isCheckedSubDaten3, setIsCheckedSubDaten3] = useState(true);
+  const [isCheckedSubRisiken1, setIsCheckedSubRisiken1] = useState(true);
+  const [isCheckedSubRisiken2, setIsCheckedSubRisiken2] = useState(true);
 
   const handleMasterCheckboxChange = (content: string, isChecked: boolean) => {
     if (content === "Daten") {
@@ -35,7 +41,6 @@ const StepFour: React.FC<{
       setIsCheckedRisiken(isChecked);
       setIsCheckedSubRisiken1(isChecked);
       setIsCheckedSubRisiken2(isChecked);
-      setIsCheckedSubRisiken3(isChecked);
     }
 
     if (isChecked) {
@@ -48,69 +53,88 @@ const StepFour: React.FC<{
   const exportContent = selectedContent.join("\n");
 
   return (
-    <Box sx={{ margin: "60px" }}>
+    <Box sx={{ margin: "40px auto" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
-      <Box
-        sx={{ display: "flex", flexDirection: "column", alignItems: "center" }}
-      >
+      <Box sx={{ display: "flex", flexDirection: "column" }}>
         <Title text={"PDF Export"} color={theme.font} />
         <Typography sx={{ color: theme.font }}>
           Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
           klicke anschließend auf den Button "Export als PDF".
         </Typography>
-        <Card sx={{ marginTop: "10px", width: "100%" }}>
-          <Checkbox
-            onChange={(e) =>
-              handleMasterCheckboxChange("Daten", e.target.checked)
-            }
-            checked={isCheckedDaten}
-          />
-          Daten
-          <Checkbox
-            onChange={(e) => setIsCheckedSubDaten1(e.target.checked)}
-            checked={isCheckedSubDaten1}
-            disabled={!isCheckedDaten}
-          />
-          SubDaten1
-          <Checkbox
-            onChange={(e) => setIsCheckedSubDaten2(e.target.checked)}
-            checked={isCheckedSubDaten2}
-            disabled={!isCheckedDaten}
-          />
-          SubDaten2
-          <Checkbox
-            onChange={(e) => setIsCheckedSubDaten3(e.target.checked)}
-            checked={isCheckedSubDaten3}
-            disabled={!isCheckedDaten}
-          />
-          SubDaten3
+        <Card
+          sx={{
+            margin: "20px auto",
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Box sx={{ margin: "30px", display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              onChange={(e) =>
+                handleMasterCheckboxChange("Daten", e.target.checked)
+              }
+              checked={isCheckedDaten}
+            />
+            <Typography sx={{ margin: "auto" }}>Daten</Typography>
+          </Box>
+          <Box>
+            <CostumCheckbox
+              isChecked={isCheckedSubDaten1}
+              onChange={(e) => setIsCheckedSubDaten1(e.target.checked)}
+              disabled={!isCheckedDaten}
+              text="Kosten"
+              icon={<EuroIcon />}
+            />
+            <CostumCheckbox
+              isChecked={isCheckedSubDaten2}
+              onChange={(e) => setIsCheckedSubDaten2(e.target.checked)}
+              disabled={!isCheckedDaten}
+              text="Dauer"
+              icon={<AccessTimeIcon />}
+            />
+            <CostumCheckbox
+              isChecked={isCheckedSubDaten3}
+              onChange={(e) => setIsCheckedSubDaten3(e.target.checked)}
+              disabled={!isCheckedDaten}
+              text="Personalbedarf im Kernteam"
+              icon={<GroupsIcon />}
+            />
+          </Box>
         </Card>
-        <Card sx={{ marginTop: "10px", width: "100%" }}>
-          <Checkbox
-            onChange={(e) =>
-              handleMasterCheckboxChange("Risiken", e.target.checked)
-            }
-            checked={isCheckedRisiken}
-          />
-          Risiken
-          <Checkbox
-            onChange={(e) => setIsCheckedSubRisiken1(e.target.checked)}
-            checked={isCheckedSubRisiken1}
-            disabled={!isCheckedRisiken}
-          />
-          SubRisiken1
-          <Checkbox
-            onChange={(e) => setIsCheckedSubRisiken2(e.target.checked)}
-            checked={isCheckedSubRisiken2}
-            disabled={!isCheckedRisiken}
-          />
-          SubRisiken2
-          <Checkbox
-            onChange={(e) => setIsCheckedSubRisiken3(e.target.checked)}
-            checked={isCheckedSubRisiken3}
-            disabled={!isCheckedRisiken}
-          />
-          SubRisiken3
+        <Card
+          sx={{
+            margin: "20px auto",
+            width: "100%",
+            display: "flex",
+            flexDirection: "row",
+          }}
+        >
+          <Box sx={{ margin: "30px", display: "flex", flexDirection: "row" }}>
+            <Checkbox
+              onChange={(e) =>
+                handleMasterCheckboxChange("Risiken", e.target.checked)
+              }
+              checked={isCheckedRisiken}
+            />
+            <Typography sx={{ margin: "auto" }}>Risiken</Typography>
+          </Box>
+          <Box>
+            <CostumCheckbox
+              isChecked={isCheckedSubRisiken1}
+              onChange={(e) => setIsCheckedSubRisiken1(e.target.checked)}
+              disabled={!isCheckedRisiken}
+              text="Darstellung Hauptprobleme"
+              icon={<ReportProblemIcon />}
+            />
+            <CostumCheckbox
+              isChecked={isCheckedSubRisiken2}
+              onChange={(e) => setIsCheckedSubRisiken2(e.target.checked)}
+              disabled={!isCheckedRisiken}
+              text="Auswirkungen und Magisches Dreieck"
+              icon={<DisplaySettingsIcon />}
+            />
+          </Box>
         </Card>
         <PdfExportBtn data={exportContent} />
       </Box>
