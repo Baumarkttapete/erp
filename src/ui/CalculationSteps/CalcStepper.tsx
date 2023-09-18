@@ -72,7 +72,7 @@ const CalcStepper: React.FC = () => {
   const handleNext = () => {
     if (activeStep === 0 && !stepOneValid) {
       setSnackbarText(
-        "Bitte gib eine User-Anzahl Branche und Region an, um anschließend auf WEITER klicken zu können."
+        "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an, um anschließend auf WEITER klicken zu können."
       );
       setSnackbarAlertType("info");
       setSnackbarOpen(true);
@@ -212,7 +212,6 @@ const CalcStepper: React.FC = () => {
               variant="contained"
               color="primary"
               onClick={handleNext}
-              disabled={!nextBtnActive}
               sx={{
                 flex: 1,
                 margin: "10px",
@@ -220,27 +219,24 @@ const CalcStepper: React.FC = () => {
                 fontWeight: "bold",
                 backgroundColor: theme.primary,
                 "&:hover": {
-                  opacity: "0.8",
+                  opacity: nextBtnActive ? "0.8" : 0.5,
                   backgroundColor: theme.primary,
                 },
-                "&:disabled": {
-                  opacity: "0.5",
-                  backgroundColor: theme.primary,
-                  color: "white",
-                },
+                cursor: nextBtnActive ? "pointer" : "not-allowed",
+                opacity: nextBtnActive ? 1 : 0.5,
               }}
             >
               Weiter
             </Button>
           )}
         </Box>
+        <SnackbarInfo
+          text={snackbarText}
+          alert={snackbarAlertType}
+          open={snackbarOpen}
+          onClose={() => setSnackbarOpen(false)}
+        />
       </Box>
-      <SnackbarInfo
-        text={snackbarText}
-        alert={snackbarAlertType}
-        open={snackbarOpen}
-        onClose={() => setSnackbarOpen(false)}
-      />
     </>
   );
 };

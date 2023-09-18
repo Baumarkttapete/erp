@@ -36,6 +36,7 @@ const UserInfoCard: React.FC<{
         padding: "20px",
         margin: "10px auto",
         backgroundColor: theme.accent,
+        justifyItems: "center",
       }}
     >
       <Box
@@ -45,9 +46,9 @@ const UserInfoCard: React.FC<{
         }}
       >
         <Tooltip title="Anzahl Mitarbeiter im Unternehmen">
-          <GroupIcon sx={{ margin: "auto 5px" }} />
+          <GroupIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
-        <Typography sx={{ margin: "5px auto", color: theme.font }}>
+        <Typography sx={{ margin: "5px 5px", color: theme.font }}>
           {userData.userQuantity} Mitarbeiter
         </Typography>
       </Box>
@@ -59,9 +60,9 @@ const UserInfoCard: React.FC<{
         }}
       >
         <Tooltip title="Branche des Unternehmens">
-          <BusinessIcon sx={{ margin: "auto 5px" }} />
+          <BusinessIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
-        <Typography sx={{ margin: "5px auto", color: theme.font }}>
+        <Typography sx={{ margin: "5px 5px", color: theme.font }}>
           {getBranch()}
         </Typography>
       </Box>
@@ -72,9 +73,9 @@ const UserInfoCard: React.FC<{
         }}
       >
         <Tooltip title="Region des Unternehmens">
-          <LocationOnIcon sx={{ margin: "auto 5px" }} />
+          <LocationOnIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
-        <Typography sx={{ margin: "5px auto", color: theme.font }}>
+        <Typography sx={{ margin: "5px 5px", color: theme.font }}>
           {getRegion()}
         </Typography>
       </Box>
@@ -88,9 +89,9 @@ const UserInfoCard: React.FC<{
           >
             {" "}
             <Tooltip title="Kosten pro User">
-              <EuroIcon sx={{ margin: "auto 5px" }} />
+              <EuroIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
-            <Typography sx={{ margin: "5px auto", color: theme.font }}>
+            <Typography sx={{ margin: "5px 5px", color: theme.font }}>
               {(
                 userData.softwareCost +
                 userData.serviceCost +
@@ -106,9 +107,9 @@ const UserInfoCard: React.FC<{
             }}
           >
             <Tooltip title="Dauer des Projekts">
-              <AccessTimeIcon sx={{ margin: "auto 5px" }} />
+              <AccessTimeIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
-            <Typography sx={{ margin: "5px auto", color: theme.font }}>
+            <Typography sx={{ margin: "5px 5px", color: theme.font }}>
               {(userData.time.implementation + userData.time.prework).toFixed(
                 1
               )}{" "}
@@ -122,9 +123,9 @@ const UserInfoCard: React.FC<{
             }}
           >
             <Tooltip title="Benötigte Personen im Kernteam">
-              <GroupsIcon sx={{ margin: "auto 5px" }} />
+              <GroupsIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
-            <Typography sx={{ margin: "5px auto", color: theme.font }}>
+            <Typography sx={{ margin: "5px 5px", color: theme.font }}>
               {(userData.personal.intern + userData.personal.extern).toFixed(1)}{" "}
               Personen
             </Typography>

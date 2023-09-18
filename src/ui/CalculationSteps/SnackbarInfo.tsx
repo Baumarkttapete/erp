@@ -21,7 +21,15 @@ const SnackbarInfo: React.FC<{
   };
 
   return (
-    <Snackbar open={isOpen} autoHideDuration={6000} onClose={handleClose}>
+    <Snackbar
+      open={isOpen}
+      autoHideDuration={6000}
+      onClose={handleClose}
+      anchorOrigin={{
+        vertical: "bottom",
+        horizontal: "center",
+      }}
+    >
       <Alert severity={alert} sx={{ width: "100%" }}>
         {text}
       </Alert>

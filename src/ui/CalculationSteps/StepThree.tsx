@@ -13,7 +13,7 @@ const StepThree: React.FC<{
   const { theme } = useTheme();
 
   return (
-    <Box sx={{ margin: "60px" }}>
+    <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} />
       <Title text={"Zusammenfassung"} color={theme.font} />
 
