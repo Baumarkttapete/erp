@@ -23,7 +23,9 @@ const CostumCheckbox: React.FC<CostCheckboxProps> = ({
     <Box sx={{ display: "flex", alignItems: "center" }}>
       <Checkbox onChange={onChange} checked={isChecked} disabled={disabled} />
       {icon}
-      <Typography sx={{ color: theme.font, margin: "20px" }}>{text}</Typography>
+      <Typography sx={{ color: theme.font, margin: "15px 20px" }}>
+        {text}
+      </Typography>
     </Box>
   );
 };

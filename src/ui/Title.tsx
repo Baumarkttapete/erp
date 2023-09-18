@@ -5,7 +5,7 @@ const Title: React.FC<{ text: string; color: string }> = ({ text, color }) => {
   return (
     <Typography
       sx={{
-        margin: "30px",
+        padding: "30px",
         fontWeight: "bold",
         fontSize: "20px",
         color: color,

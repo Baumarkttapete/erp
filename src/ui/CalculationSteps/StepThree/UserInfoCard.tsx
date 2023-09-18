@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card, Tooltip, Typography } from "@mui/material";
 import { UserData } from "../../../models/UserData";
 import GroupIcon from "@mui/icons-material/Group";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -44,9 +44,25 @@ const UserInfoCard: React.FC<{
           margin: "0 20px",
         }}
       >
-        <GroupIcon sx={{ margin: "auto 5px" }} />
+        <Tooltip title="Anzahl Mitarbeiter im Unternehmen">
+          <GroupIcon sx={{ margin: "auto 5px" }} />
+        </Tooltip>
         <Typography sx={{ margin: "5px auto", color: theme.font }}>
-          Mitarbeiter: {userData.userQuantity}
+          {userData.userQuantity} Mitarbeiter
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          display: "flex",
+          margin: "0 20px",
+        }}
+      >
+        <Tooltip title="Branche des Unternehmens">
+          <BusinessIcon sx={{ margin: "auto 5px" }} />
+        </Tooltip>
+        <Typography sx={{ margin: "5px auto", color: theme.font }}>
+          {getBranch()}
         </Typography>
       </Box>
       <Box
@@ -55,20 +71,11 @@ const UserInfoCard: React.FC<{
           margin: "0 20px",
         }}
       >
-        <BusinessIcon sx={{ margin: "auto 5px" }} />
+        <Tooltip title="Region des Unternehmens">
+          <LocationOnIcon sx={{ margin: "auto 5px" }} />
+        </Tooltip>
         <Typography sx={{ margin: "5px auto", color: theme.font }}>
-          Branche: {getBranch()}
-        </Typography>
-      </Box>
-      <Box
-        sx={{
-          display: "flex",
-          margin: "0 20px",
-        }}
-      >
-        <LocationOnIcon sx={{ margin: "auto 5px" }} />
-        <Typography sx={{ margin: "5px auto", color: theme.font }}>
-          Region: {getRegion()}
+          {getRegion()}
         </Typography>
       </Box>
       {showProjectData && (
@@ -79,7 +86,10 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            <EuroIcon sx={{ margin: "auto 5px" }} />
+            {" "}
+            <Tooltip title="Kosten pro User">
+              <EuroIcon sx={{ margin: "auto 5px" }} />
+            </Tooltip>
             <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(
                 userData.softwareCost +
@@ -95,7 +105,9 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            <AccessTimeIcon sx={{ margin: "auto 5px" }} />
+            <Tooltip title="Dauer des Projekts">
+              <AccessTimeIcon sx={{ margin: "auto 5px" }} />
+            </Tooltip>
             <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(userData.time.implementation + userData.time.prework).toFixed(
                 1
@@ -109,7 +121,9 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            <GroupsIcon sx={{ margin: "auto 5px" }} />
+            <Tooltip title="Benötigte Personen im Kernteam">
+              <GroupsIcon sx={{ margin: "auto 5px" }} />
+            </Tooltip>
             <Typography sx={{ margin: "5px auto", color: theme.font }}>
               {(userData.personal.intern + userData.personal.extern).toFixed(1)}{" "}
               Personen

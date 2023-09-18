@@ -50,8 +50,6 @@ const StepFour: React.FC<{
     }
   };
 
-  const exportContent = selectedContent.join("\n");
-
   return (
     <Box sx={{ margin: "40px auto" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
@@ -86,6 +84,7 @@ const StepFour: React.FC<{
               text="Kosten"
               icon={<EuroIcon />}
             />
+            <hr />
             <CostumCheckbox
               isChecked={isCheckedSubDaten2}
               onChange={(e) => setIsCheckedSubDaten2(e.target.checked)}
@@ -93,6 +92,7 @@ const StepFour: React.FC<{
               text="Dauer"
               icon={<AccessTimeIcon />}
             />
+            <hr />
             <CostumCheckbox
               isChecked={isCheckedSubDaten3}
               onChange={(e) => setIsCheckedSubDaten3(e.target.checked)}
@@ -127,6 +127,7 @@ const StepFour: React.FC<{
               text="Darstellung Hauptprobleme"
               icon={<ReportProblemIcon />}
             />
+            <hr />
             <CostumCheckbox
               isChecked={isCheckedSubRisiken2}
               onChange={(e) => setIsCheckedSubRisiken2(e.target.checked)}
@@ -136,7 +137,16 @@ const StepFour: React.FC<{
             />
           </Box>
         </Card>
-        <PdfExportBtn data={exportContent} />
+        <PdfExportBtn
+          userData={userData}
+          isCheckedDaten={isCheckedDaten}
+          isCheckedSubDaten1={isCheckedSubDaten1}
+          isCheckedSubDaten2={isCheckedSubDaten2}
+          isCheckedSubDaten3={isCheckedSubDaten3}
+          isCheckedRisiken={isCheckedRisiken}
+          isCheckedSubRisiken1={isCheckedSubRisiken1}
+          isCheckedSubRisiken2={isCheckedSubRisiken2}
+        />
       </Box>
     </Box>
   );

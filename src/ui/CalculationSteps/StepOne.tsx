@@ -2,7 +2,6 @@ import { TextField, MenuItem, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { UserData } from "../../models/UserData";
 import InfoIcon from "@mui/icons-material/Info";
-import Subtitle from "../Subtitle";
 import CustomText from "../CustomText";
 import { useIntl } from "react-intl";
 import { getCost } from "../../helper/CostHelper";
@@ -18,6 +17,7 @@ import { getTime } from "../../helper/TimeHelper";
 import { Risk } from "../../data/Risks";
 import { getRisk } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
+import Title from "../Title";
 
 const StepOne: React.FC<{
   userData: UserData;
@@ -71,7 +71,7 @@ const StepOne: React.FC<{
         time,
         risk
       ),
-      userQuantity !== 0 && branch !== "" && region !== ""
+      userQuantity > 0 && branch !== "" && region !== ""
     );
   }, [userQuantity, branch, region]);
 
@@ -85,7 +85,7 @@ const StepOne: React.FC<{
           width: "80%",
         }}
       >
-        <Subtitle
+        <Title
           text={intl.formatMessage({ id: "stepOne_title" })}
           color={theme.font}
         />
@@ -150,10 +150,10 @@ const StepOne: React.FC<{
           <Box
             sx={{
               flex: 1,
-              margin: "10px",
+              margin: "30px",
             }}
           >
-            <InfoIcon />
+            <InfoIcon sx={{ color: theme.secondary }} />
             <CustomText text={intl.formatMessage({ id: "stepOne_infotext" })} />
           </Box>
         </Box>

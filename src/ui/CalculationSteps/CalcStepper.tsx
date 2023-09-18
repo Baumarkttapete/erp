@@ -19,11 +19,12 @@ import ScrollBtn from "../ScrollBtn";
 import { useIntl } from "react-intl";
 import { getRiskData } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
+import { fontSize } from "../../theme/Sizes";
 
 const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
 
 const CalcStepper: React.FC = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const intl = useIntl();
 
   const [activeStep, setActiveStep] = useState(0);
@@ -92,6 +93,7 @@ const CalcStepper: React.FC = () => {
     setUserData(userData);
     setStepOneValid(allValid);
   };
+
   const handleChangeStepTwo = (
     triangleData: TriangleData,
     riskData: RiskData[]
@@ -132,6 +134,14 @@ const CalcStepper: React.FC = () => {
     }
   };
 
+  const handleStepClick = (step: number) => {
+    if (activeStep === 0 && !stepOneValid) {
+    } else {
+      setActiveStep(step);
+      window.scrollTo(0, 0);
+    }
+  };
+
   return (
     <>
       <Box
@@ -139,22 +149,28 @@ const CalcStepper: React.FC = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
+          backgroundColor: theme.background,
         }}
       >
         <ScrollBtn scrollUp />
         <ScrollBtn scrollUp={false} />
         <Stepper activeStep={activeStep} alternativeLabel>
           {steps.map((label, index) => (
-            <Step key={label}>
+            <Step key={label} onClick={() => handleStepClick(index)}>
               <StepLabel
                 StepIconProps={{
                   style: {
                     color:
-                      index === activeStep ? theme.primary : theme.secondary,
+                      index === activeStep ? theme.secondary : theme.primary,
                   },
                 }}
               >
-                {label}
+                <Typography
+                  sx={{ color: theme.font, fontSize: fontSize.text }}
+                  color={theme.font}
+                >
+                  {label}
+                </Typography>
               </StepLabel>
             </Step>
           ))}
@@ -176,6 +192,7 @@ const CalcStepper: React.FC = () => {
                 flex: 1,
                 margin: "10px",
                 maxWidth: "300px",
+                fontWeight: "bold",
                 backgroundColor: theme.primary,
                 "&:hover": {
                   opacity: "0.8",
@@ -191,29 +208,32 @@ const CalcStepper: React.FC = () => {
               Zurück
             </Button>
           )}
-          <Button
-            variant="contained"
-            color="primary"
-            onClick={handleNext}
-            disabled={!nextBtnActive}
-            sx={{
-              flex: 1,
-              margin: "10px",
-              maxWidth: "300px",
-              backgroundColor: theme.primary,
-              "&:hover": {
-                opacity: "0.8",
+          {activeStep !== 3 && (
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleNext}
+              disabled={!nextBtnActive}
+              sx={{
+                flex: 1,
+                margin: "10px",
+                maxWidth: "300px",
+                fontWeight: "bold",
                 backgroundColor: theme.primary,
-              },
-              "&:disabled": {
-                opacity: "0.5",
-                backgroundColor: theme.primary,
-                color: "white",
-              },
-            }}
-          >
-            Weiter
-          </Button>
+                "&:hover": {
+                  opacity: "0.8",
+                  backgroundColor: theme.primary,
+                },
+                "&:disabled": {
+                  opacity: "0.5",
+                  backgroundColor: theme.primary,
+                  color: "white",
+                },
+              }}
+            >
+              Weiter
+            </Button>
+          )}
         </Box>
       </Box>
       <SnackbarInfo

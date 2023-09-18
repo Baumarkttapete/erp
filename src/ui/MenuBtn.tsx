@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button, Menu, Slider, Typography } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { darkTheme, lightTheme } from "./theme/Colors";
-import { useTheme } from "./theme/ThemeProvider";
+import { darkTheme, lightTheme } from "../theme/Colors";
+import { useTheme } from "../theme/ThemeProvider";
 
 const MenuBtn: React.FC = ({}) => {
   const { theme, setTheme } = useTheme();

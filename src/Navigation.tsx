@@ -1,13 +1,26 @@
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import React from "react";
+import { AppBar, Toolbar, Button, Box } from "@mui/material";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import routePaths from "./routePaths";
 import logo from "./img/logo.png";
-import MenuBtn from "./MenuBtn";
+import MenuBtn from "./ui/MenuBtn";
 import { useTheme } from "./theme/ThemeProvider";
 
 const Navigation: React.FC = () => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const [activeLink, setActiveLink] = useState(routePaths.home);
+
+  const getButtonStyle = (route: string) => {
+    return {
+      color: activeLink === route ? theme.secondary : theme.font2,
+      fontWeight: "bold",
+      "&:hover": {
+        color: theme.accent,
+        opacity: "0.8",
+        backgroundColor: theme.primary,
+      },
+    };
+  };
 
   return (
     <AppBar position="static" sx={{ backgroundColor: theme.primary }}>
@@ -34,46 +47,28 @@ const Navigation: React.FC = () => {
           }}
         >
           <Button
-            color="inherit"
             component={Link}
             to={routePaths.home}
-            sx={{
-              "&:hover": {
-                color: theme.accent,
-                opacity: "0.8",
-                backgroundColor: theme.primary,
-              },
-            }}
+            sx={getButtonStyle(routePaths.home)}
+            onClick={() => setActiveLink(routePaths.home)}
           >
             Home
           </Button>
           <hr />
           <Button
-            color="inherit"
             component={Link}
             to={routePaths.calculator}
-            sx={{
-              "&:hover": {
-                color: theme.accent,
-                opacity: "0.8",
-                backgroundColor: theme.primary,
-              },
-            }}
+            sx={getButtonStyle(routePaths.calculator)}
+            onClick={() => setActiveLink(routePaths.calculator)}
           >
             Kalkulation
           </Button>
           <hr />
           <Button
-            color="inherit"
             component={Link}
             to={routePaths.about}
-            sx={{
-              "&:hover": {
-                color: theme.accent,
-                opacity: "0.8",
-                backgroundColor: theme.primary,
-              },
-            }}
+            sx={getButtonStyle(routePaths.about)}
+            onClick={() => setActiveLink(routePaths.about)}
           >
             About
           </Button>

@@ -16,9 +16,9 @@ const CustomPieChart: React.FC<PieChartProps> = ({ data }) => {
           cy="50%"
           innerRadius={30}
           outerRadius={50}
-          fill="#8884d8"
+          fill="#121212"
           dataKey="value"
-          paddingAngle={2}
+          paddingAngle={5}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={entry.color} />

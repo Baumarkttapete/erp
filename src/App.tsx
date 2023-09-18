@@ -13,7 +13,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider>
       <Router>
-        <div>
+        <div style={{ height: "100%", margin: "0", padding: "0" }}>
           <Navigation />
           <Routes>
             <Route path={routePaths.home} element={<Home />} />
