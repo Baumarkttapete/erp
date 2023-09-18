@@ -1,6 +1,6 @@
 import { AppBar, Toolbar, Button, Box } from "@mui/material";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import routePaths from "./routePaths";
 import logo from "./img/logo.png";
 import MenuBtn from "./ui/MenuBtn";
@@ -8,11 +8,11 @@ import { useTheme } from "./theme/ThemeProvider";
 
 const Navigation: React.FC = () => {
   const { theme } = useTheme();
-  const [activeLink, setActiveLink] = useState(routePaths.home);
+  const location = useLocation();
 
   const getButtonStyle = (route: string) => {
     return {
-      color: activeLink === route ? theme.secondary : theme.font2,
+      color: location.pathname === route ? theme.secondary : theme.font2,
       fontWeight: "bold",
       "&:hover": {
         color: theme.accent,
@@ -50,7 +50,6 @@ const Navigation: React.FC = () => {
             component={Link}
             to={routePaths.home}
             sx={getButtonStyle(routePaths.home)}
-            onClick={() => setActiveLink(routePaths.home)}
           >
             Home
           </Button>
@@ -59,7 +58,6 @@ const Navigation: React.FC = () => {
             component={Link}
             to={routePaths.calculator}
             sx={getButtonStyle(routePaths.calculator)}
-            onClick={() => setActiveLink(routePaths.calculator)}
           >
             Kalkulation
           </Button>
@@ -68,7 +66,6 @@ const Navigation: React.FC = () => {
             component={Link}
             to={routePaths.about}
             sx={getButtonStyle(routePaths.about)}
-            onClick={() => setActiveLink(routePaths.about)}
           >
             About
           </Button>
