@@ -131,11 +131,24 @@ const PdfExportBtn: React.FC<{
 
   return (
     <>
-      <Button>export PDF</Button>
-      <PDFViewer width={400} height={800}>
+      <PDFViewer width={"90%"} height={600} style={{ margin: "20px auto" }}>
         <MyDocument />
       </PDFViewer>
-      <PDFDownloadLink document={<MyDocument />} fileName="exported.pdf">
+      <PDFDownloadLink
+        style={{
+          backgroundColor: theme.primary,
+          borderRadius: "4px",
+          width: "500px",
+          color: theme.font2,
+          fontWeight: "bold",
+          textDecoration: "none",
+          textAlign: "center",
+          padding: "11px",
+          margin: "0px auto",
+        }}
+        document={<MyDocument />}
+        fileName="exported.pdf"
+      >
         {({ blob, url, loading, error }) =>
           loading ? "Lade das PDF herunter..." : "PDF herunterladen"
         }

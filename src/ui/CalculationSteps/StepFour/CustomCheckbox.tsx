@@ -19,8 +19,18 @@ const CostumCheckbox: React.FC<CostCheckboxProps> = ({
   const { theme } = useTheme();
 
   return (
-    <Card sx={{ display: "flex", alignItems: "center", margin: "10px" }}>
-      <Checkbox onChange={onChange} checked={isChecked} />
+    <Card
+      sx={{
+        display: "flex",
+        alignItems: "center",
+        margin: "10px",
+      }}
+    >
+      <Checkbox
+        onChange={onChange}
+        checked={isChecked}
+        style={{ color: theme.secondary }}
+      />
       {icon}
       <Typography sx={{ color: theme.font, margin: "15px 20px" }}>
         {text}

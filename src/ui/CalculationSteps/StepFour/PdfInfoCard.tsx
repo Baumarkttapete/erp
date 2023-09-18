@@ -10,6 +10,7 @@ const PdfInfoCard: React.FC<{
 }> = ({ title, data, infoText }) => {
   const textStyle = {
     fontSize: fontSize.text,
+    padding: "3px",
   };
 
   return (
@@ -41,11 +42,16 @@ const PdfInfoCard: React.FC<{
         </Text>
         <div style={{ margin: "15px" }}>
           {data.map((entry, index) => (
-            <PdfTextSpan
-              title={entry.name}
-              amount={entry.amount}
-              unit={entry.unit}
-            />
+            <React.Fragment key={index}>
+              {index === data.length - 1 && (
+                <div style={{ borderTop: "1px solid grey" }} />
+              )}
+              <PdfTextSpan
+                title={entry.name}
+                amount={entry.amount}
+                unit={entry.unit}
+              />
+            </React.Fragment>
           ))}
         </div>
       </div>

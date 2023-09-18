@@ -56,7 +56,12 @@ const StepFour: React.FC<{
   return (
     <Box sx={{ margin: "40px auto" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <Title text={"PDF Export"} color={theme.font} />
         <Typography sx={{ color: theme.font }}>
           Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und

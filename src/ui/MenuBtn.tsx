@@ -1,8 +1,8 @@
 import React from "react";
 import { Box, Button, Menu, Slider, Typography } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
-import { darkTheme, lightTheme } from "../theme/Colors";
 import { useTheme } from "../theme/ThemeProvider";
+import { bright, highContrast } from "../theme/Colors";
 
 const MenuBtn: React.FC = ({}) => {
   const { theme, setTheme } = useTheme();
@@ -20,9 +20,9 @@ const MenuBtn: React.FC = ({}) => {
     const value = Array.isArray(newValue) ? newValue[0] : newValue;
 
     if (value === 0) {
-      setTheme(lightTheme);
+      setTheme(bright);
     } else {
-      setTheme(darkTheme);
+      setTheme(highContrast);
     }
   };
 
@@ -45,18 +45,25 @@ const MenuBtn: React.FC = ({}) => {
         open={open}
         onClose={handleClose}
       >
-        <Box sx={{ width: "300px", display: "flex", margin: "10px" }}>
-          <Typography sx={{ margin: "10px", flex: 1, color: theme.font }}>
+        <Box
+          sx={{
+            width: "200px",
+            display: "flex",
+            margin: "10px",
+            flexDirection: "column",
+          }}
+        >
+          <Typography sx={{ margin: "10px auto", flex: 1, color: theme.font }}>
             Theme
           </Typography>
           <Slider
-            sx={{ margin: "10px", flex: 1 }}
-            value={theme === lightTheme ? 0 : 1}
+            sx={{ margin: "10px 30px", width: "120px" }}
+            value={theme === bright ? 0 : 1}
             onChange={(e, newValue) => handleThemeChange(e, newValue)}
             step={1}
             marks={[
-              { value: 0, label: "Light" },
-              { value: 1, label: "Dark" },
+              { value: 0, label: "Bright" },
+              { value: 1, label: "high Contrast" },
             ]}
             min={0}
             max={1}

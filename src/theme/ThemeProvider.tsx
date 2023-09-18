@@ -1,6 +1,6 @@
 // ThemeProvider.tsx
 import React, { createContext, useContext, useState } from "react";
-import { ColorTheme, lightTheme } from "./Colors";
+import { ColorTheme, bright } from "./Colors";
 
 interface ThemeContextProps {
   theme: ColorTheme;
@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextProps | undefined>(undefined);
 const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [theme, setTheme] = useState<ColorTheme>(lightTheme);
+  const [theme, setTheme] = useState<ColorTheme>(bright);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

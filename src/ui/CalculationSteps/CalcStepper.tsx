@@ -149,7 +149,6 @@ const CalcStepper: React.FC = () => {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          backgroundColor: theme.background,
         }}
       >
         <ScrollBtn scrollUp />

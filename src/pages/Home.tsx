@@ -98,6 +98,7 @@ const Home: React.FC<{}> = ({}) => {
       >
         <Button
           sx={{
+            fontWeight: "bold",
             width: "30%",
             backgroundColor: theme.primary,
             color: theme.font2,
@@ -116,6 +117,7 @@ const Home: React.FC<{}> = ({}) => {
         <Button
           sx={{
             width: "30%",
+            fontWeight: "bold",
             backgroundColor: theme.primary,
             color: theme.font2,
             margin: "0 auto",

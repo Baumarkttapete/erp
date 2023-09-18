@@ -153,7 +153,7 @@ const StepOne: React.FC<{
               margin: "30px",
             }}
           >
-            <InfoIcon sx={{ color: theme.secondary }} />
+            <InfoIcon sx={{ color: theme.secondary }} fontSize="large" />
             <CustomText text={intl.formatMessage({ id: "stepOne_infotext" })} />
           </Box>
         </Box>

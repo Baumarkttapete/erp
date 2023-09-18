@@ -9,23 +9,29 @@ const PdfTextSpan: React.FC<{
 }> = ({ title, amount, unit }) => {
   const textStyle = {
     fontSize: fontSize.text,
+    padding: "3px",
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "row", width: "230px" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "row",
+        width: "210px",
+        justifyContent: "space-between",
+      }}
+    >
+      <Text style={textStyle}>{title}</Text>
+
       <div
         style={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "space-between",
-          width: "180px",
         }}
       >
-        <Text style={textStyle}>{title}</Text>
         <Text style={textStyle}>{amount}</Text>
+        <Text style={textStyle}>{unit}</Text>
       </div>
-
-      <Text style={textStyle}>{unit}</Text>
     </div>
   );
 };
