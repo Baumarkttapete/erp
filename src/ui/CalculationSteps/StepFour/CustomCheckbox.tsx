@@ -1,11 +1,11 @@
 import React from "react";
-import { Checkbox, Typography, Box } from "@mui/material";
+import { Checkbox, Typography, Card } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
 
 interface CostCheckboxProps {
   isChecked: boolean;
   onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  disabled: boolean;
+
   text: string;
   icon: React.ReactElement;
 }
@@ -13,20 +13,19 @@ interface CostCheckboxProps {
 const CostumCheckbox: React.FC<CostCheckboxProps> = ({
   isChecked,
   onChange,
-  disabled,
   text,
   icon,
 }) => {
   const { theme } = useTheme();
 
   return (
-    <Box sx={{ display: "flex", alignItems: "center" }}>
-      <Checkbox onChange={onChange} checked={isChecked} disabled={disabled} />
+    <Card sx={{ display: "flex", alignItems: "center", margin: "10px" }}>
+      <Checkbox onChange={onChange} checked={isChecked} />
       {icon}
       <Typography sx={{ color: theme.font, margin: "15px 20px" }}>
         {text}
       </Typography>
-    </Box>
+    </Card>
   );
 };
 

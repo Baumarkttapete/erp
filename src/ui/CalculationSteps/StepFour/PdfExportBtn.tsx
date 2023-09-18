@@ -17,22 +17,16 @@ import PdfInfoCard from "./PdfInfoCard";
 
 const PdfExportBtn: React.FC<{
   userData: UserData;
-  isCheckedDaten: boolean;
-  isCheckedSubDaten1: boolean;
-  isCheckedSubDaten2: boolean;
-  isCheckedSubDaten3: boolean;
-  isCheckedRisiken: boolean;
-  isCheckedSubRisiken1: boolean;
-  isCheckedSubRisiken2: boolean;
+  isCheckedCost: boolean;
+  isCheckedTime: boolean;
+  isCheckedPersonal: boolean;
+  isCheckedRisk: boolean;
 }> = ({
   userData,
-  isCheckedDaten,
-  isCheckedSubDaten1,
-  isCheckedSubDaten2,
-  isCheckedSubDaten3,
-  isCheckedRisiken,
-  isCheckedSubRisiken1,
-  isCheckedSubRisiken2,
+  isCheckedCost,
+  isCheckedTime,
+  isCheckedPersonal,
+  isCheckedRisk,
 }) => {
   const { theme } = useTheme();
 
@@ -43,103 +37,90 @@ const PdfExportBtn: React.FC<{
           <Image src={logoDark} style={{ width: 300, margin: "0 auto" }} />
         </View>
         <View style={{ margin: "20px" }}>
-          {isCheckedDaten && (
-            <div>
-              <Text
-                style={{
-                  fontSize: fontSize.title,
-                  color: theme.font,
-                  margin: "10px",
-                }}
-              >
-                Daten
-              </Text>
-              {isCheckedSubDaten1 && (
-                <PdfInfoCard
-                  data={[
-                    {
-                      name: "Softwarekosten",
-                      amount: userData.softwareCost.toFixed(2),
-                      unit: " €",
-                    },
-                    {
-                      name: "Servicekosten",
-                      amount: userData.serviceCost.toFixed(2),
-                      unit: " €",
-                    },
-                    {
-                      name: "HardwareKosten",
-                      amount: userData.hardwareCost.toFixed(2),
-                      unit: " €",
-                    },
-                    {
-                      name: "Gesamt",
-                      amount: (
-                        userData.softwareCost +
-                        userData.serviceCost +
-                        userData.hardwareCost
-                      ).toFixed(2),
-                      unit: " €",
-                    },
-                  ]}
-                  title={"Kosten"}
-                  infoText={"infotext"}
-                />
-              )}
-              {isCheckedSubDaten2 && (
-                <PdfInfoCard
-                  data={[
-                    {
-                      name: "Vorarbeit",
-                      amount: userData.time.prework.toFixed(1),
-                      unit: " Monate",
-                    },
-                    {
-                      name: "Implementierung",
-                      amount: userData.time.implementation.toFixed(1),
-                      unit: " Monate",
-                    },
-                    {
-                      name: "Gesamt",
-                      amount: (
-                        userData.time.implementation + userData.time.prework
-                      ).toFixed(1),
-                      unit: " Monate",
-                    },
-                  ]}
-                  title={"Dauer des Projekts"}
-                  infoText={"infotext"}
-                />
-              )}
-              {isCheckedSubDaten3 && (
-                <PdfInfoCard
-                  data={[
-                    {
-                      name: "Intern",
-                      amount: userData.personal.intern.toFixed(1),
-                      unit: " Mitarbeiter",
-                    },
-                    {
-                      name: "Extern",
-                      amount: userData.personal.extern.toFixed(1),
-                      unit: " Berater",
-                    },
-                    {
-                      name: "Gesamt",
-                      amount: (
-                        userData.time.implementation + userData.time.prework
-                      ).toFixed(1),
-                      unit: " Personen",
-                    },
-                  ]}
-                  title={"Mitarbeiter im Kernteam"}
-                  infoText={"infotext"}
-                />
-              )}
-            </div>
+          {isCheckedCost && (
+            <PdfInfoCard
+              data={[
+                {
+                  name: "Softwarekosten",
+                  amount: userData.softwareCost.toFixed(2),
+                  unit: " €",
+                },
+                {
+                  name: "Servicekosten",
+                  amount: userData.serviceCost.toFixed(2),
+                  unit: " €",
+                },
+                {
+                  name: "HardwareKosten",
+                  amount: userData.hardwareCost.toFixed(2),
+                  unit: " €",
+                },
+                {
+                  name: "Gesamt",
+                  amount: (
+                    userData.softwareCost +
+                    userData.serviceCost +
+                    userData.hardwareCost
+                  ).toFixed(2),
+                  unit: " €",
+                },
+              ]}
+              title={"Kosten"}
+              infoText={"infotext"}
+            />
+          )}
+          {isCheckedTime && (
+            <PdfInfoCard
+              data={[
+                {
+                  name: "Vorarbeit",
+                  amount: userData.time.prework.toFixed(1),
+                  unit: " Monate",
+                },
+                {
+                  name: "Implementierung",
+                  amount: userData.time.implementation.toFixed(1),
+                  unit: " Monate",
+                },
+                {
+                  name: "Gesamt",
+                  amount: (
+                    userData.time.implementation + userData.time.prework
+                  ).toFixed(1),
+                  unit: " Monate",
+                },
+              ]}
+              title={"Dauer des Projekts"}
+              infoText={"infotext"}
+            />
+          )}
+          {isCheckedPersonal && (
+            <PdfInfoCard
+              data={[
+                {
+                  name: "Intern",
+                  amount: userData.personal.intern.toFixed(1),
+                  unit: " Mitarbeiter",
+                },
+                {
+                  name: "Extern",
+                  amount: userData.personal.extern.toFixed(1),
+                  unit: " Berater",
+                },
+                {
+                  name: "Gesamt",
+                  amount: (
+                    userData.time.implementation + userData.time.prework
+                  ).toFixed(1),
+                  unit: " Personen",
+                },
+              ]}
+              title={"Mitarbeiter im Kernteam"}
+              infoText={"infotext"}
+            />
           )}
         </View>
-        {isCheckedRisiken && (
+        {isCheckedRisk && (
           <View>
             <Text></Text>
           </View>
