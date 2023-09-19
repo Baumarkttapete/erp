@@ -8,11 +8,11 @@ import {
 } from "@mui/material";
 import { useTheme } from "../../theme/ThemeProvider";
 
-const HomeCard: React.FC<{ title: string; img: string; text: string }> = ({
-  title,
-  img,
-  text,
-}) => {
+const HomeCard: React.FC<{
+  title: string;
+  avatar: React.ReactNode;
+  text: string;
+}> = ({ title, avatar, text }) => {
   const { theme, setTheme } = useTheme();
 
   return (
@@ -20,8 +20,9 @@ const HomeCard: React.FC<{ title: string; img: string; text: string }> = ({
       <CardHeader
         title={title}
         titleTypographyProps={{ fontSize: "16px", fontWeight: "bold" }}
+        avatar={avatar}
       />
-      <CardMedia component="img" height="110" image={img} alt="Paella dish" />
+
       <CardContent>
         <Typography variant="body2" color={theme.font}>
           {text}

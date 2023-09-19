@@ -29,7 +29,7 @@ const PdfExportBtn: React.FC<{
   isCheckedRisk,
 }) => {
   const { theme } = useTheme();
-  const [showSnackbar, setShowSnackbar] = useState(true);
+  const [showSnackbar, setShowSnackbar] = useState(false);
 
   const handleShowSnackbar = () => {
     setTimeout(() => {

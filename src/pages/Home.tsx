@@ -1,17 +1,17 @@
 import { Box, Button, Divider, Typography } from "@mui/material";
 import React from "react";
 import { useTheme } from "../theme/ThemeProvider";
-import Title from "../ui/Title";
 import routePaths from "../routePaths";
-import euro from "../img/euro.jpg";
-import team from "../img/team.jpg";
-import time from "../img/time.jpg";
-import risk from "../img/risk.jpg";
 import HomeCard from "../ui/Home/HomeCard";
 import ScrollBtn from "../ui/ScrollBtn";
 
+import EuroIcon from "@mui/icons-material/Euro";
+import GroupsIcon from "@mui/icons-material/Groups";
+import AccessTimeIcon from "@mui/icons-material/AccessTime";
+import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+
 const Home: React.FC<{}> = ({}) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
 
   return (
     <Box
@@ -55,28 +55,28 @@ const Home: React.FC<{}> = ({}) => {
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <HomeCard
           title={"Kosten"}
-          img={euro}
+          avatar={<EuroIcon style={{ color: theme.secondary }} />}
           text={
             "Erfahren Sie, wie die Kosten für die ERP-Einführung pro Benutzer berechnet werden. Erhalten Sie einen Überblick über die finanziellen Aspekte und wie sie sich auf Ihr Unternehmen auswirken können."
           }
         />
         <HomeCard
           title={"Kernteam"}
-          img={team}
+          avatar={<GroupsIcon style={{ color: theme.secondary }} />}
           text={
             "Das Kernteam spielt eine entscheidende Rolle bei der erfolgreichen Umsetzung eines ERP-Projekts. Hier erfahren Sie, wie die Größe und Expertise des Kernteams den Erfolg Ihrer Einführung beeinflussen kann"
           }
         />
         <HomeCard
           title={"Dauer"}
-          img={time}
+          avatar={<AccessTimeIcon style={{ color: theme.secondary }} />}
           text={
             "Wie lange dauert die Einführung eines ERP-Systems? Entdecken Sie, welche Faktoren die Dauer des Projekts beeinflussen können und wie Sie die Implementierungszeit optimieren können."
           }
         />
         <HomeCard
           title={"Risiken"}
-          img={risk}
+          avatar={<ReportProblemIcon style={{ color: theme.secondary }} />}
           text={
             "Jede ERP-Einführung birgt potenzielle Risiken. Lernen Sie die häufigsten Herausforderungen kennen und erfahren Sie, wie Sie diese proaktiv angehen können, um einen reibungslosen Ablauf sicherzustellen."
           }
