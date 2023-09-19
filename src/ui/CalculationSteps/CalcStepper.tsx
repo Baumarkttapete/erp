@@ -7,10 +7,6 @@ import {
   Typography,
   Box,
 } from "@mui/material";
-import StepFour from "./StepFour";
-import StepOne from "./StepOne";
-import StepThree from "./StepThree";
-import StepTwo from "./StepTwo";
 import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import SnackbarInfo, { AlertType } from "./SnackbarInfo";
@@ -20,12 +16,21 @@ import { useIntl } from "react-intl";
 import { getRiskData } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
 import { fontSize } from "../../theme/Sizes";
-
-const steps = ["Benutzereingaben", "Daten", "Risiken", "PDF"];
+import Step1 from "./Step1";
+import Step3 from "./Step3";
+import Step4 from "./Step4";
+import Step2 from "./Step2";
 
 const CalcStepper: React.FC = () => {
   const { theme } = useTheme();
   const intl = useIntl();
+
+  const steps = [
+    intl.formatMessage({ id: "input" }),
+    intl.formatMessage({ id: "results" }),
+    intl.formatMessage({ id: "risks" }),
+    intl.formatMessage({ id: "pdf_export" }),
+  ];
 
   const [activeStep, setActiveStep] = useState(0);
   const [userData, setUserData] = useState<UserData>(
@@ -101,12 +106,12 @@ const CalcStepper: React.FC = () => {
   const getStepContent = (step: number) => {
     switch (step) {
       case 0:
-        return <StepOne userData={userData} onChange={handleChangeStepOne} />;
+        return <Step1 userData={userData} onChange={handleChangeStepOne} />;
       case 1:
-        return <StepThree userData={userData} />;
+        return <Step2 userData={userData} />;
       case 2:
         return (
-          <StepTwo
+          <Step3
             userData={userData}
             riskData={riskData}
             triangleData={triangleData}
@@ -115,18 +120,14 @@ const CalcStepper: React.FC = () => {
         );
       case 3:
         return (
-          <StepFour
+          <Step4
             userData={userData}
             triangleData={triangleData}
             riskData={riskData}
           />
         );
       default:
-        return (
-          <Typography sx={{ color: theme.font }}>
-            Unbekannter Schritt
-          </Typography>
-        );
+        return <Typography sx={{ color: theme.font }}>404</Typography>;
     }
   };
 
@@ -140,9 +141,7 @@ const CalcStepper: React.FC = () => {
   };
 
   const handleOpenSnackbar = () => {
-    setSnackbarText(
-      "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an."
-    );
+    setSnackbarText(intl.formatMessage({ id: "step1_snackbar_text" }));
     setSnackbarAlertType("info");
     setSnackbarOpen(true);
   };
@@ -209,7 +208,7 @@ const CalcStepper: React.FC = () => {
                 },
               }}
             >
-              Zurück
+              {intl.formatMessage({ id: "back" })}
             </Button>
           )}
           {activeStep !== 3 && (
@@ -231,7 +230,7 @@ const CalcStepper: React.FC = () => {
                 opacity: nextBtnActive ? 1 : 0.5,
               }}
             >
-              Weiter
+              {intl.formatMessage({ id: "next" })}
             </Button>
           )}
         </Box>

@@ -6,22 +6,23 @@ import Title from "../Title";
 import InfoCardList from "./StepThree/InfoCardList";
 import UserInfoCard from "./StepThree/UserInfoCard";
 import { useTheme } from "../../theme/ThemeProvider";
+import { useIntl } from "react-intl";
 
-const StepThree: React.FC<{
+const Step2: React.FC<{
   userData: UserData;
 }> = ({ userData }) => {
   const { theme } = useTheme();
+  const intl = useIntl();
 
   return (
     <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} />
-      <Title text={"Zusammenfassung"} color={theme.font} />
-
-      <CustomText
-        text={
-          "Im folgenden finden Sie die ausgewählten und erreichneten Daten, die laut der Trovarit-Studie ERP-Implementierung aus dem Jahr 2018 auf Ihr ERP-Projekt zutreffend sind."
-        }
+      <Title
+        text={intl.formatMessage({ id: "step2_title" })}
+        color={theme.font}
       />
+
+      <CustomText text={intl.formatMessage({ id: "step2_infotext" })} />
 
       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         <InfoCardList userData={userData} />
@@ -30,4 +31,4 @@ const StepThree: React.FC<{
   );
 };
 
-export default StepThree;
+export default Step2;

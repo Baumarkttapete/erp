@@ -14,6 +14,7 @@ import { UserData } from "../../../models/UserData";
 import PdfInfoCard from "./PdfInfoCard";
 import { Box, LinearProgress } from "@mui/material";
 import SnackbarInfo from "../SnackbarInfo";
+import { useIntl } from "react-intl";
 
 const PdfExportBtn: React.FC<{
   userData: UserData;
@@ -29,6 +30,7 @@ const PdfExportBtn: React.FC<{
   isCheckedRisk,
 }) => {
   const { theme } = useTheme();
+  const intl = useIntl();
   const [showSnackbar, setShowSnackbar] = useState(false);
 
   const handleShowSnackbar = () => {
@@ -43,27 +45,28 @@ const PdfExportBtn: React.FC<{
         <View>
           <Image src={logoDark} style={{ width: 300, margin: "0 auto" }} />
         </View>
-        <View style={{ margin: "20px" }}>
-          {isCheckedCost && (
+
+        {isCheckedCost && (
+          <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
                 {
-                  name: "Softwarekosten",
+                  name: intl.formatMessage({ id: "software" }),
                   amount: userData.softwareCost.toFixed(2),
                   unit: " €",
                 },
                 {
-                  name: "Servicekosten",
+                  name: intl.formatMessage({ id: "service" }),
                   amount: userData.serviceCost.toFixed(2),
                   unit: " €",
                 },
                 {
-                  name: "HardwareKosten",
+                  name: intl.formatMessage({ id: "hardware" }),
                   amount: userData.hardwareCost.toFixed(2),
                   unit: " €",
                 },
                 {
-                  name: "Gesamt",
+                  name: intl.formatMessage({ id: "sum" }),
                   amount: (
                     userData.softwareCost +
                     userData.serviceCost +
@@ -72,61 +75,66 @@ const PdfExportBtn: React.FC<{
                   unit: " €",
                 },
               ]}
-              title={"Kosten"}
-              infoText={"infotext"}
+              title={intl.formatMessage({ id: "cost" })}
+              infoText={intl.formatMessage({ id: "cost_infotext" })}
             />
-          )}
-          {isCheckedTime && (
+          </View>
+        )}
+        {isCheckedTime && (
+          <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
                 {
-                  name: "Vorarbeit",
+                  name: intl.formatMessage({ id: "prework" }),
                   amount: userData.time.prework.toFixed(1),
-                  unit: " Monate",
+                  unit: intl.formatMessage({ id: "months" }),
                 },
                 {
-                  name: "Implementierung",
+                  name: intl.formatMessage({ id: "implementation" }),
                   amount: userData.time.implementation.toFixed(1),
-                  unit: " Monate",
+                  unit: intl.formatMessage({ id: "months" }),
                 },
                 {
-                  name: "Gesamt",
+                  name: intl.formatMessage({ id: "sum" }),
                   amount: (
                     userData.time.implementation + userData.time.prework
                   ).toFixed(1),
-                  unit: " Monate",
+                  unit: intl.formatMessage({ id: "months" }),
                 },
               ]}
-              title={"Dauer des Projekts"}
-              infoText={"infotext"}
+              title={intl.formatMessage({ id: "time" })}
+              infoText={intl.formatMessage({ id: "time_infotext" })}
             />
-          )}
-          {isCheckedPersonal && (
+          </View>
+        )}
+        {isCheckedPersonal && (
+          <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
                 {
-                  name: "Intern",
+                  name: intl.formatMessage({ id: "intern" }),
                   amount: userData.personal.intern.toFixed(1),
-                  unit: " Mitarbeiter",
+                  unit: intl.formatMessage({ id: "employees" }),
                 },
                 {
-                  name: "Extern",
+                  name: intl.formatMessage({ id: "extern" }),
                   amount: userData.personal.extern.toFixed(1),
-                  unit: " Berater",
+                  unit: intl.formatMessage({ id: "consultants" }),
                 },
                 {
-                  name: "Gesamt",
+                  name: intl.formatMessage({ id: "sum" }),
                   amount: (
                     userData.time.implementation + userData.time.prework
                   ).toFixed(1),
-                  unit: " Personen",
+                  unit: intl.formatMessage({ id: "persons" }),
                 },
               ]}
-              title={"Mitarbeiter im Kernteam"}
-              infoText={"infotext"}
+              title={intl.formatMessage({ id: "personal" })}
+              infoText={intl.formatMessage({ id: "personal_infotext" })}
             />
-          )}
-        </View>
+          </View>
+        )}
+
         {isCheckedRisk && (
           <View>
             <Text></Text>
@@ -157,7 +165,7 @@ const PdfExportBtn: React.FC<{
           justifyContent: "center",
         }}
         document={<MyDocument />}
-        fileName="exported.pdf"
+        fileName="erp_project.pdf"
         onClick={handleShowSnackbar}
       >
         {({ blob, url, loading, error }) =>

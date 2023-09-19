@@ -5,106 +5,105 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import InfoCardPie from "./InfoCardPie";
 import { Box } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
+import { useIntl } from "react-intl";
 
 const InfoCardList: React.FC<{ userData: UserData }> = ({ userData }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
+  const intl = useIntl();
 
   const dataCostCard = {
     avatar: <EuroIcon />,
-    title: "Kosten pro User",
+    title: intl.formatMessage({ id: "cost_per_user" }),
     data: [
       {
-        name: "Software",
+        name: intl.formatMessage({ id: "software" }),
         value: userData.softwareCost,
         valueFix: 2,
-        color: theme.secondary,
+        color: theme.pie1,
         unit: " €",
       },
       {
-        name: "Dienstleistung",
+        name: intl.formatMessage({ id: "service" }),
         value: userData.serviceCost,
         valueFix: 2,
-        color: theme.warning,
+        color: theme.pie2,
         unit: " €",
       },
       {
-        name: "Hardware",
+        name: intl.formatMessage({ id: "hardware" }),
         value: userData.hardwareCost,
         valueFix: 2,
-        color: theme.success,
+        color: theme.pie3,
         unit: " €",
       },
     ],
     dataSum: {
-      name: "Gesamt",
+      name: intl.formatMessage({ id: "sum" }),
       value:
         userData.hardwareCost + userData.softwareCost + userData.serviceCost,
       valueFix: 2,
       color: "transparent",
       unit: " €",
     },
-    infoText:
-      "Dies ist eine Beispielinfo für die InfoCard. Hier können weitere Details oder Informationen angezeigt werden.",
+    infoText: intl.formatMessage({ id: "cost_infotext" }),
   };
 
   const dataTimeCard = {
     avatar: <AccessTimeIcon />,
-    title: "Dauer",
+    title: intl.formatMessage({ id: "time" }),
     data: [
       {
-        name: "Vorarbeit",
+        name: intl.formatMessage({ id: "prework" }),
         value: userData.time.prework,
         valueFix: 1,
-        color: theme.secondary,
-        unit: " Monate",
+        color: theme.pie2,
+        unit: intl.formatMessage({ id: "months" }),
       },
       {
-        name: "Implementierung",
+        name: intl.formatMessage({ id: "implementation" }),
         value: userData.time.implementation,
         valueFix: 1,
-        color: theme.warning,
-        unit: " Monate",
+        color: theme.pie3,
+        unit: intl.formatMessage({ id: "months" }),
       },
     ],
     dataSum: {
-      name: "Gesamt",
+      name: intl.formatMessage({ id: "sum" }),
       value: userData.time.prework + userData.time.implementation,
       valueFix: 1,
       color: "transparent",
-      unit: " Monate",
+      unit: intl.formatMessage({ id: "months" }),
     },
-    infoText:
-      "Dies ist eine Beispielinfo für die InfoCard. Hier können weitere Details oder Informationen angezeigt werden.",
+    infoText: intl.formatMessage({ id: "time_infotext" }),
   };
 
   const dataPersonalCard = {
     avatar: <GroupsIcon />,
-    title: "Personalbedarf im Projektteam",
+    title: intl.formatMessage({ id: "personal" }),
     data: [
       {
-        name: "Intern",
+        name: intl.formatMessage({ id: "intern" }),
         value: userData.personal.intern,
         valueFix: 1,
-        color: theme.secondary,
-        unit: " Mitarbeiter",
+        color: theme.pie1,
+        unit: intl.formatMessage({ id: "employees" }),
       },
       {
-        name: "Extern",
+        name: intl.formatMessage({ id: "extern" }),
         value: userData.personal.extern,
         valueFix: 1,
-        color: theme.warning,
-        unit: " Berater",
+        color: theme.pie4,
+        unit: intl.formatMessage({ id: "consultants" }),
       },
     ],
     dataSum: {
-      name: "Gesamt",
+      name: intl.formatMessage({ id: "sum" }),
       value: userData.time.prework + userData.time.implementation,
       valueFix: 1,
       color: "transparent",
-      unit: " Personen",
+      unit: intl.formatMessage({ id: "persons" }),
     },
-    infoText:
-      "Die Größe des Projektteams und der Einsatz von externen Beratern hängt stark von der Größe (z.B. gemessen an der Anzahl User) und der Komplexität (z.B. gemessen an der Anzahl der eingeführten Module oder an der Zahl der Standorte des Unternehmens) der Projekte ab. Entsprechend fällt der Aufwand für ERP-Projekte in verschiedenen Branchen auch sehr unterschiedlich aus.",
+    infoText: intl.formatMessage({ id: "personal_infotext" }),
   };
 
   return (

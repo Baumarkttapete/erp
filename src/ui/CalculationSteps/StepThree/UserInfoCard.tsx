@@ -8,23 +8,30 @@ import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { useTheme } from "../../../theme/ThemeProvider";
+import { useIntl } from "react-intl";
 
 const UserInfoCard: React.FC<{
   userData: UserData;
   showProjectData?: boolean;
 }> = ({ userData, showProjectData }) => {
   const { theme } = useTheme();
+  const intl = useIntl();
 
   const getBranch = () => {
-    if (userData.branch === "industrie") return "Industrie";
-    else if (userData.branch === "handel") return "Handel";
-    else if (userData.branch === "dienstleistung") return "Dienstleistung";
+    if (userData.branch === "industrie")
+      return intl.formatMessage({ id: "branch_industry" });
+    else if (userData.branch === "handel")
+      return intl.formatMessage({ id: "branch_trading" });
+    else if (userData.branch === "dienstleistung")
+      return intl.formatMessage({ id: "branch_service" });
   };
 
   const getRegion = () => {
-    if (userData.region === "D") return "Deutschland";
-    else if (userData.region === "A") return "Österreich";
-    else if (userData.region === "CH") return "Schweiz";
+    if (userData.region === "D") return intl.formatMessage({ id: "region_d" });
+    else if (userData.region === "A")
+      return intl.formatMessage({ id: "region_a" });
+    else if (userData.region === "CH")
+      return intl.formatMessage({ id: "region_ch" });
   };
 
   return (
@@ -45,11 +52,11 @@ const UserInfoCard: React.FC<{
           margin: "0 20px",
         }}
       >
-        <Tooltip title="Anzahl Mitarbeiter im Unternehmen">
+        <Tooltip title={intl.formatMessage({ id: "tooltip_employees" })}>
           <GroupIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
         <Typography sx={{ margin: "5px 5px", color: theme.font }}>
-          {userData.userQuantity} Mitarbeiter
+          {userData.userQuantity} {intl.formatMessage({ id: "employees" })}
         </Typography>
       </Box>
 
@@ -59,7 +66,7 @@ const UserInfoCard: React.FC<{
           margin: "0 20px",
         }}
       >
-        <Tooltip title="Branche des Unternehmens">
+        <Tooltip title={intl.formatMessage({ id: "tooltip_branch" })}>
           <BusinessIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
         <Typography sx={{ margin: "5px 5px", color: theme.font }}>
@@ -72,7 +79,7 @@ const UserInfoCard: React.FC<{
           margin: "0 20px",
         }}
       >
-        <Tooltip title="Region des Unternehmens">
+        <Tooltip title={intl.formatMessage({ id: "tooltip_region" })}>
           <LocationOnIcon sx={{ margin: "auto 0" }} />
         </Tooltip>
         <Typography sx={{ margin: "5px 5px", color: theme.font }}>
@@ -87,8 +94,7 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            {" "}
-            <Tooltip title="Kosten pro User">
+            <Tooltip title={intl.formatMessage({ id: "cost_per_user" })}>
               <EuroIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
             <Typography sx={{ margin: "5px 5px", color: theme.font }}>
@@ -106,14 +112,14 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            <Tooltip title="Dauer des Projekts">
+            <Tooltip title={intl.formatMessage({ id: "tooltip_time" })}>
               <AccessTimeIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
             <Typography sx={{ margin: "5px 5px", color: theme.font }}>
               {(userData.time.implementation + userData.time.prework).toFixed(
                 1
               )}{" "}
-              Monate
+              {intl.formatMessage({ id: "months" })}
             </Typography>
           </Box>
           <Box
@@ -122,12 +128,12 @@ const UserInfoCard: React.FC<{
               margin: "0 20px",
             }}
           >
-            <Tooltip title="Benötigte Personen im Kernteam">
+            <Tooltip title={intl.formatMessage({ id: "tooltip_personal" })}>
               <GroupsIcon sx={{ margin: "auto 0" }} />
             </Tooltip>
             <Typography sx={{ margin: "5px 5px", color: theme.font }}>
               {(userData.personal.intern + userData.personal.extern).toFixed(1)}{" "}
-              Personen
+              {intl.formatMessage({ id: "persons" })}
             </Typography>
           </Box>
         </>

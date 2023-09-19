@@ -19,7 +19,7 @@ import { getRisk } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
 import Title from "../Title";
 
-const StepOne: React.FC<{
+const Step1: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
@@ -86,7 +86,7 @@ const StepOne: React.FC<{
         }}
       >
         <Title
-          text={intl.formatMessage({ id: "stepOne_title" })}
+          text={intl.formatMessage({ id: "step1_title" })}
           color={theme.font}
         />
 
@@ -154,7 +154,7 @@ const StepOne: React.FC<{
             }}
           >
             <InfoIcon sx={{ color: theme.secondary }} fontSize="large" />
-            <CustomText text={intl.formatMessage({ id: "stepOne_infotext" })} />
+            <CustomText text={intl.formatMessage({ id: "step1_infotext" })} />
           </Box>
         </Box>
       </Box>
@@ -162,4 +162,4 @@ const StepOne: React.FC<{
   );
 };
 
-export default StepOne;
+export default Step1;

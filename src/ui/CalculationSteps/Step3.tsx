@@ -12,7 +12,7 @@ import { useTheme } from "../../theme/ThemeProvider";
 import { useIntl } from "react-intl";
 import Subtitle from "../Subtitle";
 
-const StepTwo: React.FC<{
+const Step3: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
   riskData: RiskData[];
@@ -122,14 +122,17 @@ const StepTwo: React.FC<{
     <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Title text={"Risiken"} color={theme.font} />
+        <Title text={intl.formatMessage({ id: "risks" })} color={theme.font} />
         <Typography sx={{ color: theme.font }}>
           {intl.formatMessage({ id: "risk_infotext_diagram" })}
         </Typography>
         <Card sx={{ padding: "20px" }}>
           <CustomBarChart data={riskData} />
         </Card>
-        <Subtitle text={"Auswirkungen"} color={theme.font} />
+        <Subtitle
+          text={intl.formatMessage({ id: "effects" })}
+          color={theme.font}
+        />
         <Typography sx={{ margin: "10px 0", color: theme.font }}>
           {intl.formatMessage({ id: "risk_infotext_radar" })}
         </Typography>
@@ -155,4 +158,4 @@ const StepTwo: React.FC<{
   );
 };
 
-export default StepTwo;
+export default Step3;

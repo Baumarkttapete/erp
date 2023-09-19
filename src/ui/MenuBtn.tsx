@@ -3,9 +3,11 @@ import { Box, Button, Menu, Slider, Typography } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTheme } from "../theme/ThemeProvider";
 import { bright, highContrast } from "../theme/Colors";
+import { useIntl } from "react-intl";
 
 const MenuBtn: React.FC = ({}) => {
   const { theme, setTheme } = useTheme();
+  const intl = useIntl();
 
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
@@ -54,16 +56,29 @@ const MenuBtn: React.FC = ({}) => {
           }}
         >
           <Typography sx={{ margin: "10px auto", flex: 1, color: theme.font }}>
-            Theme
+            {intl.formatMessage({ id: "theme" })}
           </Typography>
           <Slider
-            sx={{ margin: "10px 30px", width: "120px" }}
+            sx={{
+              margin: "10px 30px",
+              width: "120px",
+              color: theme.secondary,
+              "& .MuiSlider-markLabel": {
+                color: theme.font,
+              },
+              "& .MuiSlider-thumb": {
+                color: theme.primary,
+              },
+              "& .MuiSlider-rail": {
+                backgroundColor: theme.secondary,
+              },
+            }}
             value={theme === bright ? 0 : 1}
             onChange={(e, newValue) => handleThemeChange(e, newValue)}
             step={1}
             marks={[
-              { value: 0, label: "Bright" },
-              { value: 1, label: "high Contrast" },
+              { value: 0, label: intl.formatMessage({ id: "colorful" }) },
+              { value: 1, label: intl.formatMessage({ id: "high_contrast" }) },
             ]}
             min={0}
             max={1}

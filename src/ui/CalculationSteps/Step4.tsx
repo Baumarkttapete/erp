@@ -13,14 +13,15 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import CostumCheckbox from "./StepFour/CustomCheckbox";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
-import DisplaySettingsIcon from "@mui/icons-material/DisplaySettings";
+import { useIntl } from "react-intl";
 
-const StepFour: React.FC<{
+const Step4: React.FC<{
   userData: UserData;
   triangleData: TriangleData;
   riskData: RiskData[];
 }> = ({ userData, triangleData, riskData }) => {
   const { theme } = useTheme();
+  const intl = useIntl();
 
   const [selectedContent, setSelectedContent] = useState<string[]>([]);
   const [isCheckedCost, setIsCheckedCost] = useState(true);
@@ -30,16 +31,16 @@ const StepFour: React.FC<{
 
   const handleCheckboxChange = (label: string, isChecked: boolean) => {
     switch (label) {
-      case "Cost":
+      case intl.formatMessage({ id: "cost" }):
         setIsCheckedCost(isChecked);
         break;
-      case "Time":
+      case intl.formatMessage({ id: "time" }):
         setIsCheckedTime(isChecked);
         break;
-      case "Personal":
+      case intl.formatMessage({ id: "personal" }):
         setIsCheckedPersonal(isChecked);
         break;
-      case "Risk":
+      case intl.formatMessage({ id: "risk" }):
         setIsCheckedRisk(isChecked);
         break;
       default:
@@ -64,8 +65,7 @@ const StepFour: React.FC<{
       >
         <Title text={"PDF Export"} color={theme.font} />
         <Typography sx={{ color: theme.font }}>
-          Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen und
-          klicke anschließend auf den Button "Export als PDF".
+          {intl.formatMessage({ id: "step4_infotext" })}
         </Typography>
         <Box
           sx={{
@@ -78,26 +78,46 @@ const StepFour: React.FC<{
         >
           <CostumCheckbox
             isChecked={isCheckedCost}
-            onChange={(e) => handleCheckboxChange("Cost", e.target.checked)}
-            text="Kosten"
+            onChange={(e) =>
+              handleCheckboxChange(
+                intl.formatMessage({ id: "cost" }),
+                e.target.checked
+              )
+            }
+            text={intl.formatMessage({ id: "cost" })}
             icon={<EuroIcon />}
           />
           <CostumCheckbox
             isChecked={isCheckedTime}
-            onChange={(e) => handleCheckboxChange("Time", e.target.checked)}
-            text="Time"
+            onChange={(e) =>
+              handleCheckboxChange(
+                intl.formatMessage({ id: "time" }),
+                e.target.checked
+              )
+            }
+            text={intl.formatMessage({ id: "time" })}
             icon={<AccessTimeIcon />}
           />
           <CostumCheckbox
             isChecked={isCheckedPersonal}
-            onChange={(e) => handleCheckboxChange("Personal", e.target.checked)}
-            text="Personal"
+            onChange={(e) =>
+              handleCheckboxChange(
+                intl.formatMessage({ id: "personal" }),
+                e.target.checked
+              )
+            }
+            text={intl.formatMessage({ id: "personal" })}
             icon={<GroupsIcon />}
           />
           <CostumCheckbox
             isChecked={isCheckedRisk}
-            onChange={(e) => handleCheckboxChange("Risk", e.target.checked)}
-            text="Risk"
+            onChange={(e) =>
+              handleCheckboxChange(
+                intl.formatMessage({ id: "risks" }),
+                e.target.checked
+              )
+            }
+            text={intl.formatMessage({ id: "risks" })}
             icon={<ReportProblemIcon />}
           />
         </Box>
@@ -114,4 +134,4 @@ const StepFour: React.FC<{
   );
 };
 
-export default StepFour;
+export default Step4;

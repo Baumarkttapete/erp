@@ -19,7 +19,7 @@ const PdfInfoCard: React.FC<{
         margin: "5px",
         border: "1px solid grey",
         borderRadius: "8px",
-        boxShadow: "3px 3px",
+        boxShadow: "3px 3px 3px",
         padding: "10px",
         display: "flex",
         flexDirection: "row",
@@ -44,7 +44,7 @@ const PdfInfoCard: React.FC<{
           {data.map((entry, index) => (
             <React.Fragment key={index}>
               {index === data.length - 1 && (
-                <div style={{ borderTop: "1px solid grey" }} />
+                <div style={{ borderTop: "1px solid grey", width: "230px" }} />
               )}
               <PdfTextSpan
                 title={entry.name}
@@ -54,9 +54,16 @@ const PdfInfoCard: React.FC<{
             </React.Fragment>
           ))}
         </div>
+        <div style={{ margin: "15px" }}>
+          <Text style={textStyle}>{infoText}</Text>
+        </div>
       </div>
-      <div style={{ marginLeft: "40px" }}>
-        <Text style={textStyle}>{infoText}</Text>
+      <div style={{ margin: "40px" }}>
+        <Text
+          style={{
+            fontSize: fontSize.text,
+          }}
+        ></Text>
       </div>
     </div>
   );
