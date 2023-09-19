@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   PDFViewer,
   PDFDownloadLink,
@@ -8,12 +8,12 @@ import {
   Image,
   Text,
 } from "@react-pdf/renderer";
-import { Button, Typography } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
 import logoDark from "../../../img/logoDark.png";
 import { UserData } from "../../../models/UserData";
-import { fontSize } from "../../../theme/Sizes";
 import PdfInfoCard from "./PdfInfoCard";
+import { Box, LinearProgress } from "@mui/material";
+import SnackbarInfo from "../SnackbarInfo";
 
 const PdfExportBtn: React.FC<{
   userData: UserData;
@@ -29,6 +29,13 @@ const PdfExportBtn: React.FC<{
   isCheckedRisk,
 }) => {
   const { theme } = useTheme();
+  const [showSnackbar, setShowSnackbar] = useState(true);
+
+  const handleShowSnackbar = () => {
+    setTimeout(() => {
+      setShowSnackbar(true);
+    }, 1500);
+  };
 
   const MyDocument = () => (
     <Document>
@@ -134,25 +141,48 @@ const PdfExportBtn: React.FC<{
       <PDFViewer width={"90%"} height={600} style={{ margin: "20px auto" }}>
         <MyDocument />
       </PDFViewer>
+
       <PDFDownloadLink
         style={{
           backgroundColor: theme.primary,
           borderRadius: "4px",
           width: "500px",
+          height: "24.5px",
+          padding: "6px",
           color: theme.font2,
           fontWeight: "bold",
           textDecoration: "none",
           textAlign: "center",
-          padding: "11px",
           margin: "0px auto",
+          justifyContent: "center",
         }}
         document={<MyDocument />}
         fileName="exported.pdf"
+        onClick={handleShowSnackbar}
       >
         {({ blob, url, loading, error }) =>
-          loading ? "Lade das PDF herunter..." : "PDF herunterladen"
+          loading ? (
+            <Box sx={{ width: "100%", margin: "auto 0" }}>
+              <LinearProgress
+                color="success"
+                style={{
+                  height: "5px",
+                }}
+              />
+            </Box>
+          ) : (
+            "PDF herunterladen"
+          )
         }
       </PDFDownloadLink>
+      <SnackbarInfo
+        text={"PDF heruntergeladen"}
+        alert={"success"}
+        open={showSnackbar}
+        onClose={() => {
+          setShowSnackbar(false);
+        }}
+      />
     </>
   );
 };
