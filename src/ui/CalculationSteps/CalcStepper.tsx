@@ -71,11 +71,7 @@ const CalcStepper: React.FC = () => {
 
   const handleNext = () => {
     if (activeStep === 0 && !stepOneValid) {
-      setSnackbarText(
-        "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an, um anschließend auf WEITER klicken zu können."
-      );
-      setSnackbarAlertType("info");
-      setSnackbarOpen(true);
+      handleOpenSnackbar();
     } else {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
       window.scrollTo(0, 0);
@@ -136,10 +132,19 @@ const CalcStepper: React.FC = () => {
 
   const handleStepClick = (step: number) => {
     if (activeStep === 0 && !stepOneValid) {
+      handleOpenSnackbar();
     } else {
       setActiveStep(step);
       window.scrollTo(0, 0);
     }
+  };
+
+  const handleOpenSnackbar = () => {
+    setSnackbarText(
+      "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an."
+    );
+    setSnackbarAlertType("info");
+    setSnackbarOpen(true);
   };
 
   return (
