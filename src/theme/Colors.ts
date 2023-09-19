@@ -29,9 +29,9 @@ export const bright: ColorTheme = {
 };
 
 export const highContrast: ColorTheme = {
-  primary: "#3a4e48",
-  secondary: "#c2e812",
-  accent: "#beb0a7",
+  primary: "#222a68",
+  secondary: "#048a81",
+  accent: "#bfcde0",
   warning: "#D64045",
   success: "#698F3F",
   font: "#313638∂",

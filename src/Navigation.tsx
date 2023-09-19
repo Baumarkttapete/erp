@@ -14,10 +14,12 @@ const Navigation: React.FC = () => {
     return {
       color: location.pathname === route ? theme.secondary : theme.font2,
       fontWeight: "bold",
+      borderBottom:
+        location.pathname === route ? "4px solid white" : theme.primary,
+      margin: "5px",
       "&:hover": {
         color: theme.accent,
         opacity: "0.8",
-        backgroundColor: theme.primary,
       },
     };
   };

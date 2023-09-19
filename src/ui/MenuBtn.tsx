@@ -55,22 +55,32 @@ const MenuBtn: React.FC = ({}) => {
             flexDirection: "column",
           }}
         >
-          <Typography sx={{ margin: "10px auto", flex: 1, color: theme.font }}>
+          <Typography
+            sx={{
+              margin: "5px auto",
+              flex: 1,
+              color: theme.font,
+              fontWeight: "bold",
+            }}
+          >
             {intl.formatMessage({ id: "theme" })}
           </Typography>
           <Slider
             sx={{
               margin: "10px 30px",
               width: "120px",
+              height: "20px",
               color: theme.secondary,
               "& .MuiSlider-markLabel": {
                 color: theme.font,
+                padding: "5px",
               },
               "& .MuiSlider-thumb": {
                 color: theme.primary,
               },
               "& .MuiSlider-rail": {
                 backgroundColor: theme.secondary,
+                height: "20px",
               },
             }}
             value={theme === bright ? 0 : 1}
