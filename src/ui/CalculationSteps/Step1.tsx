@@ -147,7 +147,10 @@ const Step1: React.FC<{
           <Box
             sx={{
               flex: 1,
-              margin: "30px",
+              margin: "0 30px",
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "column",
             }}
           >
             <InfoIcon sx={{ color: theme.secondary }} fontSize="large" />

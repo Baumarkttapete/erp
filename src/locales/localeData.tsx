@@ -66,7 +66,7 @@ const localeData = {
 
     step1_title: "Benutzereingaben",
     step1_infotext:
-      "Bitte gib in die Inputfelder die ungefähre Mitarbeiteranzahl des Unternehmens an und wähle aus in welcher Branche und Standort der Niederlassung an.",
+      "Bitte gib in die Inputfelder die ungefähre Mitarbeiteranzahl des Unternehmens an und wähle Branche und Standort der Niederlassung aus. Ist die Branche nicht in der Auswahl gelistet, wähle aus, was dem an nächsten kommt.",
 
     step1_snackbar_text:
       "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an.",
