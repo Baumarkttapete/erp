@@ -56,7 +56,7 @@ const Step4: React.FC<{
   };
 
   return (
-    <Box sx={{ margin: "40px auto" }}>
+    <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
       <Box
         sx={{
