@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { Box, Slider, Typography, Collapse, Button } from "@mui/material";
+import { Box, Slider, Collapse, Button } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { RiskData } from "../../../models/RiskData";
 import { useTheme } from "../../../theme/ThemeProvider";
+import CostumText from "../../CostumText";
 
 const RiskOptions: React.FC<{
   riskData: RiskData[];
@@ -42,6 +43,7 @@ const RiskOptions: React.FC<{
                 display: "flex",
                 justifyContent: "start",
                 textTransform: "none",
+                color: theme.font,
               }}
               onClick={() => handleCollapseToggle(risk.name)}
             >
@@ -51,9 +53,7 @@ const RiskOptions: React.FC<{
                     expanded !== risk.name ? "rotate(0deg)" : "rotate(180deg)",
                 }}
               />
-              <Typography sx={{ color: theme.font, marginLeft: "10px" }}>
-                {risk.name}
-              </Typography>
+              <CostumText>{risk.name}</CostumText>
             </Button>
 
             <Slider
@@ -92,21 +92,13 @@ const RiskOptions: React.FC<{
               borderRadius: "0 0 8px 8px",
               borderTop: "none",
               margin: "0 0 10px 0",
-              width: "500px",
+              width: "400px",
             }}
           >
-            <Typography sx={{ margin: "10px", color: theme.font }}>
-              {risk.info}
-            </Typography>
-            <Typography sx={{ margin: "10px", color: theme.font }}>
-              {risk.infoCost}
-            </Typography>
-            <Typography sx={{ margin: "10px", color: theme.font }}>
-              {risk.infoTime}
-            </Typography>
-            <Typography sx={{ margin: "10px", color: theme.font }}>
-              {risk.infoQuality}
-            </Typography>
+            <CostumText>{risk.info}</CostumText>
+            <CostumText>{risk.infoCost}</CostumText>
+            <CostumText>{risk.infoTime}</CostumText>
+            <CostumText>{risk.infoQuality}</CostumText>
           </Collapse>
         </div>
       ))}

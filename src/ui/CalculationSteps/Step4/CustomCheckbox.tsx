@@ -1,6 +1,7 @@
 import React from "react";
-import { Checkbox, Typography, Card } from "@mui/material";
+import { Checkbox, Card } from "@mui/material";
 import { useTheme } from "../../../theme/ThemeProvider";
+import CostumText from "../../CostumText";
 
 interface CostCheckboxProps {
   isChecked: boolean;
@@ -32,9 +33,7 @@ const CostumCheckbox: React.FC<CostCheckboxProps> = ({
         style={{ color: theme.secondary }}
       />
       {icon}
-      <Typography sx={{ color: theme.font, margin: "15px 20px" }}>
-        {text}
-      </Typography>
+      <CostumText>{text}</CostumText>
     </Card>
   );
 };

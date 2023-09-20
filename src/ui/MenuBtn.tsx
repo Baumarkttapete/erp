@@ -1,9 +1,10 @@
 import React from "react";
-import { Box, Button, Menu, Slider, Typography } from "@mui/material";
+import { Box, Button, Menu, Slider } from "@mui/material";
 import SettingsIcon from "@mui/icons-material/Settings";
 import { useTheme } from "../theme/ThemeProvider";
 import { bright, highContrast } from "../theme/Colors";
 import { useIntl } from "react-intl";
+import CostumSubtitle from "./CustomSubtitle";
 
 const MenuBtn: React.FC = ({}) => {
   const { theme, setTheme } = useTheme();
@@ -29,7 +30,7 @@ const MenuBtn: React.FC = ({}) => {
   };
 
   return (
-    <div>
+    <div style={{ margin: "auto 0" }}>
       <Button
         id="fade-button"
         aria-controls="fade-menu"
@@ -53,18 +54,10 @@ const MenuBtn: React.FC = ({}) => {
             display: "flex",
             margin: "10px",
             flexDirection: "column",
+            textAlign: "center",
           }}
         >
-          <Typography
-            sx={{
-              margin: "5px auto",
-              flex: 1,
-              color: theme.font,
-              fontWeight: "bold",
-            }}
-          >
-            {intl.formatMessage({ id: "theme" })}
-          </Typography>
+          <CostumSubtitle>{intl.formatMessage({ id: "theme" })}</CostumSubtitle>
           <Slider
             sx={{
               margin: "10px 30px",

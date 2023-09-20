@@ -1,12 +1,12 @@
 import React from "react";
 import { UserData } from "../../models/UserData";
 import { Box } from "@mui/material";
-import CustomText from "../CustomText";
-import Title from "../Title";
-import InfoCardList from "./StepThree/InfoCardList";
-import UserInfoCard from "./StepThree/UserInfoCard";
+import InfoCardList from "./Step2/InfoCardList";
+import UserInfoCard from "./Step2/UserInfoCard";
 import { useTheme } from "../../theme/ThemeProvider";
 import { useIntl } from "react-intl";
+import CostumText from "../CostumText";
+import CostumTitle from "../CustomTitle";
 
 const Step2: React.FC<{
   userData: UserData;
@@ -17,12 +17,9 @@ const Step2: React.FC<{
   return (
     <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} />
-      <Title
-        text={intl.formatMessage({ id: "step2_title" })}
-        color={theme.font}
-      />
+      <CostumTitle>{intl.formatMessage({ id: "step2_title" })}</CostumTitle>
 
-      <CustomText text={intl.formatMessage({ id: "step2_infotext" })} />
+      <CostumText>{intl.formatMessage({ id: "step2_infotext" })} </CostumText>
 
       <Box sx={{ display: "flex", flexWrap: "wrap" }}>
         <InfoCardList userData={userData} />

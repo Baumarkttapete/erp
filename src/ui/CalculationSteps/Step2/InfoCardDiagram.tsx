@@ -3,7 +3,6 @@ import {
   Card,
   CardHeader,
   CardContent,
-  Typography,
   CardActions,
   Collapse,
   IconButtonProps,
@@ -15,7 +14,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CustomPieChart from "./CustomPieChart";
 import InfoCardRow from "./InfoCardRow";
 import { useTheme } from "../../../theme/ThemeProvider";
-import InfoIcon from "@mui/icons-material/Info";
+import CostumText from "../../CostumText";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -52,14 +51,14 @@ interface InfoCardProps {
   infoText: string;
 }
 
-const InfoCardPie: React.FC<InfoCardProps> = ({
+const InfoCardDiagram: React.FC<InfoCardProps> = ({
   avatar,
   title,
   data,
   dataSum,
   infoText,
 }) => {
-  const { theme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -69,13 +68,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
   const WIDTH = "500px";
 
   return (
-    <Card
-      sx={{
-        margin: "10px",
-        maxWidth: "800px",
-        minWidth: WIDTH,
-      }}
-    >
+    <Card sx={{ margin: "10px", maxWidth: "800px", minWidth: WIDTH }}>
       <CardHeader avatar={avatar} title={title} />
       <CardContent>
         <Box
@@ -127,17 +120,11 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
       >
         <CardContent>
           <hr />
-
-          <InfoIcon
-            sx={{ color: theme.secondary, margin: "10px auto", width: "100%" }}
-          />
-          <Typography sx={{ color: theme.font }} paragraph>
-            {infoText}
-          </Typography>
+          <CostumText>{infoText}</CostumText>
         </CardContent>
       </Collapse>
     </Card>
   );
 };
 
-export default InfoCardPie;
+export default InfoCardDiagram;

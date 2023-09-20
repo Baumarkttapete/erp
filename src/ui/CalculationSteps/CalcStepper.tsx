@@ -1,12 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  Stepper,
-  Step,
-  StepLabel,
-  Button,
-  Typography,
-  Box,
-} from "@mui/material";
+import { Stepper, Step, StepLabel, Button, Box } from "@mui/material";
 import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import SnackbarInfo, { AlertType } from "./SnackbarInfo";
@@ -20,6 +13,7 @@ import Step1 from "./Step1";
 import Step3 from "./Step3";
 import Step4 from "./Step4";
 import Step2 from "./Step2";
+import CostumText from "../CostumText";
 
 const CalcStepper: React.FC = () => {
   const { theme } = useTheme();
@@ -127,7 +121,7 @@ const CalcStepper: React.FC = () => {
           />
         );
       default:
-        return <Typography sx={{ color: theme.font }}>404</Typography>;
+        return <CostumText>404</CostumText>;
     }
   };
 
@@ -168,12 +162,7 @@ const CalcStepper: React.FC = () => {
                   },
                 }}
               >
-                <Typography
-                  sx={{ color: theme.font, fontSize: fontSize.text }}
-                  color={theme.font}
-                >
-                  {label}
-                </Typography>
+                <CostumText>{label}</CostumText>
               </StepLabel>
             </Step>
           ))}

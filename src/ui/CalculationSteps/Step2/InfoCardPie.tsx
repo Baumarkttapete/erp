@@ -3,7 +3,6 @@ import {
   Card,
   CardHeader,
   CardContent,
-  Typography,
   CardActions,
   Collapse,
   IconButtonProps,
@@ -12,7 +11,11 @@ import {
   Box,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import CustomPieChart from "./CustomPieChart";
+import InfoCardRow from "./InfoCardRow";
 import { useTheme } from "../../../theme/ThemeProvider";
+import InfoIcon from "@mui/icons-material/Info";
+import CostumText from "../../CostumText";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -49,13 +52,14 @@ interface InfoCardProps {
   infoText: string;
 }
 
-const InfoCardDiagram: React.FC<InfoCardProps> = ({
+const InfoCardPie: React.FC<InfoCardProps> = ({
   avatar,
   title,
   data,
+  dataSum,
   infoText,
 }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme } = useTheme();
   const [expanded, setExpanded] = useState(false);
 
   const handleExpandClick = () => {
@@ -65,7 +69,13 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
   const WIDTH = "500px";
 
   return (
-    <Card sx={{ margin: "10px", maxWidth: "800px", minWidth: WIDTH }}>
+    <Card
+      sx={{
+        margin: "10px",
+        maxWidth: "800px",
+        minWidth: WIDTH,
+      }}
+    >
       <CardHeader avatar={avatar} title={title} />
       <CardContent>
         <Box
@@ -74,7 +84,30 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
             flexDirection: "row",
             justifyContent: "space-between",
           }}
-        ></Box>
+        >
+          <CustomPieChart data={data} />
+          <Box sx={{ flex: 3 }}>
+            {data.map((row, index) => (
+              <React.Fragment key={index}>
+                <InfoCardRow
+                  color={row.color}
+                  text={row.name}
+                  value={row.value}
+                  valueFix={row.valueFix}
+                  unit={row.unit}
+                />
+              </React.Fragment>
+            ))}
+            <hr />
+            <InfoCardRow
+              color={dataSum.color}
+              text={dataSum.name}
+              value={dataSum.value}
+              valueFix={dataSum.valueFix}
+              unit={dataSum.unit}
+            />
+          </Box>
+        </Box>
       </CardContent>
       <CardActions disableSpacing>
         <ExpandMore
@@ -94,16 +127,15 @@ const InfoCardDiagram: React.FC<InfoCardProps> = ({
       >
         <CardContent>
           <hr />
-          <Typography sx={{ color: theme.font }} paragraph>
-            Infos:
-          </Typography>
-          <Typography sx={{ color: theme.font }} paragraph>
-            {infoText}
-          </Typography>
+
+          <InfoIcon
+            sx={{ color: theme.secondary, margin: "10px auto", width: "100%" }}
+          />
+          <CostumText>{infoText}</CostumText>
         </CardContent>
       </Collapse>
     </Card>
   );
 };
 
-export default InfoCardDiagram;
+export default InfoCardPie;

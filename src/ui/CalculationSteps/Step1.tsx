@@ -2,7 +2,6 @@ import { TextField, MenuItem, Box } from "@mui/material";
 import React, { useEffect, useState } from "react";
 import { UserData } from "../../models/UserData";
 import InfoIcon from "@mui/icons-material/Info";
-import CustomText from "../CustomText";
 import { useIntl } from "react-intl";
 import { getCost } from "../../helper/CostHelper";
 import {
@@ -17,7 +16,8 @@ import { getTime } from "../../helper/TimeHelper";
 import { Risk } from "../../data/Risks";
 import { getRisk } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
-import Title from "../Title";
+import CostumText from "../CostumText";
+import CostumTitle from "../CustomTitle";
 
 const Step1: React.FC<{
   userData: UserData;
@@ -85,10 +85,7 @@ const Step1: React.FC<{
           width: "80%",
         }}
       >
-        <Title
-          text={intl.formatMessage({ id: "step1_title" })}
-          color={theme.font}
-        />
+        <CostumTitle>{intl.formatMessage({ id: "step1_title" })}</CostumTitle>
 
         <Box sx={{ display: "flex", flexDirection: "row" }}>
           <Box
@@ -154,7 +151,9 @@ const Step1: React.FC<{
             }}
           >
             <InfoIcon sx={{ color: theme.secondary }} fontSize="large" />
-            <CustomText text={intl.formatMessage({ id: "step1_infotext" })} />
+            <CostumText>
+              {intl.formatMessage({ id: "step1_infotext" })}
+            </CostumText>
           </Box>
         </Box>
       </Box>

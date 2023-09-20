@@ -9,6 +9,7 @@ import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
+import CostumText from "../ui/CostumText";
 
 const Home: React.FC<{}> = ({}) => {
   const { theme } = useTheme();
@@ -82,18 +83,19 @@ const Home: React.FC<{}> = ({}) => {
           }
         />
       </Box>
-      <Typography sx={{ margin: "40px 0", color: theme.font }}>
+      <CostumText>
         Basierend auf Unternehmensgröße, Branche und Region lassen sich diese
         Punkte im Voraus abschätzen. Als Grundlage hierfür dient die
         Trovarit-Studie "ERP in der Praxis" aus dem Jahr 2018/2019 in der die
         Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und
         ausgewertet wurde.
-      </Typography>
+      </CostumText>
       <Box
         sx={{
           display: "flex",
           flexDirection: "row",
           justifyContent: "space-evenly",
+          marginTop: "20px",
         }}
       >
         <Button

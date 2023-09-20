@@ -1,19 +1,20 @@
 import React, { useState } from "react";
-import PdfExportBtn from "./StepFour/PdfExportBtn";
-import UserInfoCard from "./StepThree/UserInfoCard";
+import PdfExportBtn from "./Step4/PdfExportBtn";
+import UserInfoCard from "./Step2/UserInfoCard";
 import { UserData } from "../../models/UserData";
 import { TriangleData } from "../../models/TriangleData";
 import { RiskData } from "../../models/RiskData";
-import { Box, Card, Typography, Checkbox } from "@mui/material";
-import Title from "../Title";
+import { Box } from "@mui/material";
 import { useTheme } from "../../theme/ThemeProvider";
 
 import EuroIcon from "@mui/icons-material/Euro";
 import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import CostumCheckbox from "./StepFour/CustomCheckbox";
+import CostumCheckbox from "./Step4/CustomCheckbox";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import { useIntl } from "react-intl";
+import CostumText from "../CostumText";
+import CostumTitle from "../CustomTitle";
 
 const Step4: React.FC<{
   userData: UserData;
@@ -63,10 +64,8 @@ const Step4: React.FC<{
           flexDirection: "column",
         }}
       >
-        <Title text={"PDF Export"} color={theme.font} />
-        <Typography sx={{ color: theme.font }}>
-          {intl.formatMessage({ id: "step4_infotext" })}
-        </Typography>
+        <CostumTitle>{intl.formatMessage({ id: "pdf_export" })}</CostumTitle>
+        <CostumText>{intl.formatMessage({ id: "step4_infotext" })}</CostumText>
         <Box
           sx={{
             margin: "20px auto",

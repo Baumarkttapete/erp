@@ -1,16 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { Box, Card, Typography } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import { TriangleData } from "../../models/TriangleData";
-import CustomBarChart from "./StepTwo/CustomBarChart";
-import UserInfoCard from "./StepThree/UserInfoCard";
+import CustomBarChart from "./Step3/CustomBarChart";
+import UserInfoCard from "./Step2/UserInfoCard";
 import { UserData } from "../../models/UserData";
-import Title from "../Title";
-import RiskOptions from "./StepTwo/RiskOptions";
-import CustomRadarChart from "./StepThree/CustomRadarChart";
+import RiskOptions from "./Step3/RiskOptions";
+import CustomRadarChart from "./Step2/CustomRadarChart";
 import { RiskData } from "../../models/RiskData";
 import { useTheme } from "../../theme/ThemeProvider";
 import { useIntl } from "react-intl";
-import Subtitle from "../Subtitle";
+import CostumText from "../CostumText";
+import CostumSubtitle from "../CustomSubtitle";
+import CostumTitle from "../CustomTitle";
 
 const Step3: React.FC<{
   userData: UserData;
@@ -122,29 +123,27 @@ const Step3: React.FC<{
     <Box sx={{ margin: "40px auto", width: "80%" }}>
       <UserInfoCard userData={userData} showProjectData={true} />
       <Box sx={{ display: "flex", flexDirection: "column" }}>
-        <Title text={intl.formatMessage({ id: "risks" })} color={theme.font} />
-        <Typography sx={{ color: theme.font }}>
+        <CostumTitle>{intl.formatMessage({ id: "risks" })}</CostumTitle>
+        <CostumText>
           {intl.formatMessage({ id: "risk_infotext_diagram" })}
-        </Typography>
+        </CostumText>
         <Card sx={{ padding: "20px" }}>
           <CustomBarChart data={riskData} />
         </Card>
-        <Subtitle
-          text={intl.formatMessage({ id: "effects" })}
-          color={theme.font}
-        />
-        <Typography sx={{ margin: "10px 0", color: theme.font }}>
+        <CostumSubtitle>{intl.formatMessage({ id: "effects" })}</CostumSubtitle>
+        <CostumText>
           {intl.formatMessage({ id: "risk_infotext_radar" })}
-        </Typography>
-        <Typography sx={{ margin: "10px 0", color: theme.warning }}>
+        </CostumText>
+        <CostumText>
           {intl.formatMessage({ id: "risk_infotext_radar_warning" })}
-        </Typography>
+        </CostumText>
         <Card
           sx={{
             display: "flex",
             flexDirection: "row",
             padding: "30px 20px",
             justifyContent: "space-evenly",
+            alignItems: "center",
           }}
         >
           <RiskOptions

@@ -15,6 +15,11 @@ const localeData = {
       "Please enter in the input fields the approximate number of employees of the company and select in which industry and location of the branch.",
   },
   de: {
+    home: "Startseite",
+    calculation: "Kalkulation",
+    about: "About",
+    faq: "FAQ",
+
     input: "Eingaben",
     results: "Ergebnisse",
     risks: "Risiken",

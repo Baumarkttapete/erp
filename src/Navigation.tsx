@@ -5,9 +5,11 @@ import routePaths from "./routePaths";
 import logo from "./img/logo.png";
 import MenuBtn from "./ui/MenuBtn";
 import { useTheme } from "./theme/ThemeProvider";
+import { useIntl } from "react-intl";
 
 const Navigation: React.FC = () => {
   const { theme } = useTheme();
+  const intl = useIntl();
   const location = useLocation();
 
   const getButtonStyle = (route: string) => {
@@ -53,7 +55,7 @@ const Navigation: React.FC = () => {
             to={routePaths.home}
             sx={getButtonStyle(routePaths.home)}
           >
-            Home
+            {intl.formatMessage({ id: "home" })}
           </Button>
           <hr />
           <Button
@@ -61,7 +63,7 @@ const Navigation: React.FC = () => {
             to={routePaths.calculator}
             sx={getButtonStyle(routePaths.calculator)}
           >
-            Kalkulation
+            {intl.formatMessage({ id: "calculation" })}
           </Button>
           <hr />
           <Button
@@ -69,7 +71,15 @@ const Navigation: React.FC = () => {
             to={routePaths.about}
             sx={getButtonStyle(routePaths.about)}
           >
-            About
+            {intl.formatMessage({ id: "about" })}
+          </Button>
+          <hr />
+          <Button
+            component={Link}
+            to={routePaths.faq}
+            sx={getButtonStyle(routePaths.faq)}
+          >
+            {intl.formatMessage({ id: "faq" })}
           </Button>
           <hr />
           <MenuBtn />

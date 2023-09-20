@@ -1,6 +1,7 @@
-import { Box, Typography } from "@mui/material";
+import { Box } from "@mui/material";
 import ColorBox from "./ColorBox";
 import { useTheme } from "../../../theme/ThemeProvider";
+import CostumText from "../../CostumText";
 
 const InfoCardRow: React.FC<{
   color: string;
@@ -20,20 +21,9 @@ const InfoCardRow: React.FC<{
       }}
     >
       <ColorBox color={color} />
-      <Typography sx={{ margin: "0px 5px", color: theme.font }}>
-        {text}
-      </Typography>
-      <Typography
-        sx={{
-          textAlign: "end",
-          margin: "0px 5px",
-        }}
-      >
-        {value.toFixed(valueFix)}
-      </Typography>
-      <Typography sx={{ flex: 1, margin: "auto", color: theme.font }}>
-        {unit}
-      </Typography>
+      <CostumText>{text}</CostumText>
+      <CostumText>{value.toFixed(valueFix)}</CostumText>
+      <CostumText>{unit}</CostumText>
     </Box>
   );
 };
