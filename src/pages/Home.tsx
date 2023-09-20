@@ -10,9 +10,11 @@ import GroupsIcon from "@mui/icons-material/Groups";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import ReportProblemIcon from "@mui/icons-material/ReportProblem";
 import CostumText from "../ui/CostumText";
+import { useIntl } from "react-intl";
 
 const Home: React.FC<{}> = ({}) => {
   const { theme } = useTheme();
+  const intl = useIntl();
 
   return (
     <Box
@@ -38,58 +40,44 @@ const Home: React.FC<{}> = ({}) => {
         <Typography
           sx={{ fontSize: "60px", fontWeight: "bold", color: theme.font2 }}
         >
-          ERP
+          {intl.formatMessage({ id: "home_title" })}
         </Typography>
         <Typography
           sx={{ fontSize: "30px", fontWeight: "bold", color: theme.font2 }}
         >
-          Projekt | Implementierung | Einführung
+          {intl.formatMessage({ id: "home_subtitle" })}
         </Typography>
         <Divider sx={{ width: "70%", margin: "20px auto" }} />
         <Typography
           sx={{ fontSize: "20px", fontWeight: "bold", color: theme.font }}
         >
-          Was kommt bei auf mich zu?
+          {intl.formatMessage({ id: "home_subtitle2" })}
         </Typography>
       </Box>
 
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <HomeCard
-          title={"Kosten"}
+          title={intl.formatMessage({ id: "cost" })}
           avatar={<EuroIcon style={{ color: theme.secondary }} />}
-          text={
-            "Erfahren Sie, wie die Kosten für die ERP-Einführung pro Benutzer berechnet werden. Erhalten Sie einen Überblick über die finanziellen Aspekte und wie sie sich auf Ihr Unternehmen auswirken können."
-          }
+          text={intl.formatMessage({ id: "home_costinfo" })}
         />
         <HomeCard
-          title={"Kernteam"}
+          title={intl.formatMessage({ id: "personal" })}
           avatar={<GroupsIcon style={{ color: theme.secondary }} />}
-          text={
-            "Das Kernteam spielt eine entscheidende Rolle bei der erfolgreichen Umsetzung eines ERP-Projekts. Hier erfahren Sie, wie die Größe und Expertise des Kernteams den Erfolg Ihrer Einführung beeinflussen kann"
-          }
+          text={intl.formatMessage({ id: "home_personalinfo" })}
         />
         <HomeCard
-          title={"Dauer"}
+          title={intl.formatMessage({ id: "time" })}
           avatar={<AccessTimeIcon style={{ color: theme.secondary }} />}
-          text={
-            "Wie lange dauert die Einführung eines ERP-Systems? Entdecken Sie, welche Faktoren die Dauer des Projekts beeinflussen können und wie Sie die Implementierungszeit optimieren können."
-          }
+          text={intl.formatMessage({ id: "home_timeinfo" })}
         />
         <HomeCard
-          title={"Risiken"}
+          title={intl.formatMessage({ id: "risks" })}
           avatar={<ReportProblemIcon style={{ color: theme.secondary }} />}
-          text={
-            "Jede ERP-Einführung birgt potenzielle Risiken. Lernen Sie die häufigsten Herausforderungen kennen und erfahren Sie, wie Sie diese proaktiv angehen können, um einen reibungslosen Ablauf sicherzustellen."
-          }
+          text={intl.formatMessage({ id: "home_risksinfo" })}
         />
       </Box>
-      <CostumText>
-        Basierend auf Unternehmensgröße, Branche und Region lassen sich diese
-        Punkte im Voraus abschätzen. Als Grundlage hierfür dient die
-        Trovarit-Studie "ERP in der Praxis" aus dem Jahr 2018/2019 in der die
-        Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und
-        ausgewertet wurde.
-      </CostumText>
+      <CostumText>{intl.formatMessage({ id: "home_infotext" })}</CostumText>
       <Box
         sx={{
           display: "flex",
@@ -114,7 +102,7 @@ const Home: React.FC<{}> = ({}) => {
             window.open("https://www.trovarit.com/erp-praxis/", "_blank");
           }}
         >
-          Zur Studie
+          {intl.formatMessage({ id: "home_btn_study" })}
         </Button>
         <Button
           sx={{
@@ -132,7 +120,7 @@ const Home: React.FC<{}> = ({}) => {
             window.location.href = routePaths.calculator;
           }}
         >
-          Zur Berechnung
+          {intl.formatMessage({ id: "home_btn_calculation" })}
         </Button>
       </Box>
     </Box>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardContent, CardHeader } from "@mui/material";
 import CostumText from "../CostumText";
+import CustomSubtitle from "../CustomSubtitle";
 
 const HomeCard: React.FC<{
   title: string;
@@ -10,8 +11,7 @@ const HomeCard: React.FC<{
   return (
     <Card sx={{ maxWidth: 345, margin: "20px 10px", flex: 1 }}>
       <CardHeader
-        title={title}
-        titleTypographyProps={{ fontSize: "16px", fontWeight: "bold" }}
+        title={<CustomSubtitle>{title}</CustomSubtitle>}
         avatar={avatar}
       />
 

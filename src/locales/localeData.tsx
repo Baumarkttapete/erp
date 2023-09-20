@@ -26,6 +26,28 @@ const localeData = {
     pdf_export: "PDF Export",
     effects: "Auswirkungen",
 
+    home_title: "ERP",
+    home_subtitle: "Projekt | Implementierung | Einführung",
+    home_subtitle2: "Was kommt auf mich zu?",
+
+    home_costinfo:
+      "Erfahren Sie, wie die Kosten für die ERP-Einführung pro Benutzer berechnet werden. Erhalten Sie einen Überblick über die finanziellen Aspekte und wie sie sich auf Ihr Unternehmen auswirken können.",
+    home_personalinfo:
+      "Das Kernteam spielt eine entscheidende Rolle bei der erfolgreichen Umsetzung eines ERP-Projekts. Hier erfahren Sie, wie die Größe und Expertise des Kernteams den Erfolg Ihrer Einführung beeinflussen kann.",
+    home_timeinfo:
+      "Wie lange dauert die Einführung eines ERP-Systems? Entdecken Sie, welche Faktoren die Dauer des Projekts beeinflussen können und wie Sie die Implementierungszeit optimieren können.",
+    home_risksinfo:
+      "Jede ERP-Einführung birgt potenzielle Risiken. Lernen Sie die häufigsten Herausforderungen kennen und erfahren Sie, wie Sie diese proaktiv angehen können, um einen reibungslosen Ablauf sicherzustellen.",
+    home_infotext:
+      "Basierend auf Unternehmensgröße, Branche und Region lassen sich diese Punkte im Voraus abschätzen. Als Grundlage hierfür dient die Trovarit-Studie 'ERP in der Praxis' aus dem Jahr 2018/2019 in der die Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und ausgewertet wurde.",
+    home_btn_study: "Zur Studie",
+    home_btn_calculation: "Zur Berechnung",
+
+    about_infotext:
+      "Diese Anwendung ist im Rahmen der Bachelorarbeit zum Thema 'Usability-fokussierte Entwicklung einer Anwendung zur Kostenkalkulation von ERP-Einführungsprojekten' an der Hochschule für Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck entwickelt worden.",
+    about_infotext2:
+      "Das Ziel ist es, Unternehmen dabei zu unterstützen, die Kosten für die Einführung eines ERP-Systems besser abzuschätzen und transparenter zu gestalten.",
+
     branch: "Branche",
     branch_industry: "Industrie",
     branch_service: "Dienstleistung",

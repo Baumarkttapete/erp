@@ -16,6 +16,7 @@ import InfoCardRow from "./InfoCardRow";
 import { useTheme } from "../../../theme/ThemeProvider";
 import InfoIcon from "@mui/icons-material/Info";
 import CostumText from "../../CostumText";
+import CustomSubtitle from "../../CustomSubtitle";
 
 interface ExpandMoreProps extends IconButtonProps {
   expand: boolean;
@@ -76,7 +77,11 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
         minWidth: WIDTH,
       }}
     >
-      <CardHeader avatar={avatar} title={title} />
+      <CardHeader
+        avatar={avatar}
+        title={<CustomSubtitle>{title}</CustomSubtitle>}
+        style={{ fontWeight: "bold" }}
+      />
       <CardContent>
         <Box
           sx={{
