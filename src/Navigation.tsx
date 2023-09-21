@@ -17,6 +17,9 @@ import MenuBtn from "./ui/MenuBtn";
 import { useTheme } from "./theme/ThemeProvider";
 import { useIntl } from "react-intl";
 import { useIsInputCalc } from "./theme/IsInputCalcProvider";
+import CostumText from "./ui/CostumText";
+import InfoIcon from "@mui/icons-material/Info";
+import CostumSubtitle from "./ui/CustomSubtitle";
 
 const Navigation: React.FC = () => {
   const { theme } = useTheme();
@@ -120,12 +123,26 @@ const Navigation: React.FC = () => {
             aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
           >
-            <DialogTitle id="alert-dialog-title">
-              {intl.formatMessage({ id: "dialog_dataloss_title" })}
+            <DialogTitle
+              id="alert-dialog-title"
+              sx={{ display: "flex", flexDirection: "row" }}
+            >
+              <InfoIcon
+                sx={{
+                  color: theme.secondary,
+                  margin: "auto 10px",
+                }}
+                fontSize="large"
+              />
+              <CostumSubtitle>
+                {intl.formatMessage({ id: "dialog_dataloss_title" })}
+              </CostumSubtitle>
             </DialogTitle>
             <DialogContent>
               <DialogContentText id="alert-dialog-description">
-                {intl.formatMessage({ id: "dialog_dataloss_text" })}
+                <CostumText>
+                  {intl.formatMessage({ id: "dialog_dataloss_text" })}
+                </CostumText>
               </DialogContentText>
             </DialogContent>
             <DialogActions
