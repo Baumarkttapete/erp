@@ -186,6 +186,10 @@ const localeData = {
     theme: "Theme",
     colorful: "farbig",
     high_contrast: "kontrastreich",
+
+    dialog_dataloss_title: "Achtung",
+    dialog_dataloss_text:
+      "Beim verlassen des Kalkulators gehen die Eingaben verloren. Möchtest du dennoch fortfahren?",
   },
 };
 

@@ -21,6 +21,7 @@ const Faq: React.FC<{}> = () => {
       answer: "Antwort 2",
     },
     { question: "Für wen ist die Webseite gedacht?", answer: "Antwort 2" },
+    { question: "Werden meine Eingaben gespeichert?", answer: "Antwort 2" },
   ];
 
   const filteredFaq = faqData.filter((item) =>

@@ -1,4 +1,3 @@
-// ThemeProvider.tsx
 import React, { createContext, useContext, useState } from "react";
 import { ColorTheme, bright } from "./Colors";
 

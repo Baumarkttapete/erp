@@ -18,12 +18,14 @@ import { getRisk } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
 import CostumText from "../CostumText";
 import CostumTitle from "../CustomTitle";
+import { useIsInputCalc } from "../../theme/IsInputCalcProvider";
 
 const Step1: React.FC<{
   userData: UserData;
   onChange: (userData: UserData, allValid: boolean) => void;
 }> = ({ userData, onChange }) => {
   const { theme } = useTheme();
+  const { setIsInputCalc } = useIsInputCalc();
   const intl = useIntl();
 
   const [userQuantity, setUserQuantity] = useState(userData.userQuantity);
@@ -73,6 +75,8 @@ const Step1: React.FC<{
       ),
       userQuantity > 0 && branch !== "" && region !== ""
     );
+
+    setIsInputCalc(userQuantity > 0 || branch !== "" || region !== "");
   }, [userQuantity, branch, region]);
 
   return (
