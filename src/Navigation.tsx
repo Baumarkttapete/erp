@@ -137,7 +137,6 @@ const Navigation: React.FC = () => {
             >
               <Button
                 onClick={() => {
-                  setAllowLink(true);
                   setShowDialog(false);
                 }}
                 sx={{
