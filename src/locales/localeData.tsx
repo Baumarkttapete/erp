@@ -1,6 +1,5 @@
 const localeData = {
   en: {
-    greeting: "Hello, World!",
     branch: "Branch",
     branch_industry: "Industry",
     branch_service: "Service",
@@ -28,23 +27,22 @@ const localeData = {
 
     home_title: "ERP",
     home_subtitle: "Projekt | Implementierung | Einführung",
-    home_subtitle2: "Was kommt auf mich zu?",
+    home_subtitle2: "Welche Aspekte sind zu beachten?",
 
-    home_costinfo:
-      "Erfahren Sie, wie die Kosten für die ERP-Einführung pro Benutzer berechnet werden. Erhalten Sie einen Überblick über die finanziellen Aspekte und wie sie sich auf Ihr Unternehmen auswirken können.",
+    home_costinfo: "Welches Budget pro User sollte eingeplant werden? ",
     home_personalinfo:
-      "Das Kernteam spielt eine entscheidende Rolle bei der erfolgreichen Umsetzung eines ERP-Projekts. Hier erfahren Sie, wie die Größe und Expertise des Kernteams den Erfolg Ihrer Einführung beeinflussen kann.",
+      "Aus wie vielen Personen sollten in das Kernteam bestehen?",
     home_timeinfo:
-      "Wie lange dauert die Einführung eines ERP-Systems? Entdecken Sie, welche Faktoren die Dauer des Projekts beeinflussen können und wie Sie die Implementierungszeit optimieren können.",
+      "Wie viel Zeit sollte für die Einführung eingeplant werden? ",
     home_risksinfo:
-      "Jede ERP-Einführung birgt potenzielle Risiken. Lernen Sie die häufigsten Herausforderungen kennen und erfahren Sie, wie Sie diese proaktiv angehen können, um einen reibungslosen Ablauf sicherzustellen.",
+      "Was sind die wahrscheinlichsten Risiken, die während der Einführung aufkommen können?",
     home_infotext:
-      "Basierend auf Unternehmensgröße, Branche und Region lassen sich diese Punkte im Voraus abschätzen. Als Grundlage hierfür dient die Trovarit-Studie 'ERP in der Praxis' aus dem Jahr 2018/2019 in der die Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und ausgewertet wurde.",
+      "Basierend auf Unternehmensgröße, Branche und Region lassen sich diese Punkte im Voraus abschätzen. ",
     home_btn_study: "Zur Studie",
     home_btn_calculation: "Zur Berechnung",
 
     about_infotext:
-      "Diese Anwendung ist im Rahmen der Bachelorarbeit zum Thema 'Usability-fokussierte Entwicklung einer Anwendung zur Kostenkalkulation von ERP-Einführungsprojekten' an der Hochschule für Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck entwickelt worden.",
+      "Diese Anwendung ist im Rahmen der Abschlussarbeit zum Thema 'Usability-fokussierte Entwicklung einer Anwendung zur Kostenkalkulation von ERP-Einführungsprojekten' an der Hochschule für Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck entwickelt worden.",
     about_infotext2:
       "Das Ziel ist es, Unternehmen dabei zu unterstützen, die Kosten für die Einführung eines ERP-Systems besser abzuschätzen und transparenter zu gestalten.",
 
@@ -52,7 +50,7 @@ const localeData = {
     branch_industry: "Industrie",
     branch_service: "Dienstleistung",
     branch_trading: "Handel",
-    userQuantity: "Useranzahl",
+    userQuantity: "Anzahl Mitarbeiter",
     region: "Region",
     region_d: "Deutschland",
     region_a: "Österreich",
@@ -72,7 +70,7 @@ const localeData = {
       "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an.",
     step2_title: "Zusammenfassung",
     step2_infotext:
-      "Im folgenden finden Sie die ausgewählten und erreichneten Daten, die laut der Trovarit-Studie ERP-Implementierung aus dem Jahr 2018 auf Ihr ERP-Projekt zutreffend sind.",
+      "Folgende Kosten pro User, Dauer und Personen im Kernteam sollten sie einplanen:",
 
     cost_per_user: "Kosten pro User",
     software: "Software",
@@ -107,7 +105,7 @@ const localeData = {
     risk_infotext_radar:
       "Sie haben nun die Möglichkeit, die möglichen Auswirkungen der oben genannten Hauptprobleme in das unten gezeigte Magische Dreieck einfließen zu lassen. Haken Sie dazu die Felder an, deren mögliche Auswirkungen Sie einfließen lassen möchten und geben Sie zusätzlich an, in welchem Ausmaß. Für genauere Infos hovern Sie über die jeweiligen Risiken.",
     risk_infotext_radar_warning: "Hierbei handelt es sich nur um Schätzungen!",
-    risk_datenmigration: "Datenmigration",
+    risk_datenmigration: "Probleme bei der Datenmigration",
     risk_datenmigration_info:
       "Es ist wichtig, bei der Datenmigration besondere Sorgfalt walten zu lassen, um sicherzustellen, dass alle Informationen korrekt und vollständig übertragen werden. Dies kann durch gründliche Planung, umfassende Tests und den Einsatz von Experten erreicht werden.",
     risk_datenmigration_info_cost:
@@ -134,7 +132,7 @@ const localeData = {
       "Kosten: Die ständigen Anpassungen können die Kosten des Projekts erhöhen, da sie zusätzliche Ressourcen und Arbeitsstunden erfordern.",
     risk_anpassungen_info_quality:
       "Qualität: Ständige Anpassungen könnten die Qualität beeinträchtigen, da möglicherweise nicht genug Zeit für umfassende Tests und Qualitätskontrollen bleibt.",
-    risk_ressourcen: "Ressourcen Anwender",
+    risk_ressourcen: "Fehlende Ressourcen für Anwender",
     risk_ressourcen_info:
       "Dieses Risiko betrifft die Verfügbarkeit und Qualifikation der Personen oder Ressourcen, die für das Projekt benötigt werden. Es könnte zu Engpässen kommen, wenn nicht genügend qualifizierte Ressourcen zur Verfügung stehen.",
     risk_ressourcen_info_time:
@@ -143,7 +141,7 @@ const localeData = {
       "Kosten: Wenn zusätzliche Ressourcen benötigt werden, um Engpässe auszugleichen, könnten die Kosten des Projekts steigen.",
     risk_ressourcen_info_quality:
       "Qualität: Wenn die verfügbaren Ressourcen nicht ausreichend qualifiziert sind, könnte dies die Qualität des Endprodukts beeinträchtigen.",
-    risk_unternehmensprozesse: "Abb. der Unternehmensprozesse",
+    risk_unternehmensprozesse: "Fehlerhafte Abb. der Unternehmensprozesse",
     risk_unternehmensprozesse_info:
       "Dieses Risiko bezieht sich darauf, dass es möglicherweise Schwierigkeiten gibt, die bestehenden Unternehmensprozesse zu verstehen und in das Projekt zu integrieren. Unklarheiten könnten zu Verzögerungen oder Fehlinterpretationen führen.",
     risk_unternehmensprozesse_info_time:
@@ -152,7 +150,7 @@ const localeData = {
       "Kosten: Komplexe oder unklare Prozesse können die Implementierungskosten erhöhen, da möglicherweise mehr Aufwand erforderlich ist, um die Anforderungen zu erfüllen.",
     risk_unternehmensprozesse_info_quality:
       "Qualität: Eine unzureichende Abbildung der Unternehmensprozesse kann die Qualität beeinträchtigen, da möglicherweise nicht alle relevanten Aspekte berücksichtigt werden.",
-    risk_schnittstellen: "Schnittstellen",
+    risk_schnittstellen: "Probleme bei Schnittstelleneinrichtung",
     risk_schnittstellen_info:
       "Dieses Risiko betrifft die Integration von verschiedenen Systemen oder Komponenten im Projekt. Schwierigkeiten bei der reibungslosen Zusammenarbeit von Schnittstellen können zu Problemen und Verzögerungen führen.",
     risk_schnittstellen_info_time:
@@ -170,7 +168,7 @@ const localeData = {
       "Kosten: Unklare Anforderungen könnten zu zusätzlichen Kosten führen, da möglicherweise Änderungen und Anpassungen vorgenommen werden müssen, um die Anforderungen zu erfüllen.",
     risk_anforderungen_info_quality:
       "Qualität: Unklare Anforderungen könnten die Qualität beeinträchtigen, da möglicherweise nicht alle Anforderungen korrekt verstanden und umgesetzt werden.",
-    risk_schulungsaufwand: "Schulungsaufwand",
+    risk_schulungsaufwand: "Unterschätzter Schulungsaufwand",
     risk_schulungsaufwand_info:
       "Dieses Risiko betrifft den Zeitaufwand und die Ressourcen, die für die Schulung der beteiligten Personen benötigt werden. Wenn die Personen nicht ausreichend geschult sind, könnte dies die Umsetzung des Projekts beeinträchtigen.",
     risk_schulungsaufwand_info_time:
@@ -190,6 +188,40 @@ const localeData = {
     dialog_dataloss_title: "Achtung",
     dialog_dataloss_text:
       "Beim verlassen des Kalkulators gehen die Eingaben verloren. Möchtest du dennoch fortfahren?",
+
+    faq_question1:
+      "Was ist ein Magisches Dreieck im Bezug auf ein ERP-Projekt?",
+    faq_answer1:
+      "Das magische Dreieck (auch bekannt als Projektmanagement-Dreieck oder Triple Constraint) ist ein Projektmanagement-Konzept, das die grundlegenden Parameter eines Projekts beschreibt. Diese Parameter sind",
+    faq_answer1_2:
+      "Umfang (Scope): Dieser bezieht sich auf den gesamten Inhalt und die Ziele des Projekts. Er definiert, was genau erreicht werden soll und welche Anforderungen erfüllt werden müssen.",
+    faq_answer1_3:
+      "Zeit (Time): Dies bezieht sich auf den Zeitrahmen, in dem das Projekt abgeschlossen sein muss. Dazu gehören Start- und Endtermine sowie Meilensteine. ",
+    faq_answer1_4:
+      "Kosten (Cost): Dies bezieht sich auf das Budget oder die finanziellen Mittel, die für die Durchführung des Projekts benötigt werden. ",
+    faq_answer1_5:
+      "Diese drei Parameter sind eng miteinander verknüpft. Änderungen bei einem Parameter wirken sich oft auf die anderen beiden aus. Zum Beispiel kann eine Erweiterung des Projektumfangs zusätzliche Zeit und Ressourcen erfordern. Die Idee des magischen Dreiecks besteht darin, dass es notwendigerweise Kompromisse zwischen diesen drei Faktoren geben muss. Wenn sich beispielsweise der Umfang eines Projekts ändert, kann es erforderlich sein, den Zeitplan anzupassen oder zusätzliche Ressourcen zuzuweisen, um das Projekt erfolgreich abzuschließen. Das Verständnis des magischen Dreiecks ist entscheidend für ein effektives Projektmanagement, da es den Projektleitern hilft, die Auswirkungen von Entscheidungen auf Umfang, Zeit und Kosten zu verstehen und zu berücksichtigen.",
+
+    faq_question2: "Wie werden die Kosten berechnet?",
+    faq_answer2: "Die ...",
+    faq_question3: "Wie ist dieses Projekt entstanden?",
+    faq_answer3:
+      "Diese Anwendung ist im Rahmen der Abschlussarbeit zum Thema 'Usability-fokussierte Entwicklung einer Anwendung zur Kostenkalkulation von ERP-Einführungsprojekten' an der Hochschule für Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck entwickelt worden.",
+    faq_question4: "Wie verlässlich sind die angegebenen Werte?",
+    faq_answer4:
+      "Als Grundlage hierfür dient die Trovarit-Studie 'ERP in der Praxis' aus dem Jahr 2018/2019 in der die Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und ausgewertet wurde.",
+    faq_question5: "Wird es noch mehr Auswahlmöglichkeiten geben?",
+    faq_answer5:
+      "Aktuell ist keine Weiterentwicklung vorgesehen. Daher wird es auch keine weiteren Auswahlmöglichekiten geben.",
+    faq_question6: "Für wen ist die Webseite gedacht?",
+    faq_answer6:
+      "Die Webseite ist für Unternehmen bzw. Personen gedacht, sie dabei zu unterstützen, die Kosten für die Einführung eines ERP-Systems besser abzuschätzen und transparenter zu gestalten",
+    faq_question7: "Werden meine Eingaben gespeichert?",
+    faq_answer7: "Nein, es werden keinerlei Daten gespeichert.",
+    faq_question8: "Frage 8",
+    faq_answer8: "Die ...",
+    faq_question9: "Frage 9",
+    faq_answer9: "Die ...",
   },
 };
 

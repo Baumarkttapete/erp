@@ -139,11 +139,9 @@ const Navigation: React.FC = () => {
               </CostumSubtitle>
             </DialogTitle>
             <DialogContent>
-              <DialogContentText id="alert-dialog-description">
-                <CostumText>
-                  {intl.formatMessage({ id: "dialog_dataloss_text" })}
-                </CostumText>
-              </DialogContentText>
+              <CostumText>
+                {intl.formatMessage({ id: "dialog_dataloss_text" })}
+              </CostumText>
             </DialogContent>
             <DialogActions
               sx={{

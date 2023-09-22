@@ -9,16 +9,16 @@ interface PieChartProps {
 const CustomPieChart: React.FC<PieChartProps> = ({ data }) => {
   return (
     <Box sx={{ flex: 1 }}>
-      <PieChart width={150} height={100}>
+      <PieChart width={250} height={170}>
         <Pie
           data={data}
           cx="50%"
           cy="50%"
-          innerRadius={30}
-          outerRadius={50}
+          innerRadius={45}
+          outerRadius={80}
           fill="#121212"
           dataKey="value"
-          paddingAngle={5}
+          paddingAngle={3}
         >
           {data.map((entry, index) => (
             <Cell key={`cell-${index}`} fill={entry.color} />

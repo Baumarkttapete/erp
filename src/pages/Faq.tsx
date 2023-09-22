@@ -9,19 +9,38 @@ const Faq: React.FC<{}> = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const faqData = [
-    { question: "Was ist ein Magisches Dreieck?", answer: "Antwort 1" },
-    { question: "Wie werden die Kosten berechnet?", answer: "Antwort 2" },
-    { question: "Wie ist dieses Projekt entstanden?", answer: "Antwort 2" },
     {
-      question: "Wie verlässlich sind die ausgegebenen Werte?",
-      answer: "Antwort 2",
+      question: intl.formatMessage({ id: "faq_question1" }),
+      answer: intl.formatMessage({ id: "faq_answer1" }),
+      answer2: intl.formatMessage({ id: "faq_answer1_2" }),
+      answer3: intl.formatMessage({ id: "faq_answer1_3" }),
+      answer4: intl.formatMessage({ id: "faq_answer1_4" }),
+      answer5: intl.formatMessage({ id: "faq_answer1_5" }),
     },
     {
-      question: "Wird es noch mehr Auswahlmöglichkeiten geben?",
-      answer: "Antwort 2",
+      question: intl.formatMessage({ id: "faq_question2" }),
+      answer: intl.formatMessage({ id: "faq_answer2" }),
     },
-    { question: "Für wen ist die Webseite gedacht?", answer: "Antwort 2" },
-    { question: "Werden meine Eingaben gespeichert?", answer: "Antwort 2" },
+    {
+      question: intl.formatMessage({ id: "faq_question3" }),
+      answer: intl.formatMessage({ id: "faq_answer3" }),
+    },
+    {
+      question: intl.formatMessage({ id: "faq_question4" }),
+      answer: intl.formatMessage({ id: "faq_answer4" }),
+    },
+    {
+      question: intl.formatMessage({ id: "faq_question5" }),
+      answer: intl.formatMessage({ id: "faq_answer5" }),
+    },
+    {
+      question: intl.formatMessage({ id: "faq_question6" }),
+      answer: intl.formatMessage({ id: "faq_answer6" }),
+    },
+    {
+      question: intl.formatMessage({ id: "faq_question7" }),
+      answer: intl.formatMessage({ id: "faq_answer7" }),
+    },
   ];
 
   const filteredFaq = faqData.filter((item) =>
@@ -40,7 +59,15 @@ const Faq: React.FC<{}> = () => {
         sx={{ margin: "20px 0" }}
       />
       {filteredFaq.map((item, index) => (
-        <FaqItem key={index} question={item.question} answer={item.answer} />
+        <FaqItem
+          key={index}
+          question={item.question}
+          answer={item.answer}
+          answer2={item.answer2}
+          answer3={item.answer3}
+          answer4={item.answer4}
+          answer5={item.answer5}
+        />
       ))}
     </Box>
   );

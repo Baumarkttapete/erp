@@ -8,7 +8,6 @@ import ScrollBtn from "../ScrollBtn";
 import { useIntl } from "react-intl";
 import { getRiskData } from "../../helper/RiskHelper";
 import { useTheme } from "../../theme/ThemeProvider";
-import { fontSize } from "../../theme/Sizes";
 import Step1 from "./Step1";
 import Step3 from "./Step3";
 import Step4 from "./Step4";

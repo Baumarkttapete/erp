@@ -9,13 +9,13 @@ const InfoCardRow: React.FC<{
   value: number;
   valueFix: number;
   unit: string;
-}> = ({ color, text, value, valueFix, unit }) => {
-  const { theme, setTheme } = useTheme();
+  percent: string;
+}> = ({ color, text, value, valueFix, unit, percent }) => {
   return (
     <Box
       sx={{
         display: "grid",
-        gridTemplateColumns: "15px 150px 50px 50px",
+        gridTemplateColumns: "15px 150px 50px 150px 50px",
         gridGap: "5px",
         margin: "10px",
       }}
@@ -24,6 +24,7 @@ const InfoCardRow: React.FC<{
       <CostumText>{text}</CostumText>
       <CostumText>{value.toFixed(valueFix)}</CostumText>
       <CostumText>{unit}</CostumText>
+      <CostumText>{percent}</CostumText>
     </Box>
   );
 };

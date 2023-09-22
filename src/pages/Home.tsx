@@ -88,24 +88,6 @@ const Home: React.FC<{}> = ({}) => {
       >
         <Button
           sx={{
-            fontWeight: "bold",
-            width: "30%",
-            backgroundColor: theme.primary,
-            color: theme.font2,
-            margin: "0 auto",
-            "&:hover": {
-              opacity: "0.8",
-              backgroundColor: theme.primary,
-            },
-          }}
-          onClick={() => {
-            window.open("https://www.trovarit.com/erp-praxis/", "_blank");
-          }}
-        >
-          {intl.formatMessage({ id: "home_btn_study" })}
-        </Button>
-        <Button
-          sx={{
             width: "30%",
             fontWeight: "bold",
             backgroundColor: theme.primary,

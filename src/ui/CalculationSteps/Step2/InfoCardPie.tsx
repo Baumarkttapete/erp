@@ -42,6 +42,7 @@ interface InfoCardProps {
     value: number;
     color: string;
     unit: string;
+    percent: string;
   }[];
   dataSum: {
     valueFix: number;
@@ -49,6 +50,7 @@ interface InfoCardProps {
     value: number;
     color: string;
     unit: string;
+    percent: string;
   };
   infoText: string;
 }
@@ -67,7 +69,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
     setExpanded(!expanded);
   };
 
-  const WIDTH = "500px";
+  const WIDTH = "800px";
 
   return (
     <Card
@@ -100,6 +102,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
                   value={row.value}
                   valueFix={row.valueFix}
                   unit={row.unit}
+                  percent={row.percent}
                 />
               </React.Fragment>
             ))}
@@ -110,6 +113,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
               value={dataSum.value}
               valueFix={dataSum.valueFix}
               unit={dataSum.unit}
+              percent={dataSum.percent}
             />
           </Box>
         </Box>
@@ -131,10 +135,13 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
         unmountOnExit
       >
         <CardContent>
-          <hr />
-
           <InfoIcon
-            sx={{ color: theme.secondary, margin: "10px auto", width: "100%" }}
+            fontSize="large"
+            sx={{
+              color: theme.secondary,
+              margin: "10px auto",
+              width: "100%",
+            }}
           />
           <CostumText>{infoText}</CostumText>
         </CardContent>

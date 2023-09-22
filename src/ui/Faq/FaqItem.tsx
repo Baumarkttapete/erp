@@ -4,10 +4,14 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import CostumText from "../CostumText";
 import { useTheme } from "../../theme/ThemeProvider";
 
-const FaqItem: React.FC<{ question: string; answer: string }> = ({
-  question,
-  answer,
-}) => {
+const FaqItem: React.FC<{
+  question: string;
+  answer: string;
+  answer2?: string;
+  answer3?: string;
+  answer4?: string;
+  answer5?: string;
+}> = ({ question, answer, answer2, answer3, answer4, answer5 }) => {
   const [expanded, setExpanded] = useState(false);
   const { theme } = useTheme();
 
@@ -33,6 +37,10 @@ const FaqItem: React.FC<{ question: string; answer: string }> = ({
       </AccordionSummary>
       <AccordionDetails>
         <CostumText>{answer}</CostumText>
+        {answer2 && <CostumText>{answer2}</CostumText>}
+        {answer3 && <CostumText>{answer3}</CostumText>}
+        {answer4 && <CostumText>{answer4}</CostumText>}
+        {answer5 && <CostumText>{answer5}</CostumText>}
       </AccordionDetails>
     </Accordion>
   );

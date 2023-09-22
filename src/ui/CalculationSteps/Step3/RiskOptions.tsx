@@ -33,7 +33,7 @@ const RiskOptions: React.FC<{
             alignItems="center"
             justifyContent="space-between"
             marginBottom="10px"
-            width="400px"
+            width="450px"
           >
             <Button
               sx={{
@@ -92,7 +92,7 @@ const RiskOptions: React.FC<{
               borderRadius: "0 0 8px 8px",
               borderTop: "none",
               margin: "0 0 10px 0",
-              width: "400px",
+              width: "450px",
             }}
           >
             <CostumText>{risk.info}</CostumText>
