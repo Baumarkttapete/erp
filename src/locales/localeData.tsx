@@ -191,6 +191,10 @@ const localeData = {
     dialog_dataloss_text:
       "Beim verlassen des Kalkulators gehen die Eingaben verloren. Möchtest du dennoch fortfahren?",
 
+    faq_infotext:
+      "Die Fragen sowie Antworten können mithilfe der Eingabe von Schlagwörtern im Suchfeld durchsucht und gefiltert werden.",
+    faq_search: "Suche",
+
     faq_question1:
       "Was ist ein Magisches Dreieck im Bezug auf ein ERP-Projekt?",
     faq_answer1:

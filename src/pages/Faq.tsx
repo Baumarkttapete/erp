@@ -3,9 +3,13 @@ import CustomTitle from "../ui/CustomTitle";
 import { useState } from "react";
 import { useIntl } from "react-intl";
 import FaqItem from "../ui/Faq/FaqItem";
+import InfoIcon from "@mui/icons-material/Info";
+import CostumText from "../ui/CostumText";
+import { useTheme } from "../theme/ThemeProvider";
 
 const Faq: React.FC<{}> = () => {
   const intl = useIntl();
+  const { theme } = useTheme();
   const [searchTerm, setSearchTerm] = useState("");
 
   const faqData = [
@@ -60,8 +64,22 @@ const Faq: React.FC<{}> = () => {
   return (
     <Box sx={{ margin: "40px auto", width: "80%" }}>
       <CustomTitle>{intl.formatMessage({ id: "faq" })}</CustomTitle>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "row",
+          margin: "15px 0",
+        }}
+      >
+        <InfoIcon
+          sx={{ color: theme.secondary, margin: "auto 0" }}
+          fontSize="large"
+        />
+        <CostumText>{intl.formatMessage({ id: "faq_infotext" })}</CostumText>
+      </Box>
+
       <TextField
-        label="Suche nach Fragen"
+        label={intl.formatMessage({ id: "faq_search" })}
         variant="outlined"
         fullWidth
         value={searchTerm}
