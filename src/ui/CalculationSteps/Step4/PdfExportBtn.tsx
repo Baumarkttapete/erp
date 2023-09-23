@@ -54,6 +54,7 @@ const PdfExportBtn: React.FC<{
 
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
+              color={theme.font}
               data={[
                 {
                   name: intl.formatMessage({ id: "software" }),
@@ -104,6 +105,7 @@ const PdfExportBtn: React.FC<{
           </View>
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
+              color={theme.font}
               data={[
                 {
                   name: intl.formatMessage({ id: "prework" }),
@@ -146,6 +148,7 @@ const PdfExportBtn: React.FC<{
           </View>
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
+              color={theme.font}
               data={[
                 {
                   name: intl.formatMessage({ id: "intern" }),
@@ -250,6 +253,7 @@ const PdfExportBtn: React.FC<{
                 },
               ]}
               title={intl.formatMessage({ id: "risks" })}
+              color={theme.font}
             />
           </View>
         </Page>

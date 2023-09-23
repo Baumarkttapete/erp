@@ -2,6 +2,7 @@ import React from "react";
 import { Text } from "@react-pdf/renderer";
 import PdfTextSpan from "./PdfTextSpan";
 import { pdfFontSizes } from "../../../theme/Sizes";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const PdfInfoCard: React.FC<{
   data: {
@@ -13,7 +14,8 @@ const PdfInfoCard: React.FC<{
   }[];
   title: string;
   infoText: string;
-}> = ({ title, data, infoText }) => {
+  color: string;
+}> = ({ title, data, infoText, color }) => {
   const textStyle = {
     fontSize: pdfFontSizes.text,
     padding: "3px",
@@ -29,6 +31,7 @@ const PdfInfoCard: React.FC<{
         padding: "10px",
         display: "flex",
         flexDirection: "row",
+        color: color,
       }}
     >
       <div
@@ -70,6 +73,7 @@ const PdfInfoCard: React.FC<{
         <Text
           style={{
             fontSize: pdfFontSizes.text,
+            color: color,
           }}
         ></Text>
       </div>

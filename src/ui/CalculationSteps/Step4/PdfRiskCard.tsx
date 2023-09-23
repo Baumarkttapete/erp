@@ -6,12 +6,8 @@ import { pdfFontSizes } from "../../../theme/Sizes";
 const PdfRiskCard: React.FC<{
   data: { name: string; amount: string; infoText: string }[];
   title: string;
-}> = ({ title, data }) => {
-  const textStyle = {
-    fontSize: pdfFontSizes.text,
-    padding: "3px",
-  };
-
+  color: string;
+}> = ({ title, data, color }) => {
   return (
     <div
       style={{
@@ -35,6 +31,7 @@ const PdfRiskCard: React.FC<{
             margin: "10px",
             fontWeight: "bold",
             fontSize: pdfFontSizes.subtitle,
+            color: color,
           }}
         >
           {title}
@@ -46,21 +43,15 @@ const PdfRiskCard: React.FC<{
                 title={entry.name}
                 amount={entry.amount}
                 infoText={entry.infoText}
+                color={color}
               />
               {index !== data.length - 1 && (
-                <div style={{ borderTop: "1px solid grey", width: "350px" }} />
+                <div style={{ borderTop: "1px solid grey", width: "500px" }} />
               )}
-              {index === 4 && <div style={{ height: "125px" }} />}
+              {index === 5 && <div style={{ height: "100px" }} />}
             </React.Fragment>
           ))}
         </div>
-      </div>
-      <div style={{ margin: "40px" }}>
-        <Text
-          style={{
-            fontSize: pdfFontSizes.text,
-          }}
-        ></Text>
       </div>
     </div>
   );

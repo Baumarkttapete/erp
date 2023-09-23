@@ -1,18 +1,21 @@
 import React from "react";
 import { Text } from "@react-pdf/renderer";
 import { pdfFontSizes } from "../../../theme/Sizes";
+import { useTheme } from "../../../theme/ThemeProvider";
 
 const PdfRiskSpan: React.FC<{
   title: string;
   amount: string;
   infoText: string;
-}> = ({ title, amount, infoText }) => {
+  color: string;
+}> = ({ title, amount, infoText, color }) => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        width: "350px",
+        width: "500px",
+        color: color,
       }}
     >
       <div
@@ -21,6 +24,7 @@ const PdfRiskSpan: React.FC<{
           flexDirection: "row",
           justifyContent: "space-between",
           margin: "10px 0",
+          width: "350px",
         }}
       >
         <Text
