@@ -22,10 +22,10 @@ export const bright: ColorTheme = {
   success: "#698F3F",
   font: "#525252",
   font2: "white",
-  pie1: "#8a1c7c",
-  pie2: "#bfcde0",
-  pie3: "#542344",
-  pie4: "#fe938c",
+  pie1: "#048a81",
+  pie2: "#fc5130",
+  pie3: "#655560",
+  pie4: "#bdb246",
 };
 
 export const highContrast: ColorTheme = {

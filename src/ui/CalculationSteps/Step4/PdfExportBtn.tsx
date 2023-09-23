@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   PDFViewer,
   PDFDownloadLink,
@@ -6,7 +6,6 @@ import {
   Page,
   View,
   Image,
-  Text,
 } from "@react-pdf/renderer";
 import { useTheme } from "../../../theme/ThemeProvider";
 import logoDark from "../../../img/logoDark.png";
@@ -15,6 +14,7 @@ import PdfInfoCard from "./PdfInfoCard";
 import { Box, LinearProgress } from "@mui/material";
 import SnackbarInfo from "../SnackbarInfo";
 import { useIntl } from "react-intl";
+import PdfRiskCard from "./PdfRiskCard";
 
 const PdfExportBtn: React.FC<{
   userData: UserData;
@@ -33,6 +33,11 @@ const PdfExportBtn: React.FC<{
   const intl = useIntl();
   const [showSnackbar, setShowSnackbar] = useState(false);
 
+  const costSum =
+    userData.hardwareCost + userData.softwareCost + userData.serviceCost;
+  const timeSum = userData.time.prework + userData.time.implementation;
+  const personalSum = userData.personal.intern + userData.personal.extern;
+
   const handleShowSnackbar = () => {
     setTimeout(() => {
       setShowSnackbar(true);
@@ -41,12 +46,12 @@ const PdfExportBtn: React.FC<{
 
   const MyDocument = () => (
     <Document>
-      <Page size="A4">
-        <View>
-          <Image src={logoDark} style={{ width: 300, margin: "0 auto" }} />
-        </View>
+      {isCheckedCost && (
+        <Page size="A5" orientation="landscape">
+          <View>
+            <Image src={logoDark} style={{ width: 200, margin: "0 auto" }} />
+          </View>
 
-        {isCheckedCost && (
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
@@ -54,16 +59,25 @@ const PdfExportBtn: React.FC<{
                   name: intl.formatMessage({ id: "software" }),
                   amount: userData.softwareCost.toFixed(2),
                   unit: " €",
+                  percent:
+                    ((userData.softwareCost / costSum) * 100).toFixed(0) + "%",
+                  color: theme.pie3,
                 },
                 {
                   name: intl.formatMessage({ id: "service" }),
                   amount: userData.serviceCost.toFixed(2),
                   unit: " €",
+                  percent:
+                    ((userData.serviceCost / costSum) * 100).toFixed(0) + "%",
+                  color: theme.pie2,
                 },
                 {
                   name: intl.formatMessage({ id: "hardware" }),
                   amount: userData.hardwareCost.toFixed(2),
                   unit: " €",
+                  percent:
+                    ((userData.hardwareCost / costSum) * 100).toFixed(0) + "%",
+                  color: theme.pie1,
                 },
                 {
                   name: intl.formatMessage({ id: "sum" }),
@@ -73,14 +87,21 @@ const PdfExportBtn: React.FC<{
                     userData.hardwareCost
                   ).toFixed(2),
                   unit: " €",
+                  percent: "100%",
+                  color: theme.font,
                 },
               ]}
               title={intl.formatMessage({ id: "cost" })}
               infoText={intl.formatMessage({ id: "cost_infotext" })}
             />
           </View>
-        )}
-        {isCheckedTime && (
+        </Page>
+      )}
+      {isCheckedTime && (
+        <Page size="A5" orientation="landscape">
+          <View>
+            <Image src={logoDark} style={{ width: 200, margin: "0 auto" }} />
+          </View>
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
@@ -88,11 +109,19 @@ const PdfExportBtn: React.FC<{
                   name: intl.formatMessage({ id: "prework" }),
                   amount: userData.time.prework.toFixed(1),
                   unit: intl.formatMessage({ id: "months" }),
+                  percent:
+                    ((userData.time.prework / timeSum) * 100).toFixed(0) + "%",
+                  color: theme.pie4,
                 },
                 {
                   name: intl.formatMessage({ id: "implementation" }),
                   amount: userData.time.implementation.toFixed(1),
                   unit: intl.formatMessage({ id: "months" }),
+                  percent:
+                    ((userData.time.implementation / timeSum) * 100).toFixed(
+                      0
+                    ) + "%",
+                  color: theme.pie2,
                 },
                 {
                   name: intl.formatMessage({ id: "sum" }),
@@ -100,14 +129,21 @@ const PdfExportBtn: React.FC<{
                     userData.time.implementation + userData.time.prework
                   ).toFixed(1),
                   unit: intl.formatMessage({ id: "months" }),
+                  percent: "100%",
+                  color: theme.font,
                 },
               ]}
               title={intl.formatMessage({ id: "time" })}
               infoText={intl.formatMessage({ id: "time_infotext" })}
             />
           </View>
-        )}
-        {isCheckedPersonal && (
+        </Page>
+      )}
+      {isCheckedPersonal && (
+        <Page size="A5" orientation="landscape">
+          <View>
+            <Image src={logoDark} style={{ width: 200, margin: "0 auto" }} />
+          </View>
           <View style={{ margin: "20px" }}>
             <PdfInfoCard
               data={[
@@ -115,11 +151,21 @@ const PdfExportBtn: React.FC<{
                   name: intl.formatMessage({ id: "intern" }),
                   amount: userData.personal.intern.toFixed(1),
                   unit: intl.formatMessage({ id: "employees" }),
+                  percent:
+                    ((userData.personal.intern / personalSum) * 100).toFixed(
+                      0
+                    ) + "%",
+                  color: theme.pie1,
                 },
                 {
                   name: intl.formatMessage({ id: "extern" }),
                   amount: userData.personal.extern.toFixed(1),
                   unit: intl.formatMessage({ id: "consultants" }),
+                  percent:
+                    ((userData.personal.extern / personalSum) * 100).toFixed(
+                      0
+                    ) + "%",
+                  color: theme.pie2,
                 },
                 {
                   name: intl.formatMessage({ id: "sum" }),
@@ -127,20 +173,87 @@ const PdfExportBtn: React.FC<{
                     userData.time.implementation + userData.time.prework
                   ).toFixed(1),
                   unit: intl.formatMessage({ id: "persons" }),
+                  percent: "100%",
+                  color: theme.font,
                 },
               ]}
               title={intl.formatMessage({ id: "personal" })}
               infoText={intl.formatMessage({ id: "personal_infotext" })}
             />
           </View>
-        )}
+        </Page>
+      )}
 
-        {isCheckedRisk && (
+      {isCheckedRisk && (
+        <Page size="A4">
           <View>
-            <Text></Text>
+            <Image src={logoDark} style={{ width: 200, margin: "0 auto" }} />
           </View>
-        )}
-      </Page>
+          <View style={{ margin: "20px" }}>
+            <PdfRiskCard
+              data={[
+                {
+                  name: intl.formatMessage({ id: "risk_datenmigration" }),
+                  amount: userData.risk.datenmigration + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_datenmigration_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_zeitplan" }),
+                  amount: userData.risk.zeitplan + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_zeitplan_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_anpassungen" }),
+                  amount: userData.risk.anpassungen + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_anpassungen_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_ressourcen" }),
+                  amount: userData.risk.ressourcen + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_ressourcen_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_unternehmensprozesse" }),
+                  amount: userData.risk.abbildungProzesse + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_unternehmensprozesse_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_schnittstellen" }),
+                  amount: userData.risk.schnittstellen + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_schnittstellen_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_anforderungen" }),
+                  amount: userData.risk.anforderungenUnklar + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_anforderungen_info",
+                  }),
+                },
+                {
+                  name: intl.formatMessage({ id: "risk_schulungsaufwand" }),
+                  amount: userData.risk.schulungsaufwand + "%",
+                  infoText: intl.formatMessage({
+                    id: "risk_schulungsaufwand_info",
+                  }),
+                },
+              ]}
+              title={intl.formatMessage({ id: "risks" })}
+            />
+          </View>
+        </Page>
+      )}
     </Document>
   );
 

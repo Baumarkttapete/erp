@@ -1,19 +1,12 @@
 import React from "react";
 import { Text } from "@react-pdf/renderer";
-import PdfTextSpan from "./PdfTextSpan";
+import PdfRiskSpan from "./PdfRiskSpan";
 import { pdfFontSizes } from "../../../theme/Sizes";
 
-const PdfInfoCard: React.FC<{
-  data: {
-    name: string;
-    amount: string;
-    unit: string;
-    percent: string;
-    color: string;
-  }[];
+const PdfRiskCard: React.FC<{
+  data: { name: string; amount: string; infoText: string }[];
   title: string;
-  infoText: string;
-}> = ({ title, data, infoText }) => {
+}> = ({ title, data }) => {
   const textStyle = {
     fontSize: pdfFontSizes.text,
     padding: "3px",
@@ -49,21 +42,17 @@ const PdfInfoCard: React.FC<{
         <div style={{ margin: "15px" }}>
           {data.map((entry, index) => (
             <React.Fragment key={index}>
-              {index === data.length - 1 && (
-                <div style={{ borderTop: "1px solid grey", width: "350px" }} />
-              )}
-              <PdfTextSpan
+              <PdfRiskSpan
                 title={entry.name}
                 amount={entry.amount}
-                unit={entry.unit}
-                percent={entry.percent}
-                color={entry.color}
+                infoText={entry.infoText}
               />
+              {index !== data.length - 1 && (
+                <div style={{ borderTop: "1px solid grey", width: "350px" }} />
+              )}
+              {index === 4 && <div style={{ height: "125px" }} />}
             </React.Fragment>
           ))}
-        </div>
-        <div style={{ margin: "15px", lineHeight: "1.5" }}>
-          <Text style={textStyle}>{infoText}</Text>
         </div>
       </div>
       <div style={{ margin: "40px" }}>
@@ -77,4 +66,4 @@ const PdfInfoCard: React.FC<{
   );
 };
 
-export default PdfInfoCard;
+export default PdfRiskCard;

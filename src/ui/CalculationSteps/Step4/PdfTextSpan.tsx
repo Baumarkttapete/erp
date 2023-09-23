@@ -1,27 +1,33 @@
 import React from "react";
 import { Text } from "@react-pdf/renderer";
-import { fontSize } from "../../../theme/Sizes";
+import { pdfFontSizes } from "../../../theme/Sizes";
 
 const PdfTextSpan: React.FC<{
   title: string;
   amount: string;
   unit: string;
-}> = ({ title, amount, unit }) => {
-  const textStyle = {
-    fontSize: fontSize.text,
-    padding: "3px",
-  };
-
+  percent: string;
+  color: string;
+}> = ({ title, amount, unit, percent, color }) => {
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "row",
-        width: "210px",
+        width: "350px",
         justifyContent: "space-between",
       }}
     >
-      <Text style={textStyle}>{title}</Text>
+      <Text
+        style={{
+          fontSize: pdfFontSizes.text,
+          padding: "3px",
+          color: color,
+          fontWeight: "bold",
+        }}
+      >
+        {title}
+      </Text>
 
       <div
         style={{
@@ -29,8 +35,36 @@ const PdfTextSpan: React.FC<{
           flexDirection: "row",
         }}
       >
-        <Text style={textStyle}>{amount}</Text>
-        <Text style={textStyle}>{unit}</Text>
+        <Text
+          style={{
+            fontSize: pdfFontSizes.text,
+            padding: "3px",
+            fontWeight: "bold",
+            color: color,
+          }}
+        >
+          {amount}
+        </Text>
+        <Text
+          style={{
+            fontSize: pdfFontSizes.text,
+            padding: "3px",
+            fontWeight: "bold",
+            color: color,
+          }}
+        >
+          {unit}
+        </Text>
+        <Text
+          style={{
+            fontSize: pdfFontSizes.text,
+            padding: "3px 20px",
+            fontWeight: "bold",
+            color: color,
+          }}
+        >
+          {percent}
+        </Text>
       </div>
     </div>
   );

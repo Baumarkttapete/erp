@@ -50,13 +50,13 @@ const localeData = {
     branch_industry: "Industrie",
     branch_service: "Dienstleistung",
     branch_trading: "Handel",
-    userQuantity: "Anzahl Mitarbeiter",
+    userQuantity: "Anzahl Mitarbeitende",
     region: "Region",
     region_d: "Deutschland",
     region_a: "Österreich",
     region_ch: "Schweiz",
 
-    tooltip_employees: "Anzahl Mitarbeiter im Unternehmen",
+    tooltip_employees: "Anzahl Mitarbeitende im Unternehmen",
     tooltip_branch: "Branche des Unternehmens",
     tooltip_region: "Region des Unternehmens",
     tooltip_time: "Dauer des Projekts",
@@ -64,10 +64,10 @@ const localeData = {
 
     step1_title: "Benutzereingaben",
     step1_infotext:
-      "Bitte gib in die Inputfelder die ungefähre Mitarbeiteranzahl des Unternehmens an und wähle Branche und Standort der Niederlassung aus. Ist die Branche nicht in der Auswahl gelistet, wähle aus, was dem an nächsten kommt.",
+      "Bitte gib in die Inputfelder die ungefähre Mitarbeitendenanzahl des Unternehmens an und wähle Branche und Standort der Niederlassung aus. Ist die Branche nicht in der Auswahl gelistet, wähle aus, was dem an nächsten kommt.",
 
     step1_snackbar_text:
-      "Bitte gib Anzahl der Mitarbeiter, Branche UND Region des Unternehmens an.",
+      "Bitte gib Anzahl der Mitarbeitende, Branche UND Region des Unternehmens an.",
     step2_title: "Zusammenfassung",
     step2_infotext:
       "Folgende Kosten pro User, Dauer und Personen im Kernteam sollten sie einplanen:",
@@ -87,8 +87,8 @@ const localeData = {
     intern: "Intern",
     extern: "Extern",
     personal_infotext:
-      "Der Personalbedarf des Projektteams hängt von verschiedenen Faktoren ab, unter anderem von der Größe und Komplexität des Projekts. Internes Personal sind Mitarbeiter des eigenen Unternehmens, die direkt am Projekt beteiligt sind. Externe Mitarbeiter sind Berater von externen Firmen, die spezialisierte Fähigkeiten einbringen. Die Gesamtzahl der Teammitglieder hat einen großen Einfluss auf die Effizienz und den Erfolg des Projekts. Komplexe Projekte in verschiedenen Branchen erfordern oft eine Kombination aus internem und externem Personal, um optimale Ergebnisse zu erzielen.",
-    employees: " Mitarbeiter",
+      "Der Personalbedarf des Projektteams hängt von verschiedenen Faktoren ab, unter anderem von der Größe und Komplexität des Projekts. Internes Personal sind Mitarbeitende des eigenen Unternehmens, die direkt am Projekt beteiligt sind. Externe Mitarbeitende sind Berater von externen Firmen, die spezialisierte Fähigkeiten einbringen. Die Gesamtzahl der Teammitglieder hat einen großen Einfluss auf die Effizienz und den Erfolg des Projekts. Komplexe Projekte in verschiedenen Branchen erfordern oft eine Kombination aus internem und externem Personal, um optimale Ergebnisse zu erzielen.",
+    employees: " Mitarbeitende",
     consultants: " Berater",
     persons: " Personen",
     sum: "Gesamt",
@@ -177,6 +177,8 @@ const localeData = {
       "Kosten: Der Schulungsaufwand kann zusätzliche Kosten verursachen, da Ressourcen für die Schulung bereitgestellt werden müssen.",
     risk_schulungsaufwand_info_quality:
       "Qualität: Eine unzureichende Schulung könnte die Qualität beeinträchtigen, da die beteiligten Personen möglicherweise nicht effektiv mit den neuen Prozessen oder Technologien umgehen können.",
+
+    risk_inPercent: "In Prozent",
 
     step4_infotext:
       "Bitte wähle die Inhalte aus, die in der PDF enthalten sein sollen.",

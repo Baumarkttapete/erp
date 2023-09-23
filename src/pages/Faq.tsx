@@ -43,8 +43,18 @@ const Faq: React.FC<{}> = () => {
     },
   ];
 
-  const filteredFaq = faqData.filter((item) =>
-    item.question.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredFaq = faqData.filter(
+    (item) =>
+      item.question.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      item.answer.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      (item.answer2 &&
+        item.answer2.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.answer3 &&
+        item.answer3.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.answer4 &&
+        item.answer4.toLowerCase().includes(searchTerm.toLowerCase())) ||
+      (item.answer5 &&
+        item.answer5.toLowerCase().includes(searchTerm.toLowerCase()))
   );
 
   return (
