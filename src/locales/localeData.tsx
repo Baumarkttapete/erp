@@ -1,17 +1,123 @@
 const localeData = {
   en: {
-    branch: "Branch",
-    branch_industry: "Industry",
+    home: "Homepage",
+    calculation: "Calculation",
+    about: "About",
+    faq: "FAQ",
+
+    input: "Input",
+    results: "Results",
+    risks: "Risks",
+    pdf_export: "PDF Export",
+    effects: "Effects",
+
+    home_title: "ERP",
+    home_subtitle: "Project | Implementation | Introduction",
+    home_subtitle2: "What aspects should be considered?",
+
+    home_costinfo: "What budget per user should be planned?",
+    home_personalinfo: "How many people should be in the core team?",
+    home_timeinfo: "How much time should be allocated for the implementation?",
+    home_risksinfo:
+      "What are the most likely risks that may arise during the implementation?",
+    home_infotext:
+      "Based on the company's size, industry, and region, these points can be estimated in advance.",
+    home_btn_study: "To the Study",
+    home_btn_calculation: "To the Calculation",
+
+    about_infotext:
+      "This application was developed as part of the thesis on 'Usability-focused development of an application for cost calculation of ERP implementation projects' at the Berlin School of Economics and Law and was developed by Bianca Stodieck.",
+    about_infotext2:
+      "The goal is to assist companies in better estimating and making the costs of implementing an ERP system more transparent.",
+
+    branch: "Industry",
+    branch_industry: "Manufacturing",
     branch_service: "Service",
-    branch_trading: "Trading",
-    userQuantity: "User quantity",
+    branch_trading: "Trade",
+    userQuantity: "Number of Employees",
     region: "Region",
     region_d: "Germany",
     region_a: "Austria",
     region_ch: "Switzerland",
-    step1_title: "User input",
+
+    tooltip_employees: "Number of employees in the company",
+    tooltip_branch: "Company's industry",
+    tooltip_region: "Company's region",
+    tooltip_time: "Project duration",
+    tooltip_personal: "Required personnel in the core team",
+
+    step1_title: "User Inputs",
     step1_infotext:
-      "Please enter in the input fields the approximate number of employees of the company and select in which industry and location of the branch.",
+      "Enter the number of employees in the company in the input fields and select the industry and location of the branch. If the industry is not listed in the selection, choose the one that is closest.",
+
+    step1_snackbar_text:
+      "Please enter the number of employees, branch, AND region of the company.",
+    step2_title: "Summary",
+    step2_infotext:
+      "You should plan the following costs per user, duration, and core team members:",
+
+    cost_per_user: "Costs per User",
+    software: "Software",
+    service: "Service",
+    hardware: "Hardware",
+    cost_infotext:
+      "The costs per user are composed of various components. Software costs include expenses for licensed software and customizations. Service costs include expenses for consulting and individual adjustments. Hardware costs include the acquisition of servers, computers, and other physical resources. The total costs consist of these components and represent the financial effort per user.",
+    prework: "Prework",
+    months: " Months",
+    implementation: "Implementation",
+    time_infotext:
+      "The duration of a project is divided into various phases. The preparation phase includes collecting requirements and planning. The implementation phase involves the actual implementation of the solution. The total duration is the sum of these two phases. Efficient planning and execution are crucial to complete the project on time.",
+    personal: "Core Team",
+    intern: "Internal",
+    extern: "External",
+    personal_infotext:
+      "The staffing needs of the project team depend on various factors, including the size and complexity of the project. Internal staff are employees of the company who are directly involved in the project. External employees are consultants from external companies who bring specialized skills. The total number of team members has a significant impact on the efficiency and success of the project. Complex projects in various industries often require a combination of internal and external personnel to achieve optimal results.",
+    employees: " Employees",
+    consultants: " Consultants",
+    persons: " Persons",
+    sum: "Total",
+
+    cost: "Cost",
+    time: "Duration",
+    quality: "Quality",
+
+    next: "Next",
+    back: "Back",
+
+    risk_infotext_diagram:
+      "The following bar chart shows the main problems during system implementation and the percentage of companies of your company size to which these problems applied.",
+    risk_infotext_radar:
+      "You now have the opportunity to incorporate the potential impacts of the main problems into the Magic Triangle shown below. To do this, tick the boxes for the potential impacts you want to include and specify to what extent. For more detailed information, hover over the respective risks.",
+    risk_infotext_radar_warning: "These are only estimates!",
+    risk_datenmigration: "Data Migration Issues",
+    risk_datenmigration_info:
+      "It is important to exercise special care during data migration to ensure that all information is transferred correctly and completely. This can be achieved through thorough planning, comprehensive testing, and the use of experts.",
+    risk_datenmigration_info_cost:
+      "Costs: Costs may rise if additional resources or specialized technologies are needed to ensure smooth data migration. Also, involving experts can incur additional expenses.",
+    risk_datenmigration_info_time:
+      "Duration: Data migration can take significant time, especially if large amounts of data need to be moved or if there are complex data structures. The more complex the migration, the longer it could take to complete the project.",
+    risk_datenmigration_info_quality:
+      "Quality: Inadequate data migration can affect the quality of the project. Data loss or errors in migration can lead to incorrect information or malfunctions.",
+    risk_zeitplan: "Too Tight Schedule",
+    risk_zeitplan_info:
+      "This risk refers to the possibility that the project may not be completed on time due to a too tight schedule. There may not be enough time to properly complete all required tasks.",
+    risk_zeitplan_info_time:
+      "Costs: Pressure from a tight schedule may lead to the need for additional resources to push the project forward faster. This could increase costs.",
+    risk_zeitplan_info_cost:
+      "Duration: A tight schedule may impact the duration of the project. Completion could be delayed as there may not be enough time to properly execute tasks.",
+    risk_zeitplan_info_quality:
+      "Quality: With a tight schedule, certain quality assurance processes or checks may be shortened or skipped, potentially affecting the quality of the end product.",
+    risk_anpassungen: "Too Many Customizations",
+    risk_anpassungen_info:
+      "This risk refers to frequent changes to the requirements or scope during the project. This can lead to additional complexity and possibly delays.",
+    risk_anpassungen_info_time:
+      "Duration: Too many customizations can extend the duration of the project, as additional time is needed to implement and test the changes.",
+    risk_anpassungen_info_cost:
+      "Costs: Constant customizations can increase the project's costs, as they require additional resources and working hours.",
+    risk_anpassungen_info_quality:
+      "Quality: Constant customizations could affect the quality, as there may not be enough time for comprehensive testing and quality controls.",
+    risk_ressourcen: "Lack of Resources for Users",
+    risk_ressourcen_info: "This risk concerns",
   },
   de: {
     home: "Startseite",
@@ -64,7 +170,7 @@ const localeData = {
 
     step1_title: "Benutzereingaben",
     step1_infotext:
-      "Bitte gib in die Inputfelder die ungefähre Mitarbeitendenanzahl des Unternehmens an und wähle Branche und Standort der Niederlassung aus. Ist die Branche nicht in der Auswahl gelistet, wähle aus, was dem an nächsten kommt.",
+      "Gib in die Inputfelder die Mitarbeitendenanzahl des Unternehmens an und wähle Branche und Standort der Niederlassung aus. Ist die Branche nicht in der Auswahl gelistet, wähle aus, was dem an nächsten kommt.",
 
     step1_snackbar_text:
       "Bitte gib Anzahl der Mitarbeitende, Branche UND Region des Unternehmens an.",

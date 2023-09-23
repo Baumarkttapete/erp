@@ -1,17 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Box, Card } from "@mui/material";
 import { TriangleData } from "../../models/TriangleData";
-import CustomBarChart from "./Step3/CustomBarChart";
 import UserInfoCard from "./Step2/UserInfoCard";
 import { UserData } from "../../models/UserData";
 import RiskOptions from "./Step3/RiskOptions";
-import CustomRadarChart from "./Step2/CustomRadarChart";
+import CustomRadarChart from "./Step3/CustomRadarChart";
 import { RiskData } from "../../models/RiskData";
 import { useTheme } from "../../theme/ThemeProvider";
 import { useIntl } from "react-intl";
 import CostumText from "../CostumText";
 import CostumSubtitle from "../CustomSubtitle";
 import CostumTitle from "../CustomTitle";
+import CustomBarChart from "./Step3/CustomBarChart";
 
 const Step3: React.FC<{
   userData: UserData;
