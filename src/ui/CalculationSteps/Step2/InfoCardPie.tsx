@@ -125,7 +125,7 @@ const InfoCardPie: React.FC<InfoCardProps> = ({
           aria-expanded={expanded}
           aria-label="show more"
         >
-          <ExpandMoreIcon />
+          <ExpandMoreIcon fontSize="large" />
         </ExpandMore>
       </CardActions>
       <Collapse

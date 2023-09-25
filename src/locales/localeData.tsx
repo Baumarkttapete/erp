@@ -193,9 +193,9 @@ const localeData = {
     intern: "Intern",
     extern: "Extern",
     personal_infotext:
-      "Der Personalbedarf des Projektteams hängt von verschiedenen Faktoren ab, unter anderem von der Größe und Komplexität des Projekts. Internes Personal sind Mitarbeitende des eigenen Unternehmens, die direkt am Projekt beteiligt sind. Externe Mitarbeitende sind Berater von externen Firmen, die spezialisierte Fähigkeiten einbringen. Die Gesamtzahl der Teammitglieder hat einen großen Einfluss auf die Effizienz und den Erfolg des Projekts. Komplexe Projekte in verschiedenen Branchen erfordern oft eine Kombination aus internem und externem Personal, um optimale Ergebnisse zu erzielen.",
+      "Der Personalbedarf des Projektteams hängt von verschiedenen Faktoren ab, unter anderem von der Größe und Komplexität des Projekts. Internes Personal sind Mitarbeitende des eigenen Unternehmens, die direkt am Projekt beteiligt sind. Externe Mitarbeitende sind Beratende von externen Firmen, die spezialisierte Fähigkeiten einbringen. Die Gesamtzahl der Teammitglieder hat einen großen Einfluss auf die Effizienz und den Erfolg des Projekts. Komplexe Projekte in verschiedenen Branchen erfordern oft eine Kombination aus internem und externem Personal, um optimale Ergebnisse zu erzielen.",
     employees: " Mitarbeitende",
-    consultants: " Berater",
+    consultants: " Beratende",
     persons: " Personen",
     sum: "Gesamt",
 
@@ -209,8 +209,9 @@ const localeData = {
     risk_infotext_diagram:
       "Folgendes Balkendiagramm zeigt die Hauptprobleme während der Systemeinführung und den prozentualen Anteil der Unternehmen Ihrer Unternehmensgröße, auf die diese Probleme zutrafen.",
     risk_infotext_radar:
-      "Sie haben nun die Möglichkeit, die möglichen Auswirkungen der oben genannten Hauptprobleme in das unten gezeigte Magische Dreieck einfließen zu lassen. Haken Sie dazu die Felder an, deren mögliche Auswirkungen Sie einfließen lassen möchten und geben Sie zusätzlich an, in welchem Ausmaß. Für genauere Infos hovern Sie über die jeweiligen Risiken.",
-    risk_infotext_radar_warning: "Hierbei handelt es sich nur um Schätzungen!",
+      "Sie haben nun die Möglichkeit, die möglichen Auswirkungen der oben genannten Hauptprobleme in das unten gezeigte Magische Dreieck einfließen zu lassen. Betätigen Sie dazu die Slider neben den Risiken. Für genauere Infos zu den Risiken und die jeweiligen Auswirkungen auf das Magische Dreieck lassen sich diese ausklappen.",
+    risk_infotext_radar_warning:
+      "Hierbei handelt es sich nur um Schätzungen! Die genannten Probleme wirken sich auf jedes Projekt unterschiedlich aus. Daher dient diese Ansicht in erster Linie dazu, auf die Problematik aufmerksam zu machen.",
     risk_datenmigration: "Probleme bei der Datenmigration",
     risk_datenmigration_info:
       "Es ist wichtig, bei der Datenmigration besondere Sorgfalt walten zu lassen, um sicherzustellen, dass alle Informationen korrekt und vollständig übertragen werden. Dies kann durch gründliche Planung, umfassende Tests und den Einsatz von Experten erreicht werden.",

@@ -41,7 +41,7 @@ const Step4: React.FC<{
       case intl.formatMessage({ id: "personal" }):
         setIsCheckedPersonal(isChecked);
         break;
-      case intl.formatMessage({ id: "risk" }):
+      case intl.formatMessage({ id: "risks" }):
         setIsCheckedRisk(isChecked);
         break;
       default:

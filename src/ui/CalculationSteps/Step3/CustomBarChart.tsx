@@ -24,7 +24,7 @@ const CustomBarChart: React.FC<PieChartProps> = ({ data }) => {
 
   return (
     <BarChart
-      width={800}
+      width={700}
       height={300}
       data={sortedData}
       layout="vertical"
