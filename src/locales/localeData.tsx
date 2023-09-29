@@ -314,9 +314,6 @@ const localeData = {
       "Kosten (Cost): Dies bezieht sich auf das Budget oder die finanziellen Mittel, die für die Durchführung des Projekts benötigt werden. ",
     faq_answer1_5:
       "Diese drei Parameter sind eng miteinander verknüpft. Änderungen bei einem Parameter wirken sich oft auf die anderen beiden aus. Zum Beispiel kann eine Erweiterung des Projektumfangs zusätzliche Zeit und Ressourcen erfordern. Die Idee des magischen Dreiecks besteht darin, dass es notwendigerweise Kompromisse zwischen diesen drei Faktoren geben muss. Wenn sich beispielsweise der Umfang eines Projekts ändert, kann es erforderlich sein, den Zeitplan anzupassen oder zusätzliche Ressourcen zuzuweisen, um das Projekt erfolgreich abzuschließen. Das Verständnis des magischen Dreiecks ist entscheidend für ein effektives Projektmanagement, da es den Projektleitern hilft, die Auswirkungen von Entscheidungen auf Umfang, Zeit und Kosten zu verstehen und zu berücksichtigen.",
-
-    faq_question2: "Wie werden die Kosten berechnet?",
-    faq_answer2: "Die ...",
     faq_question3: "Wie ist dieses Projekt entstanden?",
     faq_answer3:
       "Diese Anwendung ist im Rahmen der Abschlussarbeit zum Thema 'Usability-fokussierte Entwicklung einer Anwendung zur Kostenkalkulation von ERP-Einführungsprojekten' an der Hochschule für Wirtschaft und Recht Berlin entstanden und durch Bianca Stodieck entwickelt worden.",
@@ -325,16 +322,12 @@ const localeData = {
       "Als Grundlage hierfür dient die Trovarit-Studie 'ERP in der Praxis' aus dem Jahr 2018/2019 in der die Erfahrungen von über 15.000 teilnehmenden Unternehmen festgehalten und ausgewertet wurde.",
     faq_question5: "Wird es noch mehr Auswahlmöglichkeiten geben?",
     faq_answer5:
-      "Aktuell ist keine Weiterentwicklung vorgesehen. Daher wird es auch keine weiteren Auswahlmöglichekiten geben.",
+      "Aktuell ist keine Weiterentwicklung vorgesehen. Daher wird es auch keine weiteren Auswahlmöglichkeiten geben.",
     faq_question6: "Für wen ist die Webseite gedacht?",
     faq_answer6:
       "Die Webseite ist für Unternehmen bzw. Personen gedacht, sie dabei zu unterstützen, die Kosten für die Einführung eines ERP-Systems besser abzuschätzen und transparenter zu gestalten",
     faq_question7: "Werden meine Eingaben gespeichert?",
     faq_answer7: "Nein, es werden keinerlei Daten gespeichert.",
-    faq_question8: "Frage 8",
-    faq_answer8: "Die ...",
-    faq_question9: "Frage 9",
-    faq_answer9: "Die ...",
   },
 };
 

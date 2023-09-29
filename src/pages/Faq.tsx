@@ -21,10 +21,7 @@ const Faq: React.FC<{}> = () => {
       answer4: intl.formatMessage({ id: "faq_answer1_4" }),
       answer5: intl.formatMessage({ id: "faq_answer1_5" }),
     },
-    {
-      question: intl.formatMessage({ id: "faq_question2" }),
-      answer: intl.formatMessage({ id: "faq_answer2" }),
-    },
+
     {
       question: intl.formatMessage({ id: "faq_question3" }),
       answer: intl.formatMessage({ id: "faq_answer3" }),
