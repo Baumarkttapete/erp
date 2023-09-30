@@ -1,10 +1,5 @@
 const localeData = {
   en: {
-    home: "Homepage",
-    calculation: "Calculation",
-    about: "About",
-    faq: "FAQ",
-
     input: "Input",
     results: "Results",
     risks: "Risks",
@@ -13,7 +8,7 @@ const localeData = {
 
     home_title: "ERP",
     home_subtitle: "Project | Implementation | Introduction",
-    home_subtitle2: "What aspects should be considered?",
+    home_subtitle2: "What Aspects to Consider?",
 
     home_costinfo: "What budget per user should be planned?",
     home_personalinfo: "How many people should be in the core team?",
@@ -21,17 +16,17 @@ const localeData = {
     home_risksinfo:
       "What are the most likely risks that may arise during the implementation?",
     home_infotext:
-      "Based on the company's size, industry, and region, these points can be estimated in advance.",
+      "Based on company size, industry, and region, these points can be estimated in advance.",
     home_btn_study: "To the Study",
     home_btn_calculation: "To the Calculation",
 
     about_infotext:
-      "This application was developed as part of the thesis on 'Usability-focused development of an application for cost calculation of ERP implementation projects' at the Berlin School of Economics and Law and was developed by Bianca Stodieck.",
+      "This application was developed as part of the thesis on 'Usability-Focused Development of an Application for Cost Estimation of ERP Implementation Projects' at the Berlin School of Economics and Law and was developed by Bianca Stodieck.",
     about_infotext2:
-      "The goal is to assist companies in better estimating and making the costs of implementing an ERP system more transparent.",
+      "The goal is to assist companies in better estimating and making the costs for implementing an ERP system more transparent.",
 
-    branch: "Industry",
-    branch_industry: "Manufacturing",
+    branch: "Branch",
+    branch_industry: "Industry",
     branch_service: "Service",
     branch_trading: "Trade",
     userQuantity: "Number of Employees",
@@ -40,38 +35,38 @@ const localeData = {
     region_a: "Austria",
     region_ch: "Switzerland",
 
-    tooltip_employees: "Number of employees in the company",
-    tooltip_branch: "Company's industry",
-    tooltip_region: "Company's region",
-    tooltip_time: "Project duration",
-    tooltip_personal: "Required personnel in the core team",
+    tooltip_employees: "Number of Employees in the Company",
+    tooltip_branch: "Company Industry",
+    tooltip_region: "Company Region",
+    tooltip_time: "Project Duration",
+    tooltip_personal: "Required Core Team Members",
 
     step1_title: "User Inputs",
     step1_infotext:
-      "Enter the number of employees in the company in the input fields and select the industry and location of the branch. If the industry is not listed in the selection, choose the one that is closest.",
+      "Enter the number of employees in the company and select the industry and location of the branch. If the industry is not listed, choose the closest option.",
 
     step1_snackbar_text:
-      "Please enter the number of employees, branch, AND region of the company.",
+      "Please enter the number of employees, branch, and region of the company.",
     step2_title: "Summary",
     step2_infotext:
       "You should plan the following costs per user, duration, and core team members:",
 
-    cost_per_user: "Costs per User",
+    cost_per_user: "Cost per User",
     software: "Software",
     service: "Service",
     hardware: "Hardware",
     cost_infotext:
-      "The costs per user are composed of various components. Software costs include expenses for licensed software and customizations. Service costs include expenses for consulting and individual adjustments. Hardware costs include the acquisition of servers, computers, and other physical resources. The total costs consist of these components and represent the financial effort per user.",
+      "The costs per user consist of various components. Software costs include expenses for licensed software and customizations. Service costs include expenses for consultation and individual adjustments. Hardware costs include the acquisition of servers, computers, and other physical resources. The total costs are composed of these components and represent the financial expenditure per user.",
     prework: "Prework",
     months: " Months",
     implementation: "Implementation",
     time_infotext:
-      "The duration of a project is divided into various phases. The preparation phase includes collecting requirements and planning. The implementation phase involves the actual implementation of the solution. The total duration is the sum of these two phases. Efficient planning and execution are crucial to complete the project on time.",
+      "The duration of a project is divided into various phases. The preparation phase includes gathering requirements and planning. The implementation phase involves the actual implementation of the solution. The total duration is the sum of these two phases. Efficient planning and execution are crucial to completing the project on time.",
     personal: "Core Team",
     intern: "Internal",
     extern: "External",
     personal_infotext:
-      "The staffing needs of the project team depend on various factors, including the size and complexity of the project. Internal staff are employees of the company who are directly involved in the project. External employees are consultants from external companies who bring specialized skills. The total number of team members has a significant impact on the efficiency and success of the project. Complex projects in various industries often require a combination of internal and external personnel to achieve optimal results.",
+      "The personnel needs of the project team depend on various factors, including the size and complexity of the project. Internal personnel are employees of the company directly involved in the project. External employees are consultants from external companies bringing specialized skills. The total number of team members has a significant impact on the efficiency and success of the project. Complex projects in different industries often require a combination of internal and external personnel to achieve optimal results.",
     employees: " Employees",
     consultants: " Consultants",
     persons: " Persons",
@@ -87,37 +82,122 @@ const localeData = {
     risk_infotext_diagram:
       "The following bar chart shows the main problems during system implementation and the percentage of companies of your company size to which these problems applied.",
     risk_infotext_radar:
-      "You now have the opportunity to incorporate the potential impacts of the main problems into the Magic Triangle shown below. To do this, tick the boxes for the potential impacts you want to include and specify to what extent. For more detailed information, hover over the respective risks.",
-    risk_infotext_radar_warning: "These are only estimates!",
-    risk_datenmigration: "Data Migration Issues",
+      "You now have the opportunity to incorporate the potential impacts of the above-mentioned main problems into the Magic Triangle shown below. To do this, use the sliders next to the risks. For more detailed information on the risks and their respective impacts on the Magic Triangle, these can be expanded.",
+    risk_infotext_radar_warning:
+      "These are only estimations! The mentioned problems affect each project differently. Therefore, this view primarily serves to draw attention to the issue.",
+    risk_datenmigration: "Issues with Data Migration",
     risk_datenmigration_info:
-      "It is important to exercise special care during data migration to ensure that all information is transferred correctly and completely. This can be achieved through thorough planning, comprehensive testing, and the use of experts.",
+      "It is important to exercise special care during data migration to ensure that all information is transferred correctly and completely. This can be achieved through thorough planning, comprehensive testing, and the involvement of experts.",
     risk_datenmigration_info_cost:
-      "Costs: Costs may rise if additional resources or specialized technologies are needed to ensure smooth data migration. Also, involving experts can incur additional expenses.",
+      "Costs: Costs may increase if additional resources or specialized technologies are needed to ensure a smooth data migration. Involving experts can also incur additional expenses.",
     risk_datenmigration_info_time:
-      "Duration: Data migration can take significant time, especially if large amounts of data need to be moved or if there are complex data structures. The more complex the migration, the longer it could take to complete the project.",
+      "Duration: Data migration can take a significant amount of time, especially if large amounts of data need to be moved or if there are complex data structures. The more complex the migration, the longer it might take to complete the project.",
     risk_datenmigration_info_quality:
       "Quality: Inadequate data migration can affect the quality of the project. Data loss or errors in migration can lead to incorrect information or malfunctions.",
     risk_zeitplan: "Too Tight Schedule",
     risk_zeitplan_info:
-      "This risk refers to the possibility that the project may not be completed on time due to a too tight schedule. There may not be enough time to properly complete all required tasks.",
+      "This risk pertains to the possibility that the project may not be completed on time due to a schedule that is too tight. There may not be enough time to properly execute all required tasks.",
     risk_zeitplan_info_time:
-      "Costs: Pressure from a tight schedule may lead to the need for additional resources to push the project forward faster. This could increase costs.",
+      "Costs: Pressure from a tight schedule may require additional resources to expedite the project. This could lead to increased costs.",
     risk_zeitplan_info_cost:
       "Duration: A tight schedule may impact the duration of the project. Completion could be delayed as there may not be enough time to properly execute tasks.",
     risk_zeitplan_info_quality:
-      "Quality: With a tight schedule, certain quality assurance processes or checks may be shortened or skipped, potentially affecting the quality of the end product.",
+      "Quality: With a tight schedule, certain quality assurance processes or checks may be abbreviated or skipped, potentially impacting the quality of the end product.",
     risk_anpassungen: "Too Many Customizations",
     risk_anpassungen_info:
-      "This risk refers to frequent changes to the requirements or scope during the project. This can lead to additional complexity and possibly delays.",
+      "This risk refers to frequent changes in requirements or scope during the project. This can lead to additional complexity and potentially delays.",
     risk_anpassungen_info_time:
       "Duration: Too many customizations can extend the duration of the project, as additional time is needed to implement and test the changes.",
     risk_anpassungen_info_cost:
-      "Costs: Constant customizations can increase the project's costs, as they require additional resources and working hours.",
+      "Costs: Constant customizations can increase the costs of the project, as they require additional resources and working hours.",
     risk_anpassungen_info_quality:
       "Quality: Constant customizations could affect the quality, as there may not be enough time for comprehensive testing and quality controls.",
     risk_ressourcen: "Lack of Resources for Users",
-    risk_ressourcen_info: "This risk concerns",
+    risk_ressourcen_info:
+      "This risk concerns the availability and qualification of the individuals or resources needed for the project. Shortages could occur if there are not enough qualified resources available.",
+    risk_ressourcen_info_time:
+      "Duration: A shortage of qualified resources could extend the duration of the project, as tasks may be completed more slowly or additional time may be needed for training.",
+    risk_ressourcen_info_cost:
+      "Costs: If additional resources are needed to compensate for shortages, it could increase the costs of the project.",
+    risk_ressourcen_info_quality:
+      "Quality: If the available resources are not sufficiently qualified, this could impact the quality of the end product.",
+    risk_unternehmensprozesse: "Flawed Mapping of Business Processes",
+    risk_unternehmensprozesse_info:
+      "This risk pertains to the potential difficulty in understanding and integrating existing business processes into the project. Uncertainties could lead to delays or misinterpretations.",
+    risk_unternehmensprozesse_info_time:
+      "Duration: Difficulties in mapping business processes could lead to delays, as it may take more time to understand and implement the requirements.",
+    risk_unternehmensprozesse_info_cost:
+      "Costs: Complex or unclear processes can increase implementation costs, as more effort may be required to meet the requirements.",
+    risk_unternehmensprozesse_info_quality:
+      "Quality: Inadequate mapping of business processes can affect quality, as not all relevant aspects may be considered.",
+    risk_schnittstellen: "Issues with Interface Setup",
+    risk_schnittstellen_info:
+      "This risk concerns the integration of different systems or components in the project. Difficulties in the smooth collaboration of interfaces can lead to problems and delays.",
+    risk_schnittstellen_info_time:
+      "Duration: Difficulties in integrating interfaces could extend the duration of the project, as additional time may be needed to resolve compatibility issues.",
+    risk_schnittstellen_info_cost:
+      "Costs: Issues with interfaces can incur additional costs, as specialized resources or technologies may be needed to enable the integration.",
+    risk_schnittstellen_info_quality:
+      "Quality: Difficulties in integrating interfaces could affect quality, as not all functions may work together smoothly.",
+    risk_anforderungen: "Unclear Requirements",
+    risk_anforderungen_info:
+      "This risk refers to the possibility that the defined requirements for the project are not clear or detailed enough. This could lead to misunderstandings and complicate the implementation.",
+    risk_anforderungen_info_time:
+      "Duration: Unclear requirements could affect the duration of the project, as additional time may be needed to clarify and understand the requirements.",
+    risk_anforderungen_info_cost:
+      "Costs: Unclear requirements could lead to additional costs, as changes and adjustments may need to be made to meet the requirements.",
+    risk_anforderungen_info_quality:
+      "Quality: Unclear requirements could affect quality, as not all requirements may be correctly understood and implemented.",
+    risk_schulungsaufwand: "Underestimated Training Effort",
+    risk_schulungsaufwand_info:
+      "This risk concerns the time and resources needed to train the individuals involved. If individuals are not adequately trained, this could affect the implementation of the project.",
+    risk_schulungsaufwand_info_time:
+      "Duration: The training effort could affect the duration of the project, as time may be needed to train the individuals involved.",
+    risk_schulungsaufwand_info_cost:
+      "Costs: The training effort can incur additional costs, as resources need to be allocated for training.",
+    risk_schulungsaufwand_info_quality:
+      "Quality: Inadequate training could affect quality, as individuals involved may not be able to effectively handle the new processes or technologies.",
+    risk_inPercent: "In Percent",
+
+    step4_infotext: "Please select the content to be included in the PDF.",
+
+    theme: "Theme",
+    colorful: "Colorful",
+    high_contrast: "High Contrast",
+
+    dialog_dataloss_title: "Attention",
+    dialog_dataloss_text:
+      "Leaving the calculator will result in the loss of inputs. Do you still want to proceed?",
+
+    faq_infotext:
+      "The questions and answers can be searched and filtered by entering keywords in the search field.",
+    faq_search: "Search",
+
+    faq_question1: "What is a Magic Triangle in relation to an ERP project?",
+    faq_answer1:
+      "The magic triangle (also known as project management triangle or triple constraint) is a project management concept that describes the basic parameters of a project. These parameters are",
+    faq_answer1_2:
+      "Quality: This refers to the overall content and goals of the project. It defines exactly what is to be achieved and what requirements must be met.",
+    faq_answer1_3:
+      "Time: This refers to the timeframe in which the project must be completed. This includes start and end dates as well as milestones.",
+    faq_answer1_4:
+      "Cost: This refers to the budget or financial resources needed to carry out the project.",
+    faq_answer1_5:
+      "These three parameters are closely interrelated. Changes in one parameter often affect the other two. For example, expanding the project scope may require additional time and resources. The idea of the magic triangle is that there necessarily have to be compromises between these three factors. For instance, if the scope of a project changes, it may be necessary to adjust the schedule or allocate additional resources to successfully complete the project. Understanding the magic triangle is crucial for effective project management as it helps project managers understand and consider the impact of decisions on scope, time, and cost.",
+    faq_question3: "How was this project developed?",
+    faq_answer3:
+      "This application was developed as part of the thesis on 'Usability-Focused Development of an Application for Cost Estimation of ERP Implementation Projects' at the Berlin School of Economics and Law and was developed by Bianca Stodieck.",
+    faq_question4: "How reliable are the provided values?",
+    faq_answer4:
+      "The basis for this is the Trovarit study 'ERP in Practice' from 2018/2019, in which the experiences of over 15,000 participating companies were recorded and evaluated.",
+    faq_question5: "Will there be more options available?",
+    faq_answer5:
+      "Currently, no further development is planned. Therefore, there will be no additional options available.",
+    faq_question6: "Who is the website intended for?",
+    faq_answer6:
+      "The website is intended for companies or individuals to assist them in better estimating and making the costs for implementing an ERP system more transparent.",
+    faq_question7: "Will my inputs be saved?",
+    faq_answer7: "No, no data will be saved.",
   },
   de: {
     home: "Startseite",
@@ -307,7 +387,7 @@ const localeData = {
     faq_answer1:
       "Das magische Dreieck (auch bekannt als Projektmanagement-Dreieck oder Triple Constraint) ist ein Projektmanagement-Konzept, das die grundlegenden Parameter eines Projekts beschreibt. Diese Parameter sind",
     faq_answer1_2:
-      "Umfang (Scope): Dieser bezieht sich auf den gesamten Inhalt und die Ziele des Projekts. Er definiert, was genau erreicht werden soll und welche Anforderungen erfüllt werden müssen.",
+      "Qualität: Dieser bezieht sich auf den gesamten Inhalt und die Ziele des Projekts. Er definiert, was genau erreicht werden soll und welche Anforderungen erfüllt werden müssen.",
     faq_answer1_3:
       "Zeit (Time): Dies bezieht sich auf den Zeitrahmen, in dem das Projekt abgeschlossen sein muss. Dazu gehören Start- und Endtermine sowie Meilensteine. ",
     faq_answer1_4:
