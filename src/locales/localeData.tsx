@@ -389,9 +389,9 @@ const localeData = {
     faq_answer1_2:
       "Qualität: Dieser bezieht sich auf den gesamten Inhalt und die Ziele des Projekts. Er definiert, was genau erreicht werden soll und welche Anforderungen erfüllt werden müssen.",
     faq_answer1_3:
-      "Zeit (Time): Dies bezieht sich auf den Zeitrahmen, in dem das Projekt abgeschlossen sein muss. Dazu gehören Start- und Endtermine sowie Meilensteine. ",
+      "Zeit: Dies bezieht sich auf den Zeitrahmen, in dem das Projekt abgeschlossen sein muss. Dazu gehören Start- und Endtermine sowie Meilensteine. ",
     faq_answer1_4:
-      "Kosten (Cost): Dies bezieht sich auf das Budget oder die finanziellen Mittel, die für die Durchführung des Projekts benötigt werden. ",
+      "Kosten: Dies bezieht sich auf das Budget oder die finanziellen Mittel, die für die Durchführung des Projekts benötigt werden. ",
     faq_answer1_5:
       "Diese drei Parameter sind eng miteinander verknüpft. Änderungen bei einem Parameter wirken sich oft auf die anderen beiden aus. Zum Beispiel kann eine Erweiterung des Projektumfangs zusätzliche Zeit und Ressourcen erfordern. Die Idee des magischen Dreiecks besteht darin, dass es notwendigerweise Kompromisse zwischen diesen drei Faktoren geben muss. Wenn sich beispielsweise der Umfang eines Projekts ändert, kann es erforderlich sein, den Zeitplan anzupassen oder zusätzliche Ressourcen zuzuweisen, um das Projekt erfolgreich abzuschließen. Das Verständnis des magischen Dreiecks ist entscheidend für ein effektives Projektmanagement, da es den Projektleitern hilft, die Auswirkungen von Entscheidungen auf Umfang, Zeit und Kosten zu verstehen und zu berücksichtigen.",
     faq_question3: "Wie ist dieses Projekt entstanden?",
